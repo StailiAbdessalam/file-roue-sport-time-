@@ -11,6 +11,7 @@
             style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
             <div id="my-scroll" style="margin: 6px 14px 0 14px;">
                 <ul class="nav-list" style="overflow: visible;">
+              
                     <li v-if="isSearch" @click="isOpened = true">
                         <i class="bx bx-search" />
                         <input type="text" placeholder="Search..."
@@ -46,7 +47,6 @@
         </div>
     </div>
 </template>
-
 
 
 

@@ -31,7 +31,7 @@
     </div>
     <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
     </div>
-    <div>
+    <div id="banareImage">
         <h1 class="text-center text-4xl">hi evry one hh inak inak </h1>
         <div class="flex w-full  justify-around items-center">
             <div class="w-1/4">
@@ -81,93 +81,9 @@ export default {
 </script>
 
 <style lang="scss">
-.emoji-toggle {
-    position: relative;
-    width: 60px;
-    .well {
-        display: block;
-        background: #eee;
-        height: 20px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    .toggle {
-        opacity: 0;
-        border: 0;
-        outline: none;
-        height: 100%;
-        width: 100%;
-        background: transparent;
-        position: absolute;
-        cursor: pointer;
-        z-index: 100;
-
-        ~.emoji:before {
-            content: "\01F431";
-            position: absolute;
-            left: 0;
-            top: -15px;
-            font-size: 40px;
-            transition: 0.2s;
-        }
-
-        &:checked {
-            ~.emoji:before {
-                left: 100%;
-                margin-left: -1em;
-            }
-        }
-
-        ~label {
-            white-space: nowrap;
-
-            &:before {
-                position: absolute;
-                right: 100%;
-                margin-right: 5px;
-                top: 0;
-            }
-
-            &:after {
-                position: absolute;
-                left: 100%;
-                margin-left: 5px;
-                top: 0;
-            }
-        }
-    }
+#banareImage{
+    background-image: url();
 }
-
-@mixin emojiType($leftEmoji, $rightEmoji, $leftLabel, $rightLabel) {
-    .toggle {
-        ~.emoji:before {
-            content: $leftEmoji;
-        }
-
-        &:checked {
-            ~.emoji:before {
-                content: $rightEmoji;
-            }
-        }
-
-        ~label {
-            &:before {
-                content: $leftLabel;
-            }
-
-            &:after {
-                content: $rightLabel;
-            }
-        }
-    }
-}
-
-.emoji-happy {
-    @include emojiType("\01F604", "\01F620", "", ""
-    );
-}
-
 #feedback {
     box-shadow: 0 10px 10px -5px;
     padding: 10px;

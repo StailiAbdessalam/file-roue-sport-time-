@@ -32,7 +32,7 @@
             </div>
             <div class="profile">
                 <div class="profile-details">
-                    <img src="../assets/img/photo.jpg" alt="profileImg">
+                    <img src="../../assets/img/photo.jpg" alt="profileImg">
                     <div class="name_job">
                         <div class="name">
                             Abdessalam staili

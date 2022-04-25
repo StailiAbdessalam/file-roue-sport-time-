@@ -49,7 +49,11 @@
         </div>
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
         </div>
-        <div class="w-2/6 bg-black h-9">
+        <div class="w-3/6 bg-orange-500">
+            <h1>Enviame tu FEDBACK</h1>
+            <p>ezulgfuigeziugfuiegzuiflgez feuzgfui gezuif ez gfe zuifguiezg f</p>
+
+
         </div>
         <div>
         </div>

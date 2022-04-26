@@ -34,16 +34,16 @@
         <div>
             <h1 class="text-center text-4xl">hi evry one hh inak inak </h1>
             <div class="flex w-full  justify-around items-center">
-                <div class="w-1/4">
+                <div  class="w-1/4">
                     <img data-aos="fade-up" data-aos-duration="1500" class="w-full"
                         src="../assets/img/Skateboarding.gif" alt="">
                 </div>
                 <div class="w-1/4">
-                    <img data-aos="fade-up" data-aos-duration="1500" class="w-full" src="../assets/img/Soccer.gif"
+                    <img  class="w-full" src="../assets/img/Soccer.gif"
                         alt="">
                 </div>
                 <div class="w-1/4">
-                    <img data-aos="fade-up" data-aos-duration="1500" class="w-full" src="../assets/img/Basketball.gif"
+                    <img  class="w-full" src="../assets/img/Basketball.gif"
                         alt="">
                 </div>
             </div>

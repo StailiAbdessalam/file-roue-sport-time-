@@ -16,14 +16,14 @@
                 <div  class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
                     <span class="text-amber-600">SOCCER!</span>
                 </div>
-                <img data-aos="zoom-in-down" data-aos-duration="500" class="" src="../assets/img/Slide2.jpg" alt="">
+                <img  data-aos="zoom-in-down"  class="" src="../assets/img/Slide2.jpg" alt="">
             </div>
             <div class="flex flex-col w-1/4 gap-6   ">
-                <img data-aos="zoom-in-down" data-aos-duration="500" class="" src="../assets/img/slider1.jpg" alt="">
-                <img data-aos="zoom-in-down" data-aos-duration="500" class="" src="../assets/img/slider1.jpg" alt="">
+                <img data-aos="zoom-in-down" class="" src="../assets/img/slider1.jpg" alt="">
+                <img data-aos="zoom-in-down" class="" src="../assets/img/slider1.jpg" alt="">
             </div>
             <div class="flex flex-col w-1/4 gap-6">
-                <img data-aos="zoom-in-down" data-aos-duration="500" src="../assets/img/slider1.jpg" alt="">
+                <img data-aos="zoom-in-down" src="../assets/img/slider1.jpg" alt="">
                 <p class="text-center">Location de terrain, abonnement, <br> championnat, Club House, <br> événement
                     d'entreprise <br>...
                 </p>
@@ -35,15 +35,15 @@
             <h1 class="text-center text-4xl">hi evry one hh inak inak </h1>
             <div class="flex w-full  justify-around items-center">
                 <div  class="w-1/4">
-                    <img data-aos="fade-up" data-aos-duration="1500" class="w-full"
+                    <img data-aos="fade-up"  class="w-full"
                         src="../assets/img/Skateboarding.gif" alt="">
                 </div>
                 <div class="w-1/4">
-                    <img  class="w-full" src="../assets/img/Soccer.gif"
+                    <img data-aos="fade-up"  class="w-full" src="../assets/img/Soccer.gif"
                         alt="">
                 </div>
                 <div class="w-1/4">
-                    <img  class="w-full" src="../assets/img/Basketball.gif"
+                    <img data-aos="fade-up" class="w-full" src="../assets/img/Basketball.gif"
                         alt="">
                 </div>
             </div>
@@ -69,7 +69,7 @@ export default {
     name: 'Home-vieu',
     data() {
         return {
-            Stars: true
+            Stars: false
         }
     },
     components: {

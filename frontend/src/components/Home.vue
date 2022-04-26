@@ -13,7 +13,7 @@
         </div>
         <div class="flex justify-center gap-6 w-3/4">
             <div class="flex flex-col w-1/3 gap-6">
-                <div class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
+                <div  class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
                     <span class="text-amber-600">SOCCER!</span>
                 </div>
                 <img data-aos="zoom-in-down" data-aos-duration="500" class="" src="../assets/img/Slide2.jpg" alt="">
@@ -23,7 +23,7 @@
                 <img data-aos="zoom-in-down" data-aos-duration="500" class="" src="../assets/img/slider1.jpg" alt="">
             </div>
             <div class="flex flex-col w-1/4 gap-6">
-                <img data-aos="zoom-in-down" src="../assets/img/slider1.jpg" alt="">
+                <img data-aos="zoom-in-down" data-aos-duration="500" src="../assets/img/slider1.jpg" alt="">
                 <p class="text-center">Location de terrain, abonnement, <br> championnat, Club House, <br> événement
                     d'entreprise <br>...
                 </p>
@@ -69,7 +69,7 @@ export default {
     name: 'Home-vieu',
     data() {
         return {
-            Stars: false
+            Stars: true
         }
     },
     components: {

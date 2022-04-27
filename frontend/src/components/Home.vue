@@ -5,29 +5,29 @@
             </h1>
             <p class="text-center sm:text-lg ">Welcome to the Sport Time website. Now is the time to book a time to play
                 in the nearest stadium.</p>
-            <div stye='height:900px;' class="w-[900px] h-[600px] relative">
-                <img class="w-full h-full" src="../assets/img/Group37.png" alt="">
+            <div id="div_video" class="lg:w-[900px] lg:h-[600px] relative">
+                <img id="Res_video" class="w-full h-full" src="../assets/img/Group37.png" alt="">
             </div>
         </div>
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
         </div>
-        <div class="flex justify-center gap-6 w-5/6">
-            <div class="flex flex-col w-1/3 gap-6">
+        <div id="Res_section1" class="flex justify-center gap-6 w-5/6">
+            <div id="Res_motivation" class="flex flex-col w-1/3 gap-6 w-full">
                 <div class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
                     <span class="text-amber-600">SOCCER!</span>
                 </div>
-                <img class="" data-aos="zoom-in-down" data-aos-duration="2000" data-aos-once="true"
+                <img class="Res_image" data-aos="zoom-in-down" data-aos-duration="2000" data-aos-once="true"
                     src="../assets/img/Slide2.jpg" alt="">
             </div>
-            <div class="flex flex-col w-1/4 gap-6   ">
-                <img data-aos="zoom-in-down" data-aos-once="true" data-aos-duration="2000" class=""
+            <div id="Res_motivation" class="flex flex-col w-1/4 gap-6   ">
+                <img data-aos="zoom-in-down" data-aos-once="true" data-aos-duration="2000" class="Res_image"
                     src="../assets/img/slider1.jpg" alt="">
-                <img data-aos="zoom-in-down" data-aos-once="true" data-aos-duration="2000" class=""
+                <img data-aos="zoom-in-down" data-aos-once="true" data-aos-duration="2000" class="Res_image"
                     src="../assets/img/slider1.jpg" alt="">
             </div>
-            <div class="flex flex-col w-1/4 gap-6">
+            <div id="Res_motivation" class="flex flex-col w-1/4 gap-6">
                 <img data-aos="zoom-in-down" data-aos-once="true" data-aos-duration="2000"
-                    src="../assets/img/slider1.jpg" alt="">
+                    src="../assets/img/slider1.jpg" alt="" class="Res_image">
                 <p class="text-center">Location de terrain, abonnement, <br> championnat, Club House, <br> événement
                     d'entreprise <br>...
                 </p>
@@ -35,18 +35,18 @@
         </div>
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
         </div>
-        <div>
+        <div id="section2">
             <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
-            <div class="flex w-full  justify-around items-center">
-                <div class="w-1/4">
+            <div  class="flex w-full  justify-around items-center">
+                <div id="Res1" class="w-1/4">
                     <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
                         class="w-full" src="../assets/img/Skateboarding.gif" alt="">
                 </div>
-                <div class="w-1/4">
+                <div id="Res2" class="w-1/4">
                     <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
                         class="w-full" src="../assets/img/Soccer.gif">
                 </div>
-                <div class="w-1/4">
+                <div id="Res3" class="w-1/4">
                     <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
                         class="w-full" src="../assets/img/Basketball.gif" alt="">
                 </div>
@@ -64,6 +64,12 @@
         </div>
         <div>
         </div>
+        <div id="slide" class="w3-content w3-section" style="max-width:500px">
+         <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
+            <img class="mySlides w3-animate-fading" src="../assets/img/Soccer.gif" style="width:100%">
+            <img class="mySlides w3-animate-fading" src="../assets/img/Basketball.gif" style="width:100%">
+            <img class="mySlides w3-animate-fading" src="../assets/img/Skateboarding.gif" style="width:100%">
+        </div>
     </div>
 </template>
 
@@ -76,12 +82,33 @@ export default {
     name: 'Home-vieu',
     data() {
         return {
-            Stars: true
+            Stars: false,
+            myIndex: 0,
+            i: 0,
         }
     },
     components: {
         Feedback,
         Icon
+    },
+    methods: {
+        carousel() {
+            var myIndex = this.myIndex;
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            this.myIndex = myIndex;
+            setTimeout(this.carousel, 3000);
+
+        }
+    },
+    mounted() {
+        this.carousel();
     },
 
 }
@@ -138,5 +165,61 @@ export default {
 #title:after {
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
     box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+}
+
+@media (max-width: 1083px) {
+    #Res_section1 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #Res_motivation {
+        width: 100%;
+    }
+
+    .Res_image {
+        width: 100%;
+    }
+
+    #Res_video {
+        width: 600px;
+        height: 400px;
+
+    }
+
+    #div_video {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 909px) {
+
+    #Res1 {
+        display: none;
+    }
+
+    #Res3,
+    #Res2 {
+        width: 48%;
+    }
+}
+
+@media (max-width: 559px) {
+
+   #section2 {
+        display: none;
+    }
+
+
+}
+@media (min-width: 559px) {
+#slide{
+    display:none;
+
+}
 }
 </style>

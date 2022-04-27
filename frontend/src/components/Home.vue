@@ -13,17 +13,17 @@
         </div>
         <div class="flex justify-center gap-6 w-3/4">
             <div class="flex flex-col w-1/3 gap-6">
-                <div  class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
+                <div class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
                     <span class="text-amber-600">SOCCER!</span>
                 </div>
-                <img  data-aos="zoom-in-down"  class="" src="../assets/img/Slide2.jpg" alt="">
+                <img data-aos="zoom-in-down" class="" src="../assets/img/Slide2.jpg" alt="" data-aos-duration="500">
             </div>
             <div class="flex flex-col w-1/4 gap-6   ">
-                <img data-aos="zoom-in-down" class="" src="../assets/img/slider1.jpg" alt="">
-                <img data-aos="zoom-in-down" class="" src="../assets/img/slider1.jpg" alt="">
+                <img data-aos="zoom-in-down" class="" src="../assets/img/slider1.jpg" alt="" data-aos-duration="500">
+                <img data-aos="zoom-in-down" class="" src="../assets/img/slider1.jpg" alt="" data-aos-duration="500">
             </div>
             <div class="flex flex-col w-1/4 gap-6">
-                <img data-aos="zoom-in-down" src="../assets/img/slider1.jpg" alt="">
+                <img data-aos="zoom-in-down" src="../assets/img/slider1.jpg" alt="" data-aos-duration="500">
                 <p class="text-center">Location de terrain, abonnement, <br> championnat, Club House, <br> événement
                     d'entreprise <br>...
                 </p>
@@ -34,17 +34,15 @@
         <div>
             <h1 class="text-center text-4xl">hi evry one hh inak inak </h1>
             <div class="flex w-full  justify-around items-center">
-                <div  class="w-1/4">
-                    <img data-aos="fade-up"  class="w-full"
-                        src="../assets/img/Skateboarding.gif" alt="">
+                <div class="w-1/4">
+                    <img data-aos="fade-up" class="w-full" src="../assets/img/Skateboarding.gif" alt=""
+                        data-aos-duration="1500">
                 </div>
                 <div class="w-1/4">
-                    <img data-aos="fade-up"  class="w-full" src="../assets/img/Soccer.gif"
-                        alt="">
+                    <img data-aos="fade-up" class="w-full" src="../assets/img/Soccer.gif"  data-aos-duration="1500">
                 </div>
-                <div class="w-1/4">
-                    <img data-aos="fade-up" class="w-full" src="../assets/img/Basketball.gif"
-                        alt="">
+                <div data-aos="fade-up" class="w-1/4">
+                    <img class="w-full" src="../assets/img/Basketball.gif"  data-aos-duration="1500">
                 </div>
             </div>
         </div>
@@ -69,7 +67,7 @@ export default {
     name: 'Home-vieu',
     data() {
         return {
-            Stars: false
+            Stars: true
         }
     },
     components: {

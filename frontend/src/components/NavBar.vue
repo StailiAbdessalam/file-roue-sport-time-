@@ -16,7 +16,7 @@ export default {
     name: "nav-user",
     methods: {
         singin() {
-            this.$router.push('/Singin')
+            this.$router.push('/Login')
         }
     },
 }

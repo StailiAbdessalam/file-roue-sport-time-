@@ -5,7 +5,7 @@
         </h1>
         <p class="text-center sm:text-lg ">We’re different. Flex is the only saas business platform that lets you
             run your business on one platform, seamlessly across all digital channels.</p>
-        <div stye='height:900px;' class="w-1/2 h-[800px] relative">
+        <div stye='height:900px;' class="w-1/2 h-[600px] relative">
             <img class="w-full h-full" src="../assets/img/Group37.png" alt="">
         </div>
     </div>

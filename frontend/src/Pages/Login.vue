@@ -6,10 +6,10 @@
 
 
 <script>
-import Login from '../components/Singin.vue'
+import Login from '../components/Login.vue'
 export default {
     name:'sing-up',
-    component:{
+    components:{
         Login
 
     }

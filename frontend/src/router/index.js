@@ -8,11 +8,12 @@ const routes = [
         name: "Home",
         component: () => import(/* webpackChunkName: "home" */ "../Pages/Home.vue"),
     },
+    {
+        path: "/Singin",
+        name: "Singin",
+        component: () => import(/* webpackChunkName: "home" */ "../Pages/Login.vue"),
+    },
 ]
-
-
-
-
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,

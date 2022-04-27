@@ -5,13 +5,13 @@
             </h1>
             <p class="text-center sm:text-lg ">Welcome to the Sport Time website. Now is the time to book a time to play
                 in the nearest stadium.</p>
-            <div stye='height:900px;' class="w-1/2 h-[600px] relative">
+            <div stye='height:900px;' class="w-[900px] h-[600px] relative">
                 <img class="w-full h-full" src="../assets/img/Group37.png" alt="">
             </div>
         </div>
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
         </div>
-        <div class="flex justify-center gap-6 w-3/4">
+        <div class="flex justify-center gap-6 w-5/6">
             <div class="flex flex-col w-1/3 gap-6">
                 <div class="h-1/3 md:text-4xl text-center flex flex-col items-center justify-center">IT'S TIME TO PLAY
                     <span class="text-amber-600">SOCCER!</span>

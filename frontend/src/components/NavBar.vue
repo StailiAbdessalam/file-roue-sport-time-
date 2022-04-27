@@ -1,10 +1,10 @@
 <template>
 <div class="">
     <div class="p-0 m-0 flex justify-between items-center h-16 md:px-20 sm:px-6 mt-4">
-        <img class="w-36  " src="../assets/img/LOGO.png" alt="">
+        <img @click="naviger('/')" class="w-36 cursor-pointer " src="../assets/img/LOGO.png" alt="">
         <div class="h-full flex items-center justify-between w-40  ">
-            <button @click="singin()" class="bg-white flex items-center h-2/3 px-4">Login</button>
-            <button class="bg-green-500 rounded-md text-lg w-3/6 h-2/3 text-white">Sing up</button>
+            <button @click="naviger('/Login')" class="bg-white flex items-center h-2/3 px-4">Login</button>
+            <button @click="naviger('/SingUp')" class="bg-green-500 rounded-md text-lg w-3/6 h-2/3 text-white">Sing up</button>
         </div>
     </div>
 
@@ -15,8 +15,8 @@
 export default {
     name: "nav-user",
     methods: {
-        singin() {
-            this.$router.push('/Login')
+        naviger(choi) {
+            this.$router.push(choi)
         }
     },
 }

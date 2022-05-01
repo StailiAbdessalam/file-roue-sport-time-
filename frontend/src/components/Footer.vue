@@ -1,8 +1,8 @@
 <template>
     <div class="mt-10">
         <div class="p-0 m-0 flex justify-between items-center h-16 md:px-20 sm:px-6 mt-4">
-            <img class="w-36  " src="../assets/img/LOGO.png" alt="">
-            <div class="h-full flex items-center justify-between w-40  ">
+            <img class="w-36" src="../assets/img/LOGO.png" alt="">
+            <div class="h-full flex items-center justify-between w-37  ">
                 <ul class="flex">
                     <span class="iconify" v-for="(iteams, index) in menuItem" :key="index">
                         <li class="w-10">

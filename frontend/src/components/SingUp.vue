@@ -3,9 +3,9 @@
         <div class="flex justify-center items-center w-full ">
             <div class="flex justify-center  items-center gap-20  w-full form_singup ">
                 <div data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-delay="500" data-aos-offset="500">
-                   <img src="../assets/img/SignUp.gif" alt="">
+                    <img src="../assets/img/SignUp.gif" alt="">
                 </div>
-                <div  data-aos="flip-left" data-aos-anchor="#example-anchor" data-aos-duration="1500"
+                <div data-aos="flip-left" data-aos-anchor="#example-anchor" data-aos-duration="1500"
                     data-aos-delay="1000" data-aos-offset="500" class=" relative h-full flex flex-col gap-3">
                     <div class="flex flex-col justify-center items-center  ">
                         <h1 class="form_singup_title">Sig Up in a new account</h1>
@@ -16,11 +16,15 @@
                         <label for="lastName">last Name</label>
                         <input type="text" placeholder="STAILI" name="lastName">
                         <label for="Phone">Phone</label>
-                        <input type="number" placeholder="+212 6________" name="Phone">
+                        <input type="tel" required placeholder="+212 6________" name="Phone">
                         <label for="email">your email</label>
                         <input type="email" placeholder="A.STAILI@gmail.com" name="email">
-                        <label for="password">password</label>
-                        <input type="password" placeholder="**************" name="password">
+                        <label for="role">Role</label>
+                        <Select>
+                            <Option value="Client" key="">Client</Option>
+                            <Option value="organisateur" key="">organisateur</Option>
+                            <Option value="Admin" key="">Admin</Option>
+                        </Select>
                         <input id="submit" type="submit" name="valid" value="Sing Up">
                     </form>
                 </div>
@@ -49,7 +53,7 @@ export default {
 .form_singup_title {
     font-size: 1.5rem;
     font-weight: bold;
-       color: rgba(255, 159, 28, 1);
+    color: rgba(255, 159, 28, 1);
 }
 
 
@@ -71,7 +75,7 @@ export default {
     line-height: 24px;
 
 }
-
+.form_singup_formData Select,
 .form_singup_formData input {
     border: 1px solid #D5DAE1;
     box-sizing: border-box;

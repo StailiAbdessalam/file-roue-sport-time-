@@ -37,7 +37,7 @@
         </div>
         <div id="section2">
             <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
-            <div  class="flex w-full  justify-around items-center">
+            <div class="flex w-full  justify-around items-center">
                 <div id="Res1" class="w-1/4">
                     <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
                         class="w-full" src="../assets/img/Skateboarding.gif" alt="">
@@ -65,7 +65,7 @@
         <div>
         </div>
         <div id="slide" class="w3-content w3-section" style="max-width:500px">
-         <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
+            <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
             <img class="mySlides w3-animate-fading" src="../assets/img/Soccer.gif" style="width:100%">
             <img class="mySlides w3-animate-fading" src="../assets/img/Basketball.gif" style="width:100%">
             <img class="mySlides w3-animate-fading" src="../assets/img/Skateboarding.gif" style="width:100%">
@@ -103,7 +103,7 @@ export default {
             if (myIndex > x.length) { myIndex = 1 }
             x[myIndex - 1].style.display = "block";
             this.myIndex = myIndex;
-            setTimeout(this.carousel, 3000);
+            setTimeout(this.carousel, 5000);
 
         }
     },
@@ -172,23 +172,17 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
     }
-
     #Res_motivation {
         width: 100%;
     }
-
     .Res_image {
         width: 100%;
     }
-
     #Res_video {
         width: 600px;
         height: 400px;
-
     }
-
     #div_video {
         display: flex;
         justify-content: center;
@@ -197,11 +191,9 @@ export default {
 }
 
 @media (max-width: 909px) {
-
     #Res1 {
         display: none;
     }
-
     #Res3,
     #Res2 {
         width: 48%;
@@ -209,17 +201,20 @@ export default {
 }
 
 @media (max-width: 559px) {
-
-   #section2 {
+    #section2 {
         display: none;
     }
-
-
+      #Res_video {
+        width: 400px;
+        height: 300px;
+    }
 }
+
 @media (min-width: 559px) {
-#slide{
-    display:none;
+    #slide {
+        display: none;
+    }
+   
+}
 
-}
-}
 </style>

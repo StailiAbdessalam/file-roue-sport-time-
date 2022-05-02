@@ -1,21 +1,20 @@
 <?php
-require_once "../libraries/GModel.php";
-class AdminModel
+// require_once "../libraries/GlobalModel.php";
+// get_include_path("../libraries/GlobalModel.php");
+class ClientsModel
 {
     public function selectAll()
     {
         $ModelClients = new GlobalModel("Clients");
         $CLIENT = $ModelClients->selectAll();
-        json_encode($CLIENT);
+        return json_encode($CLIENT);
     }
-
     public function SelectOne($id)
     {
         $ModelClients = new GlobalModel("Clients");
         $CLIENT = $ModelClients->SelectOne($id);
-        json_encode($CLIENT);
+         json_encode($CLIENT);
     }
-
     public function remove($id)
     {
         $ModelClients = new GlobalModel("Clients");
@@ -28,27 +27,12 @@ class AdminModel
         $CLIENT = $ModelClients->insert($data);
         json_encode($CLIENT);
     }
-    public function fetchByRef($ref)
+    public function fetchByEmail($email)
     {
         $ModelClients = new GlobalModel("Clients");
-        $CLIENT = $ModelClients->fetchByRef($ref);
-        json_encode($CLIENT);
+        $CLIENT = $ModelClients->fetchByEmail($email);
+        return $CLIENT;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function updateUser($data)
     {
         $conn = $this->db;
@@ -70,3 +54,6 @@ class AdminModel
         return $query->execute($params);
     }
 }
+
+
+

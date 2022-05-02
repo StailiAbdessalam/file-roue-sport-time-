@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NavAdmin v-if="Role" />
+    <NavAdmin v-if="Role=='Admin'" />
     <!-- <Home/> -->
-    <NavBar />
+    <NavBar v-if="Role=='Clients'" />
     <profile/>
     <router-view />
     <Footer />
@@ -21,7 +21,7 @@ export default {
   components: { NavAdmin, NavBar, Footer, profile },
   data() {
     return {
-      Role: false
+      Role: 'Clients'
     }
   }
 }

@@ -2,17 +2,23 @@
     <div class="flex justify-center items-center w-full ">
         <div class="flex justify-center items-center w-full ">
             <div class="flex justify-center items-center gap-20  w-full form_Login">
-                <div data-aos="flip-left" data-aos-easing="linear" data-aos-duration="1500" data-aos-delay="1000"
-                    class=" relative h-full flex flex-col gap-3">
+                <div data-aos="flip-left" data-aos-anchor="#example-anchor" data-aos-duration="1500"
+                    data-aos-delay="1000" class=" relative h-full flex flex-col gap-3">
                     <div class="flex flex-col justify-center items-center ">
                         <h1 class="form_Login_title">Sig Up in a new account</h1>
                     </div>
                     <form class="form_Login_formData" action="">
-                        <label for="email">Entrer your email</label>
-                        <input type="email" placeholder="A.STAILI@student.youcode.com" name="email">
-                        <label for="password">password</label>
-                        <input type="password" placeholder="**************" name="password">
-                        <input id="submit" type="submit" name="valid" value="Sing Up">
+                        <label for="role">Role</label>
+                        <Select @change="role = true">
+                            <Option></Option>
+                            <option value="" disabled selected>choisi votre role</option>
+                            <Option value="Client" key="">Client</Option>
+                            <Option value="organisateur" key="">organisateur</Option>
+                            <Option value="Admin" key="">Admin</Option>
+                        </Select>
+                        <label v-if="role" for="password">Your ID</label>
+                        <input v-if="role" type="password" placeholder="**************" name="password">
+                        <input v-if="role" id="submit" type="submit" name="valid" value="Sing Up">
                     </form>
                 </div>
                 <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-delay="500" data-aos-offset="500">
@@ -26,7 +32,13 @@
 <script>
 export default {
     name: "sin-gup",
+    data() {
+        return {
+            role: false
+        }
+    },
     methods: {
+
 
     },
 }
@@ -65,6 +77,7 @@ export default {
 
 }
 
+.form_Login_formData select,
 .form_Login_formData input {
     border: 1px solid #D5DAE1;
     box-sizing: border-box;

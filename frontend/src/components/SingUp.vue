@@ -10,35 +10,114 @@
                     <div class="flex flex-col justify-center items-center  ">
                         <h1 class="form_singup_title">Sig Up in a new account</h1>
                     </div>
-                    <form class="form_singup_formData" action="">
-                        <label for="fullName">full Name</label>
-                        <input type="text" placeholder="ABDESSALAM" name="fullName">
+                    <select v-model="role" name="" id="">
+                        <option></option>
+                        <option selected disabled>choisi votre role</option>
+                        <option value="Organisateur">organisateur</option>
+                        <option value="Client">CLient</option>
+                    </select>
+                    <form v-if="role == 'Client'" class="form_singup_formData" @submit.prevent="ADDClient">
+                        <label for="FirstName">First Name</label>
+                        <input type="text" v-model="dataClient.FirstName" placeholder="ABDESSALAM" required
+                            name="FirstName">
                         <label for="lastName">last Name</label>
-                        <input type="text" placeholder="STAILI" name="lastName">
+                        <input type="text" v-model="dataClient.LastName" required placeholder="STAILI" name="lastName">
+                        <label for="UserName">User Name</label>
+                        <input type="text" v-model="dataClient.UserName" required placeholder="BENJY33X"
+                            name="UserName">
                         <label for="Phone">Phone</label>
-                        <input type="tel" required placeholder="+212 6________" name="Phone">
+                        <input type="tel" v-model="dataClient.Phone" required placeholder="+212 6________" name="Phone">
                         <label for="email">your email</label>
-                        <input type="email" placeholder="A.STAILI@gmail.com" name="email">
-                        <label for="role">Role</label>
-                        <Select>
-                            <Option value="Client" key="">Client</Option>
-                            <Option value="organisateur" key="">organisateur</Option>
-                            <Option value="Admin" key="">Admin</Option>
-                        </Select>
+                        <input type="email" v-model="dataClient.Email" required placeholder="A.STAILI@gmail.com"
+                            name="email">
                         <input id="submit" type="submit" name="valid" value="Sing Up">
                     </form>
+                    <form v-if="role == 'Organisateur'" class="form_singup_formData" @submit.prevent="FaitDemmande">
+                        <label for="fullName">full Name </label>
+                        <input type="text" v-model="dataOrganisateur.FirstName" placeholder="sport " required
+                            name="fullName">
+                        <label for="lastName">last Name</label>
+                        <input type="text" v-model="dataOrganisateur.LastName" required placeholder="Time"
+                            name="lastName">
+                        <label for="business_name">Business name </label>
+                        <input type="text" v-model="dataOrganisateur.business_name" required placeholder="Sport Time"
+                            name="business_name">
+                        <label for="Phone">Phone</label>
+                        <input type="tel" v-model="dataOrganisateur.Phone" required placeholder="+212 6________"
+                            name="Phone">
+                        <label for="email">your email</label>
+                        <input type="email" v-model="dataOrganisateur.Email" required placeholder="A.STAILI@gmail.com"
+                            name="email">
+                        <input id="submit" type="submit" name="valid" value="send Demmande">
+                    </form>
                 </div>
-
             </div>
         </div>
+
+
+        <div v-if="Valide" data-aos="fade-up-left" data-aos-delay="100" data-aos-duration="200"
+            class="absolute top:1/2 right-0 alert flex flex-row items-center bg-green-200 p-5 rounded border-b-2 border-green-300">
+            <div
+                class="alert-icon flex items-center bg-green-100 border-2 border-green-500 justify-center h-10 w-10 flex-shrink-0 rounded-full">
+                <span class="text-green-500">
+                    <svg fill="currentColor" viewBox="0 0 20 20" class="h-6 w-6">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="alert-content ml-4">
+                <div class="alert-title font-semibold text-lg text-green-800">
+                    Success
+                </div>
+                <div class="alert-description text-sm text-green-600">
+                    This is an alert message, alert message goes here..!
+                </div>
+            </div>
+        </div>
+
+
+
+
+
     </div>
 </template>
 
 <script>
 export default {
     name: "sin-gup",
+    data() {
+        return {
+            role: false,
+            Valide: false,
+            dataClient: {
+                FirstName: "",
+                LastName: "",
+                UserName: "",
+                Email: "",
+                Phone: "",
+            },
+            dataOrganisateur: {
+                FirstName: "",
+                LastName: "",
+                business_name: "",
+                Profil: "dd",
+                Email: "",
+                Phone: "",
+                suspended: false,
+            }
+        }
+    },
     methods: {
-
+        ADDClient() {
+            console.log(this.dataClient)
+            this.Valide = true;
+        },
+        FaitDemmande() {
+            console.log(this.dataOrganisateur)
+            this.Valide = true;
+        }
     },
 }
 </script>
@@ -75,7 +154,8 @@ export default {
     line-height: 24px;
 
 }
-.form_singup_formData Select,
+
+Select,
 .form_singup_formData input {
     border: 1px solid #D5DAE1;
     box-sizing: border-box;

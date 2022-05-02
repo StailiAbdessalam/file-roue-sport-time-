@@ -1,0 +1,6 @@
+<IfModule   mod_rewrite.c >
+RewriteEngine On
+RewriteRule /((styles|js|assets)/.).(.)$ ./backend/public/$1.$3 [L]
+RewriteRule ^$ backend/public/ [L]
+RewriteRule (.*) backend/public/$1 [L]
+</IfModule>

@@ -2,23 +2,40 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:*');
-class User extends Controller
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+  if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+  if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+}
+if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") return true;
+class Clients extends Controller
 {
   public $valide = "false";
   public function __construct()
   {
   }
-
   public function index()
   {
     $CliensModel = $this->model('ClientsModel');
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $json = file_get_contents('php://input');
-      $Ref = json_decode($json);
-      $Cliens = $CliensModel->fetchByRef($Ref);
-      echo json_encode($Cliens);
+      $data = json_decode($json);
+      $Cliens = $CliensModel->fetchByEmail($data->Email);
+      if ($Cliens && $Cliens['IdUnique'] == $data->IdUnique) {
+        echo json_encode("information correct");
+      } else if ($Cliens && $Cliens['IdUnique'] != $data->IdUnique) {
+        echo json_encode("Id Unique incorrect");
+      } else if (!$Cliens) {
+        echo json_encode("Email incorrect");
+      }
     }
   }
+  public function selectAll()
+  {
+    $CliensModel = $this->model('ClientsModel');
+    $Cliens = $CliensModel->selectAll();
+    echo json_encode($Cliens);
+  }
+
 
   public function register()
   {
@@ -27,7 +44,7 @@ class User extends Controller
       $json = file_get_contents('php://input');
       $data = json_decode($json);
       $data = array_values((array)$data);
-      $data[5] = 'CL-'.uniqid();
+      $data[5] = 'CL-' . uniqid();
       $created = $CreateAcc->insert($data);
       if ($created) {
         echo json_encode($data);

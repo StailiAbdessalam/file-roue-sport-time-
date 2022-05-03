@@ -20,8 +20,8 @@ class Clients extends Controller
     if($_SERVER['REQUEST_METHOD']=='POST') {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
-      $Cliens = $CliensModel->fetchByEmail($data->Email);
-      if ($Cliens['IdUnique'] == $data->IdUnique) {
+      $Cliens = $CliensModel->fetchByRef($data->ID);
+      if ($Cliens['IdUnique'] == $data->ID) {
         echo json_encode("information correct");
       } else {
         echo json_encode("information incorrect");

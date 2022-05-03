@@ -27,10 +27,10 @@ class ClientsModel
         $CLIENT = $ModelClients->insert($data);
         json_encode($CLIENT);
     }
-    public function fetchByEmail($email)
+    public function fetchByRef($Ref)
     {
         $ModelClients = new GlobalModel("Clients");
-        $CLIENT = $ModelClients->fetchByEmail($email);
+        $CLIENT = $ModelClients->fetchByRef($Ref);
         return $CLIENT;
     }
     public function updateUser($data)

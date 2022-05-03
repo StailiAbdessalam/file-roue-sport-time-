@@ -44,13 +44,13 @@ class GlobalModel
         $stm = $con->prepare($requi);
         $stm->execute($data) or die($stm->errorCode());
     }
-    public function fetchByEmail($email)
+    public function fetchByRef($Ref)
     {
         try {
             $conn = $this->connection;
-            $requi = 'SELECT * FROM ' . $this->Table . ' WHERE Email = :mail';
+            $requi = 'SELECT * FROM ' . $this->Table . ' WHERE IdUnique = :Ref';
             $stm = $conn->prepare($requi);
-            $stm->execute(["mail" => $email]);
+            $stm->execute(["Ref" => $Ref]);
             $result = $stm->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (\Throwable $th) {

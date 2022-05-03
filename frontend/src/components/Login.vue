@@ -7,15 +7,14 @@
                     <div class="flex flex-col justify-center items-center ">
                         <h1 class="form_Login_title">Sig Up in a new account</h1>
                     </div>
-                    <form class="form_Login_formData" action="" @submit.prevent="login('Clients')">
+                    <form class="form_Login_formData" action="" @submit.prevent="login()">
                         <label for="role">Role</label>
-                        <Select @change="role = true">
-                            <Option></Option>
-                            <option value="" disabled selected>choisi votre role</option>
-                            <Option value="Client" key="">Client</Option>
-                            <Option value="organisateur" key="">organisateur</Option>
-                            <Option value="Admin" key="">Admin</Option>
-                        </Select>
+                        <select v-model="personne" @change="role = true" >
+                        <option disabled selected value="">choisi votre role </option>
+                            <option>Client</option>
+                            <option>organisateur</option>
+                            <option>Admin</option>
+                        </select>
                         <label v-if="role" for="password">Your ID</label>
                         <input v-model="ID" v-if="role" type="password" placeholder="**************" name="password">
                         <div v-if="invalide" data-aos="flip-left" data-aos-easing="ease-out-cubic"
@@ -34,8 +33,6 @@
                     <img src="../assets/img/login.gif" alt="">
                 </div>
                 <!--alert invalide-->
-
-
             </div>
         </div>
     </div>
@@ -47,6 +44,7 @@ export default {
     name: "sin-gup",
     data() {
         return {
+            personne: '',
             invalide: false,
             role: false,
             Bar: localStorage.getItem('user'),
@@ -55,14 +53,15 @@ export default {
         }
     },
     methods: {
-        login(personne) {
-            axios.post(`http://localhost/FILEROUGE/${personne}/index`, {
+        login() {
+            console.log(this.personne)
+            axios.post(`http://localhost/FILEROUGE/${this.personne}/index`, {
                 ID: this.ID
             }).then(response => {
                 console.log(response.data)
-                if (response.data == "information correct") {
+                if (response.data.status == "information correct") {
                     this.$router.go('/')
-                    localStorage.setItem('user', "Clients")
+                    localStorage.setItem('user', this.personne)
                     // localStorage.setItem('ID', this.ID)
                 } else {
                     this.error = response.data.message
@@ -118,7 +117,7 @@ export default {
     width: 500px;
     height: 2.5rem;
     outline: none;
-    padding: 10px;
+    padding-left: 10px;
     margin-bottom: 1rem;
 }
 

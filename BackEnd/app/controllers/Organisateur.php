@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 }
 if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") return true;
-class Admin extends Controller
+class Organisateur extends Controller
 {
   public $valide = "false";
   public function __construct()
@@ -15,7 +15,7 @@ class Admin extends Controller
   }
   public function index()
   {
-    $CliensModel = $this->model('AdminModel');
+    $CliensModel = $this->model('OrganisateurModel');
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $json = file_get_contents('php://input');
       $data = json_decode($json);

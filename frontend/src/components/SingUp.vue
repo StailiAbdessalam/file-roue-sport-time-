@@ -10,6 +10,8 @@
                     <div class="flex flex-col justify-center items-center  ">
                         <h1 class="form_singup_title">Sig Up in a new account</h1>
                     </div>
+                      
+                      
                     <select v-model="role" name="" id="">
                         <option></option>
                         <option selected disabled>choisi votre role</option>

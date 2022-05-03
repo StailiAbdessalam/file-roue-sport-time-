@@ -7,7 +7,7 @@
                     <div class="flex flex-col justify-center items-center ">
                         <h1 class="form_Login_title">Sig Up in a new account</h1>
                     </div>
-                    <form class="form_Login_formData" action="" @submit.prevent="login">
+                    <form class="form_Login_formData" action="" @submit.prevent="login('Clients')">
                         <label for="role">Role</label>
                         <Select @change="role = true">
                             <Option></Option>
@@ -17,45 +17,61 @@
                             <Option value="Admin" key="">Admin</Option>
                         </Select>
                         <label v-if="role" for="password">Your ID</label>
-                        <input v-if="role" type="password" placeholder="**************" name="password">
+                        <input v-model="ID" v-if="role" type="password" placeholder="**************" name="password">
+                        <div v-if="invalide" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000" class="flex mb-3">
+                            <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                                <path fill="currentColor"
+                                    d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z">
+                                </path>
+                            </svg>
+                            <span class="text-red-800"> Your address ID is invalid. </span>
+                        </div>
                         <input v-if="role" id="submit" type="submit" name="valid" value="Sing Up">
                     </form>
                 </div>
                 <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-delay="500" data-aos-offset="500">
                     <img src="../assets/img/login.gif" alt="">
                 </div>
+                <!--alert invalide-->
+
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 export default {
     name: "sin-gup",
     data() {
         return {
-            role: false
+            invalide: false,
+            role: false,
+            Bar: localStorage.getItem('user'),
+            ID: '',
+
         }
     },
     methods: {
-        // login(personne) {
-        //     axios.post(`http://localhost/FILEROUGE/${personne}/index`, {
-        //         email: this.email,
-        //         password: this.password
-        //     }).then(response => {
-        //         console.log(response.data)
-        //         if (response.data.success) {
-        //             this.$router.push('/')
-        //         } else {
-        //             this.error = response.data.message
-        //         }
-        //     }).catch(error => {
-        //         console.log(error)
-        //     })
-        // }
-
-
+        login(personne) {
+            axios.post(`http://localhost/FILEROUGE/${personne}/index`, {
+                ID: this.ID
+            }).then(response => {
+                console.log(response.data)
+                if (response.data == "information correct") {
+                    this.$router.go('/')
+                    localStorage.setItem('user', "Clients")
+                    // localStorage.setItem('ID', this.ID)
+                } else {
+                    this.error = response.data.message
+                    this.invalide = true
+                }
+            }).catch(error => {
+                console.log(error)
+            })
+        }
     },
 }
 </script>

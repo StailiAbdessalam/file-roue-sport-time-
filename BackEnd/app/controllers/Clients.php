@@ -16,16 +16,15 @@ class Clients extends Controller
   public function index()
   {
     $CliensModel = $this->model('ClientsModel');
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $Cliens = $CliensModel->selectAll();
+    if($_SERVER['REQUEST_METHOD']=='POST') {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
       $Cliens = $CliensModel->fetchByEmail($data->Email);
-      if ($Cliens && $Cliens['IdUnique'] == $data->IdUnique) {
+      if ($Cliens['IdUnique'] == $data->IdUnique) {
         echo json_encode("information correct");
-      } else if ($Cliens && $Cliens['IdUnique'] != $data->IdUnique) {
-        echo json_encode("Id Unique incorrect");
-      } else if (!$Cliens) {
-        echo json_encode("Email incorrect");
+      } else {
+        echo json_encode("information incorrect");
       }
     }
   }

@@ -6,6 +6,7 @@ class Core
   protected $params = [];
   public function __construct()
   {
+
     $url = $this->getUrl();
 
     if ($url && file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
@@ -15,6 +16,7 @@ class Core
 
     require_once '../app/controllers/' . $this->currentController . '.php';
     $this->currentController = new $this->currentController;
+    
     
     if ($url && isset($url[1])) {
       if (method_exists($this->currentController, $url[1])) {

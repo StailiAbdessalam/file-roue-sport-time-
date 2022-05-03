@@ -48,9 +48,9 @@ class GlobalModel
     {
         try {
             $conn = $this->connection;
-            $requi = 'SELECT * FROM ' . $this->Table . ' WHERE Email = :email';
+            $requi = 'SELECT * FROM ' . $this->Table . ' WHERE Email = :mail';
             $stm = $conn->prepare($requi);
-            $stm->execute(["email" => $email]);
+            $stm->execute(["mail" => $email]);
             $result = $stm->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (\Throwable $th) {

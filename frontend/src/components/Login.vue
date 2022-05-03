@@ -7,7 +7,7 @@
                     <div class="flex flex-col justify-center items-center ">
                         <h1 class="form_Login_title">Sig Up in a new account</h1>
                     </div>
-                    <form class="form_Login_formData" action="">
+                    <form class="form_Login_formData" action="" @submit.prevent="login">
                         <label for="role">Role</label>
                         <Select @change="role = true">
                             <Option></Option>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+// import axios from 'axios';
 export default {
     name: "sin-gup",
     data() {
@@ -38,6 +39,21 @@ export default {
         }
     },
     methods: {
+        // login(personne) {
+        //     axios.post(`http://localhost/FILEROUGE/${personne}/index`, {
+        //         email: this.email,
+        //         password: this.password
+        //     }).then(response => {
+        //         console.log(response.data)
+        //         if (response.data.success) {
+        //             this.$router.push('/')
+        //         } else {
+        //             this.error = response.data.message
+        //         }
+        //     }).catch(error => {
+        //         console.log(error)
+        //     })
+        // }
 
 
     },

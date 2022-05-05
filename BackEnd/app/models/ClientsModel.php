@@ -1,3 +1,4 @@
+
 <?php
 // require_once "../libraries/GlobalModel.php";
 // get_include_path("../libraries/GlobalModel.php");
@@ -25,6 +26,7 @@ class ClientsModel
     {
         $ModelClients = new GlobalModel("Clients");
         $CLIENT = $ModelClients->insert($data);
+        // var_dump($data);
         json_encode($CLIENT);
     }
     public function fetchByRef($Ref)

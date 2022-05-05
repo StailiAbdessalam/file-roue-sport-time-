@@ -44,9 +44,12 @@ class Clients extends Controller
     $CreateAcc = $this->model('ClientsModel');
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $json = file_get_contents('php://input');
+      $data =[];
       $data = json_decode($json);
+      // var_dump($data);
       $data = array_values((array)$data);
-      $data[5] = 'CL-' . uniqid();
+      // $data->IdUnique = 'CL-' . uniqid();
+      $data['IdUnique'] = 'CL-' . uniqid();
       $created = $CreateAcc->insert($data);
       if ($created) {
         echo json_encode($data);

@@ -10,11 +10,8 @@
                     <div class="flex flex-col justify-center items-center  ">
                         <h1 class="form_singup_title">Sig Up in a new account</h1>
                     </div>
-                      
-                      
                     <select v-model="role" name="" id="">
-                        <option></option>
-                        <option selected disabled>choisi votre role</option>
+                        <option disabled selected>choisi votre role</option>
                         <option value="Organisateur">organisateur</option>
                         <option value="Client">CLient</option>
                     </select>
@@ -78,15 +75,12 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "sin-gup",
     data() {
@@ -115,10 +109,18 @@ export default {
         ADDClient() {
             console.log(this.dataClient)
             this.Valide = true;
+            this.$router.push("/Login");
+            axios.post("/api/client", this.dataClient).then(res => {
+                console.log(res)
+            })
         },
         FaitDemmande() {
             console.log(this.dataOrganisateur)
             this.Valide = true;
+            axios.post("http://localhost:8000/api/organisateur", this.dataOrganisateur).then(res => {
+                console.log(res)
+            })
+
         }
     },
 }
@@ -166,7 +168,7 @@ Select,
     width: 500px;
     height: 2.5rem;
     outline: none;
-    padding: 10px;
+    padding-left: 10px;
     margin-bottom: 1rem;
 }
 

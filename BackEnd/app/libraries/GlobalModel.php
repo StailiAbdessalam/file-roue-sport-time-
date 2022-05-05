@@ -1,8 +1,12 @@
 <?php
 // require once the connection to the database
+// require_once '../config/config.php';    
+// include_once '../Function.php';
 require_once 'Connection.php';
 
-class GlobalModel
+
+// require_once '../config/config.php';
+class GlobalModel 
 {
     protected $connection;
     protected $Table;
@@ -40,7 +44,11 @@ class GlobalModel
     public function insert($data)
     {
         $con = $this->connection;
-        $requi = "INSERT INTO " . $this->Table . "(" . getval($data) . ") VALUES (" . getPlaceholders($data) . ") ";
+        // $data=array_keys((array)$data);
+        // var_dump($data);
+        var_dump($this->getval($data));
+        var_dump($this->getPlaceholders($data));
+        $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
         $stm = $con->prepare($requi);
         $stm->execute($data) or die($stm->errorCode());
     }
@@ -56,6 +64,32 @@ class GlobalModel
         } catch (\Throwable $th) {
            return false;
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function  getPlaceholders($arr)
+    {
+        return implode(",", array_map(function ($key) {
+            return ":$key";
+        }, array_keys($arr)));
+    }
+    public function  getval($arr)
+    {
+        return implode(",", array_map(function ($key) {
+            var_dump($key);
+            return "$key";
+        }, array_keys($arr)));
     }
 }
 

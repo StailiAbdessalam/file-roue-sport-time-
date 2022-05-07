@@ -41,16 +41,14 @@ class Organisateur extends Controller
 
   public function register()
   {
-    $CreateAcc = $this->model('ClientsModel');
+    $CreateAcc = $this->model('OrganisateurModel');
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
-      $data = array_values((array)$data);
-      $data[5] = 'CL-' . uniqid();
+      $data = (array)$data;
+      $data['IdUnique'] = 'OR-' . uniqid();
       $created = $CreateAcc->insert($data);
-      if ($created) {
         echo json_encode($data);
-      }
     }
   }
 

@@ -5,25 +5,25 @@ class OrganisateurModel
 {
     public function selectAll()
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("organisateur");
         $CLIENT = $ModelClients->selectAll();
         return json_encode($CLIENT);
     }
     public function SelectOne($id)
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("organisateur");
         $CLIENT = $ModelClients->SelectOne($id);
          json_encode($CLIENT);
     }
     public function remove($id)
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("organisateur");
         $CLIENTS = $ModelClients->remove($id);
         return $CLIENTS;
     }
     public function insert($data)
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("organisateur");
         $CLIENT = $ModelClients->insert($data);
         json_encode($CLIENT);
     }

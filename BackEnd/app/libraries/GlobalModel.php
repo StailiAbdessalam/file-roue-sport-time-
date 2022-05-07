@@ -43,14 +43,12 @@ class GlobalModel
     }
     public function insert($data)
     {
+
         $con = $this->connection;
-        // $data=array_keys((array)$data);
-        // var_dump($data);
-        var_dump($this->getval($data));
-        var_dump($this->getPlaceholders($data));
         $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
         $stm = $con->prepare($requi);
-        $stm->execute($data) or die($stm->errorCode());
+        $result =$stm->execute($data);
+        return $result;
     }
     public function fetchByRef($Ref)
     {
@@ -87,7 +85,6 @@ class GlobalModel
     public function  getval($arr)
     {
         return implode(",", array_map(function ($key) {
-            var_dump($key);
             return "$key";
         }, array_keys($arr)));
     }

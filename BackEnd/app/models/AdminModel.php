@@ -23,7 +23,7 @@ class AdminModel
     }
     public function insert($data)
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("Admin");
         $CLIENT = $ModelClients->insert($data);
         json_encode($CLIENT);
     }

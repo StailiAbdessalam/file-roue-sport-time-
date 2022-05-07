@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center w-full ">
+    <div class="flex justify-center items-center w-full">
         <div class="flex justify-center items-center w-full ">
             <div class="flex justify-center items-center gap-20  w-full form_Login">
                 <div data-aos="flip-left" data-aos-anchor="#example-anchor" data-aos-duration="1500"
@@ -9,15 +9,15 @@
                     </div>
                     <form class="form_Login_formData" action="" @submit.prevent="login()">
                         <label for="role">Role</label>
-                        <select v-model="personne" @change="role = true" >
-                        <option disabled selected value="">choisi votre role </option>
+                        <select v-model="personne" @change="role = true">
+                            <option disabled selected value="">choisi votre role </option>
                             <option>Client</option>
                             <option>organisateur</option>
                             <option>Admin</option>
                         </select>
                         <label v-if="role" for="password">Your ID</label>
                         <input v-model="ID" v-if="role" type="password" placeholder="**************" name="password">
-                        <div v-if="invalide" data-aos="flip-left" data-aos-easing="ease-out-cubic"
+                        <div v-if="invalide" data-aos="zoom-in" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000" class="flex mb-3">
                             <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
                                 <path fill="currentColor"
@@ -40,6 +40,7 @@
 
 <script>
 import axios from 'axios';
+import swal from 'sweetalert';
 export default {
     name: "sin-gup",
     data() {
@@ -60,9 +61,19 @@ export default {
             }).then(response => {
                 console.log(response.data)
                 if (response.data.status == "information correct") {
-                    this.$router.go('/')
+                    if (response.data.data.suspended == 0) {
+                        swal({
+                            title: "warning",
+                            text: "desole your account is suspended",
+                            icon: "warning",
+                            button: "ok",
+                        });
+                        
+                    }else{
+                    this.$router.go("/")
                     localStorage.setItem('user', this.personne)
                     // localStorage.setItem('ID', this.ID)
+                    }
                 } else {
                     this.error = response.data.message
                     this.invalide = true
@@ -76,18 +87,11 @@ export default {
 </script>
 
 <style>
-.form_Login {
-    margin: 110px;
-
-    border-radius: 16px;
-}
-
 .form_Login_title {
     font-size: 1.5rem;
     font-weight: bold;
     color: rgba(255, 159, 28, 1);
 }
-
 
 .form_Login_formData {
     display: flex;

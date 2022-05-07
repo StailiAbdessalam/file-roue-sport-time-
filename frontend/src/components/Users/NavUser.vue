@@ -84,7 +84,7 @@ export default {
                     link: '/',
                     name: 'Home',
                     tooltip: 'Home',
-                    icon: 'charm:home',
+                    icon: 'bx-home',
                 },
                   {
                     link: '/Reservation',

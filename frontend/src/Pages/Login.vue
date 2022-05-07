@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Login/>
+        <Login class="h-screen"/>
     </div>
 </template>
 

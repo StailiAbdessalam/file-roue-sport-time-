@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SingUp />
+    <SingUp class="h-screen" />
   </div>
 </template>
 
@@ -16,4 +16,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

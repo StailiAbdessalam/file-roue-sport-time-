@@ -80,6 +80,8 @@
 
 <script>
 import axios from "axios";
+import swal from 'sweetalert';
+
 
 export default {
     name: "sin-gup",
@@ -107,18 +109,23 @@ export default {
     },
     methods: {
         ADDClient() {
-            console.log(this.dataClient)
-            this.Valide = true;
-            this.$router.push("/Login");
-            axios.post("/api/client", this.dataClient).then(res => {
+            axios.post("http://localhost/FILEROUGE/Clientsr/register", this.dataClient).then(res => {
                 console.log(res)
+                this.Valide = true;
+                setTimeout(() => {
+                    this.$router.push("Login")
+                    swal(res.data.IdUnique, "copie this code", "success");
+                }, 1500);
             })
         },
         FaitDemmande() {
-            console.log(this.dataOrganisateur)
-            this.Valide = true;
-            axios.post("http://localhost:8000/api/organisateur", this.dataOrganisateur).then(res => {
+            axios.post("http://localhost/FILEROUGE/Organisateur/register", this.dataOrganisateur).then(res => {
                 console.log(res)
+                this.Valide = true;
+                setTimeout(() => {
+                    this.$router.push("Login")
+                    swal(res.data.IdUnique, "copie this code", "success");
+                }, 1500);
             })
 
         }

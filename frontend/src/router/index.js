@@ -18,6 +18,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "home" */ "../Pages/SingUp.vue"),
   },
+  {
+    path: "/Contact",
+    name: "contact",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../Pages/Contact.vue"),
+  },
+  {
+    path: "/Reservation",
+    name: "Reservation",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../Pages/Users/Reservation.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

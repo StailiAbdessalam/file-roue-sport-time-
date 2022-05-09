@@ -13,16 +13,12 @@
                             class="text-base text-4xl font-extrabold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
                             Lorem ipsum dolor. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor. Nulla porttitor accumsan tincidunt.
                         </p>
-                        
-
-
-
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 xl:w-5/12 px-4" data-aos="fade-up" data-aos-delay="500"
                     data-aos-duration="2000">
                     <div class="bg-gray-100 dark:bg-slate-800 relative rounded-lg p-8 sm:p-12 shadow-lg">
-                        <form>
+                        <form @submit.prevent>
                             <div class="mb-6">
                                 <input type="text" placeholder="Your Name" class="
                                     w-full

@@ -35,24 +35,8 @@
         </div>
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
         </div>
-        <div id="section2">
-            <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
-            <div class="flex w-full  justify-around items-center">
-                <div id="Res1" class="w-1/4">
-                    <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
-                        class="w-full" src="../assets/img/Skateboarding.gif" alt="">
-                </div>
-                <div id="Res2" class="w-1/4">
-                    <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
-                        class="w-full" src="../assets/img/Soccer.gif">
-                </div>
-                <div id="Res3" class="w-1/4">
-                    <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="3000"
-                        class="w-full" src="../assets/img/Basketball.gif" alt="">
-                </div>
-            </div>
-        </div>
-        <div v-if="Stars" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="2000" data-aos-delay="3000"
+
+        <div v-if="Stars" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" data-aos-delay="1000"
             id="feedback"
             class="flex flex-col gap-4 justify-center items-center bg-green-400  fixed right-4 bottom-5 bg-base-100 shadow-xl ">
             <Feedback class="relative" />
@@ -62,14 +46,104 @@
                 placeholder="send the feedback"></textarea>
             <button class="text-white w-full py-2 rounded bg-orange-400 ">Send</button>
         </div>
+
+
+        <div class="bg-white w-full p-8">
+            <h2 class="font-bold text-green-500 text-3xl my-5 text-center ">Services</h2>
+            <div class="flex flex-col mt-8 items-center">
+                <div class="flex-1 flex gap-8">
+                    <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl w-72 ">
+                        <img class="border-b-0.5 border-white pb-2 m-2 h-12 " src="../assets/img/construct.svg"
+                            aria-hidden="true">
+                        <span class="font-medium">Construction</span>
+                    </div>
+                    <div class="py-9 px-16 bg-black text-white  shadow-xl w-72">
+                        <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/renovation.svg"
+                            aria-hidden="true">
+                        <span class="font-medium">Renovation</span>
+                    </div>
+                    <div class="py-9 px-16 bg-green-400 text-black shadow-xl w-72">
+                        <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/consultation.svg"
+                            aria-hidden="true">
+                        <span class="font-medium">Consultation</span>
+                    </div>
+
+                </div>
+                <div class="flex-1 flex gap-8 mt-8 ">
+                    <div class="py-9 px-16 bg-black text-white  w-72">
+                        <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/reservices.svg"
+                            aria-hidden="true">
+                        <span class="font-medium">Repaire Services</span>
+                    </div>
+                    <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl  w-72">
+                        <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/architech.svg"
+                            aria-hidden="true">
+                        <span class="text-secondary font-medium">Architecture</span>
+                    </div>
+                    <div class="py-9 px-16 bg-black text-white shadow-xl w-72">
+                        <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/electric.svg"
+                            aria-hidden="true">
+                        <span class="font-medium">Electric</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
+        </div>
+
+        <div id="about" class="relative ">
+            <div class="w-3/5   my-14">
+                <img style="width:80rem;height:40rem" class="object-cover" src="../assets/img/AZERTY.jpg">
+            </div>
+            <div
+                class="absolute top-24 bg-green-500 left-1/2 w-2/5 h-3/5 text-white p-14  py-18 grid place-items-start gap-3">
+                <h2 class="font-bold text-white text-3xl  text-center">About us</h2>
+                <p class="text-left">For more than 30 years we have been delivering world-class construction and we’ve
+                    built many lasting relationships along the way. We’ve matured into an industry leader and trusted
+                    resource for those seeking quality, innovation and reliability when building in the U.S.</p>
+                <button type="button"
+                    class="py-2 px-5  text-sm font-medium  focus:outline-none bg-white rounded-md hover:bg-gray-100 hover:text-primary   text-black">More
+                    on Our History</button>
+            </div>
+        </div>
+
+        <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
+        </div>
+        <div id="section2">
+            <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
+            <div class="flex w-full  justify-around items-center">
+                <div id="Res1" class="w-1/4">
+                    <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="2000"
+                        class="w-full" src="../assets/img/Skateboarding.gif" alt="">
+                </div>
+                <div id="Res2" class="w-1/4">
+                    <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="2000"
+                        class="w-full" src="../assets/img/Soccer.gif">
+                </div>
+                <div id="Res3" class="w-1/4">
+                    <img data-aos="fade-up" data-aos-once="true" data-aos-delay="500" data-aos-duration="2000"
+                        class="w-full" src="../assets/img/Basketball.gif" alt="">
+                </div>
+            </div>
+        </div>
+
         <div>
         </div>
+
         <div id="slide" class="w3-content w3-section" style="max-width:500px">
             <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
             <img class="mySlides w3-animate-fading" src="../assets/img/Soccer.gif" style="width:100%">
             <img class="mySlides w3-animate-fading" src="../assets/img/Basketball.gif" style="width:100%">
             <img class="mySlides w3-animate-fading" src="../assets/img/Skateboarding.gif" style="width:100%">
         </div>
+
+
+
+
+
+
     </div>
 </template>
 
@@ -173,16 +247,20 @@ export default {
         justify-content: center;
         align-items: center;
     }
+
     #Res_motivation {
         width: 100%;
     }
+
     .Res_image {
         width: 100%;
     }
+
     #Res_video {
         width: 600px;
         height: 400px;
     }
+
     #div_video {
         display: flex;
         justify-content: center;
@@ -194,6 +272,7 @@ export default {
     #Res1 {
         display: none;
     }
+
     #Res3,
     #Res2 {
         width: 48%;
@@ -204,7 +283,8 @@ export default {
     #section2 {
         display: none;
     }
-      #Res_video {
+
+    #Res_video {
         width: 400px;
         height: 300px;
     }
@@ -214,7 +294,6 @@ export default {
     #slide {
         display: none;
     }
-   
-}
 
+}
 </style>

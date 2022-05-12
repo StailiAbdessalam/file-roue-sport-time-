@@ -11,7 +11,6 @@
             style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
             <div id="my-scroll" style="margin: 6px 14px 0 14px;">
                 <ul class="nav-list" style="overflow: visible;">
-              
                     <li v-if="isSearch" @click="isOpened = true">
                         <i class="bx bx-search" />
                         <input type="text" placeholder="Search..."
@@ -19,7 +18,7 @@
                         <span class="tooltip">Search</span>
                     </li>
                     <!-- pour afficher tout les button de nav-bar -->
-                    <span  v-for="(menuItem, index) in menuItems" :key="index">
+                    <span v-for="(menuItem, index) in menuItems" :key="index">
                         <li @click="deriction(menuItem.link)">
                             <a>
                                 <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
@@ -42,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <i v-if="isExitButton" class="bx bx-log-out" id="log_out" @click.stop="$emit('button-exit-clicked')" />
+                <i v-if="isExitButton" class="bx bx-log-out" id="log_out" @click="logout()" />
             </div>
         </div>
     </div>
@@ -81,7 +80,7 @@ export default {
             type: Array,
             default: () => [
                 {
-                    link: '/home',
+                    link: '/Dashboard',
                     name: 'Dashboard',
                     tooltip: 'Dashboard',
                     icon: 'bx-grid-alt',
@@ -93,21 +92,21 @@ export default {
                 //     icon: 'bx-user',
                 // },
                 {
-                    link: '/AddPost',
-                    name: 'Add Post',
+                    link: '/AllORG',
+                    name: 'All Organisateur',
                     tooltip: 'Post Sport',
                     icon: 'bx-basketball',
 
                 },
                 {
-                    link: '/Reservation',
-                    name: 'Reservation',
+                    link: '/Mes REservations',
+                    name: 'REservations',
                     tooltip: 'Reservation',
                     icon: 'bx-cart-alt',
                 },
                 {
-                    link: '/Contact',
-                    name: 'Contact',
+                    link: '/AllORG',
+                    name: 'All Organisateur',
                     tooltip: 'Contact',
                     icon: 'bx-user',
                 },
@@ -219,6 +218,10 @@ export default {
         deriction(event) {
             console.log(event);
             this.$router.push(event);
+        },
+        logout() {
+            localStorage.removeItem('user');
+            this.$router.go('/Login')
         }
     },
 }

@@ -348,7 +348,6 @@
 <script>
 export default {
     name: 'contact-y',
-
 }
 </script>
 

@@ -7,7 +7,7 @@
     <NavOrganisateur v-if="Role == 'organisateur'" />
     <profile />
     <router-view />
-    <Footer />
+    <Footer v-if='Role!="Admin"' />
 
   </div>
 </template>

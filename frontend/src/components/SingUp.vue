@@ -1,5 +1,6 @@
 <template>
     <div class="flex justify-center items-center w-full ">
+        <what v-if="load" />
         <div class="flex justify-center items-center w-full ">
             <div class="flex justify-center  items-center gap-20  w-full form_singup ">
                 <div data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-delay="500" data-aos-offset="500">
@@ -58,12 +59,14 @@
 <script>
 import axios from "axios";
 import swal from 'sweetalert';
+import what from './chose/whit.vue';
 
 
 export default {
     name: "sin-gup",
     data() {
         return {
+            load: false,
             role: false,
             Valide: false,
             dataClient: {
@@ -84,10 +87,13 @@ export default {
             }
         }
     },
+    components: {
+        what
+    },
     methods: {
         ADDClient() {
+            this.load = true;
             axios.post("http://localhost/FILEROUGE/Clientsr/register", this.dataClient).then(res => {
-                console.log(res)
                 this.Valide = true;
                 setTimeout(() => {
                     this.$router.push("Login")
@@ -96,6 +102,7 @@ export default {
             })
         },
         FaitDemmande() {
+            this.load = true;
             axios.post("http://localhost/FILEROUGE/Organisateur/register", this.dataOrganisateur).then(res => {
                 console.log(res)
                 this.Valide = true;

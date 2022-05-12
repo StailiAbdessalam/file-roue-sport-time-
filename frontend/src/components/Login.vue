@@ -1,5 +1,6 @@
 <template>
     <div class="flex justify-center items-center w-full">
+    
         <div class="flex justify-center items-center w-full ">
             <div class="flex justify-center items-center gap-20  w-full form_Login">
                 <div data-aos="flip-left" data-aos-anchor="#example-anchor" data-aos-duration="1500"
@@ -16,7 +17,7 @@
                             <option>Admin</option>
                         </select>
                         <label v-if="role" for="password">Your ID</label>
-                        <input v-model="ID" v-if="role" type="password" placeholder="**************" name="password">
+                        <input v-on:keyup="invalide=false" v-model="ID" v-if="role" type="password" placeholder="**************" name="password">
                         <div v-if="invalide" data-aos="zoom-in" data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000" class="flex mb-3">
                             <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
@@ -29,8 +30,8 @@
                         <input v-if="role" id="submit" type="submit" name="valid" value="Sing Up">
                     </form>
                 </div>
-                <div data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-delay="500" data-aos-offset="500">
-                    <img src="../assets/img/login.gif" alt="">
+                <div  data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-delay="500" data-aos-offset="500">
+                    <img  src="../assets/img/login.gif" alt="">
                 </div>
                 <!--alert invalide-->
             </div>
@@ -41,6 +42,7 @@
 <script>
 import axios from 'axios';
 import swal from 'sweetalert';
+
 export default {
     name: "sin-gup",
     data() {
@@ -68,11 +70,10 @@ export default {
                             icon: "warning",
                             button: "ok",
                         });
-                        
-                    }else{
-                    this.$router.go("/")
-                    localStorage.setItem('user', this.personne)
-                    // localStorage.setItem('ID', this.ID)
+                    } else {
+                        this.$router.go("/")
+                        localStorage.setItem('user', this.personne)
+                        // localStorage.setItem('ID', this.ID)
                     }
                 } else {
                     this.error = response.data.message

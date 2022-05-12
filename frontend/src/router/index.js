@@ -25,10 +25,22 @@ const routes = [
       import(/* webpackChunkName: "home" */ "../Pages/Contact.vue"),
   },
   {
+    path: "/AllORG",
+    name: "All Organisateur",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../Pages/Admin/AllOrg.vue"),
+  },
+  {
     path: "/Reservation",
     name: "Reservation",
     component: () =>
       import(/* webpackChunkName: "home" */ "../Pages/Users/Reservation.vue"),
+  },
+  {
+    path: "/Dashboard",
+    name: "Dashboard",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../Pages/Admin/Dashbord.vue"),
   },
 ];
 const router = createRouter({

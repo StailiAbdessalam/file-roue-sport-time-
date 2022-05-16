@@ -80,10 +80,9 @@ export default {
                 FirstName: "",
                 LastName: "",
                 business_name: "",
-                Profil: "dd",
                 Email: "",
                 Phone: "",
-                suspended: false,
+                suspended: 0,
             }
         }
     },
@@ -96,7 +95,8 @@ export default {
             axios.post("http://localhost/FILEROUGE/Clientsr/register", this.dataClient).then(res => {
                 this.Valide = true;
                 setTimeout(() => {
-                    this.$router.push("Login")
+                    console.log(res.data);
+                    this.$router.push("Login");
                     swal(res.data.IdUnique, "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time", "success");
                 }, 1500);
             })
@@ -104,14 +104,12 @@ export default {
         FaitDemmande() {
             this.load = true;
             axios.post("http://localhost/FILEROUGE/Organisateur/register", this.dataOrganisateur).then(res => {
-                console.log(res)
                 this.Valide = true;
                 setTimeout(() => {
-                    this.$router.push("Login")
-                    swal(res.data.IdUnique, "copie this code", "success");
+                    this.$router.push("Login");
+                    swal(res.data.IdUnique, "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time", "success");
                 }, 1500);
             })
-
         }
     },
 }

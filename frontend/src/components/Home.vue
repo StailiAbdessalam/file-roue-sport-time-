@@ -114,7 +114,7 @@
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">
         </div>
         <div id="section2" >
-        <loading  />
+        <!-- <loading  /> -->
             <h1 class="text-center text-4xl">All kinds of sports are available in your nearest stadium</h1>
             <div class="flex w-full  justify-around items-center">
                 <div id="Res1" class="w-1/4">
@@ -154,7 +154,6 @@
 import {
     Icon
 } from '@iconify/vue';
-import loading from './chose/Loading.vue';
 import Feedback from './Feedback.vue'
 export default {
     name: 'Home-vieu',
@@ -168,7 +167,6 @@ export default {
     components: {
         Feedback,
         Icon,
-        loading
     },
     methods: {
         carousel() {

@@ -20,7 +20,7 @@
                     </li>
                     <!-- pour afficher tout les button de nav-bar -->
                     <span  v-for="(menuItem, index) in menuItems" :key="index">
-                        <li @click="deriction(menuItem.link)">
+                        <li class="hover:cursor-pointer" @click="deriction(menuItem.link)">
                             <a>
                                 <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
                                 <span class="links_name">{{ menuItem.name }}</span>
@@ -81,7 +81,7 @@ export default {
             type: Array,
             default: () => [
                 {
-                    link: '/home',
+                    link: '/',
                     name: 'Dashboard',
                     tooltip: 'Dashboard',
                     icon: 'bx-grid-alt',
@@ -106,8 +106,8 @@ export default {
                     icon: 'bx-cart-alt',
                 },
                 {
-                    link: '/Contact',
-                    name: 'Contact',
+                    link: '/Profil',
+                    name: 'Profil',
                     tooltip: 'Contact',
                     icon: 'bx-user',
                 },

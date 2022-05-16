@@ -19,14 +19,28 @@ import NavUser from './components/Users/NavUser.vue';
 import NavBar from './components/NavBar.vue';
 import Footer from './components/Footer.vue';
 import profile from './components/Admin/Profile'
+import {computed} from "vue";
 
 export default {
   name: 'component-vue',
   components: { NavAdmin, NavBar, Footer, profile, NavUser, NavOrganisateur },
+  provide(){
+    return {
+      setRole: this.setRole,
+      Role: computed(() => {
+        return this.Role
+      })
+    }
+  },
   data() {
     return {
-      Role: localStorage.getItem('user'),
+      Role: localStorage.getItem('user'), 
     }
-  }
+  },
+  methods: {
+    setRole(role) {
+      this.Role = role;
+    },
+  },
 }
 </script>

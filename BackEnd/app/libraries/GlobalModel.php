@@ -1,4 +1,4 @@
-<?php
+ <?php
 // require once the connection to the database
 // require_once '../config/config.php';    
 // include_once '../Function.php';
@@ -6,7 +6,7 @@ require_once 'Connection.php';
 
 
 // require_once '../config/config.php';
-class GlobalModel 
+class GlobalModel
 {
     protected $connection;
     protected $Table;
@@ -16,6 +16,56 @@ class GlobalModel
         $this->connection = $con->db;
         $this->Table = $Table;
     }
+
+    public function insert($data)
+    {
+        $con = $this->connection;
+        $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
+        $stm = $con->prepare($requi);
+        $result = $stm->execute($data);
+        return $result;
+    }
+
+    public function fetchByRef($Ref)
+    {
+        try {
+            $conn = $this->connection;
+            $requi = 'SELECT * FROM ' . $this->Table . ' WHERE IdUnique = :Ref';
+            $stm = $conn->prepare($requi);
+            $stm->execute(["Ref" => $Ref]);
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public function updatesuspended($data)
+    {
+        $conn = $this->connection;
+        $requi = "UPDATE " . $this->Table . " SET
+                                 `Suspended`=:Suspended
+                                 WHERE id=:id";
+        $stm = $conn->prepare($requi);
+        $stm->execute(["Suspended" => $data->Suspended, "id" => $data->id]);
+        return $stm->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function selectAll()
     {
         $conn = $this->connection;
@@ -41,28 +91,7 @@ class GlobalModel
         $result = $stm->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    public function insert($data)
-    {
 
-        $con = $this->connection;
-        $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
-        $stm = $con->prepare($requi);
-        $result =$stm->execute($data);
-        return $result;
-    }
-    public function fetchByRef($Ref)
-    {
-        try {
-            $conn = $this->connection;
-            $requi = 'SELECT * FROM ' . $this->Table . ' WHERE IdUnique = :Ref';
-            $stm = $conn->prepare($requi);
-            $stm->execute(["Ref" => $Ref]);
-            $result = $stm->fetch(PDO::FETCH_ASSOC);
-            return $result;
-        } catch (\Throwable $th) {
-           return false;
-        }
-    }
 
 
 

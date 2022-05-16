@@ -3,24 +3,6 @@
 // get_include_path("../libraries/GlobalModel.php");
 class OrganisateurModel
 {
-    public function selectAll()
-    {
-        $ModelClients = new GlobalModel("organisateur");
-        $CLIENT = $ModelClients->selectAll();
-        return json_encode($CLIENT);
-    }
-    public function SelectOne($id)
-    {
-        $ModelClients = new GlobalModel("organisateur");
-        $CLIENT = $ModelClients->SelectOne($id);
-         json_encode($CLIENT);
-    }
-    public function remove($id)
-    {
-        $ModelClients = new GlobalModel("organisateur");
-        $CLIENTS = $ModelClients->remove($id);
-        return $CLIENTS;
-    }
     public function insert($data)
     {
         $ModelClients = new GlobalModel("organisateur");
@@ -33,6 +15,50 @@ class OrganisateurModel
         $CLIENT = $ModelClients->fetchByRef($Ref);
         return $CLIENT;
     }
+
+    public function updatesuspended($data)
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->updatesuspended($data);
+        return $CLIENT;
+    }
+  
+    public function insertLocal($data){
+        $ModelClients = new GlobalModel("local");
+        $CLIENT = $ModelClients->insert($data);
+        return $CLIENT;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public function selectAll()
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->selectAll();
+        return json_encode($CLIENT);
+    }
+    public function SelectOne($id)
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->SelectOne($id);
+        json_encode($CLIENT);
+    }
+    public function remove($id)
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENTS = $ModelClients->remove($id);
+        return $CLIENTS;
+    }
+
+
     public function updateUser($data)
     {
         $conn = $this->db;
@@ -54,6 +80,3 @@ class OrganisateurModel
         return $query->execute($params);
     }
 }
-
-
-

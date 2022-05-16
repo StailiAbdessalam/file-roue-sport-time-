@@ -48,9 +48,70 @@ class Organisateur extends Controller
       $data = (array)$data;
       $data['IdUnique'] = 'OR-' . uniqid();
       $created = $CreateAcc->insert($data);
-        echo json_encode($data);
+      echo json_encode($data);
     }
   }
+ 
+  public function insertLocal(){
+    $CreateAcc = $this->model('OrganisateurModel');
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $data = (array)$data;
+      $created = $CreateAcc->insertLocal($data);
+      echo json_encode($created);
+    }
+  }
+
+
+  public function updatesuspended()
+  {
+    $CliensModel = $this->model('OrganisateurModel');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+     $json = file_get_contents('php://input');
+     $data = json_decode($json);
+     $CliensModel->updatesuspended($data);
+      echo json_encode("true");
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

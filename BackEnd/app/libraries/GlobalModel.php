@@ -62,6 +62,14 @@
         }
 
 
+        public function Delete($id)
+        {
+            $conn = $this->connection;
+            $requi = "DELETE FROM `$this->Table` WHERE id = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["id" => $id]);
+            return $stm->fetch(PDO::FETCH_ASSOC);
+        }
 
 
 

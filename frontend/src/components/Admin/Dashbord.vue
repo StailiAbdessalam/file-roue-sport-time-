@@ -101,6 +101,7 @@
             <td class="p-2 border-r">{{ Org["Address"] }}</td>
             <td class="p-4 flex gap-4 justify-center items-center">
               <a
+                @click="ValideDemande(Org)"
                 href="#"
                 class="bg-blue-500 p-2 text-white hover:shadow-lg font-normal w-32"
                 >Valider</a
@@ -108,12 +109,19 @@
               <a
                 href="#"
                 class="bg-red-500 p-2 text-white hover:shadow-lg font-normal w-32"
+                @click="AnnulerDemande(Org)"
                 >Supprimer</a
               >
-              <div class="modal"> 
-                <button id="modal__trigger" for="modal__trigger" @click="infoDetails = Org">Details</button>
+              <div class="modal">
+                <button
+                  id="modal__trigger"
+                  for="modal__trigger"
+                  @click="infoDetails = Org"
+                >
+                  Details
+                </button>
                 <div
-                v-if="infoDetails"
+                  v-if="infoDetails"
                   class="modal__overlay"
                   role="dialog"
                   aria-labelledby="modal__title"
@@ -176,13 +184,32 @@ export default {
       this.detail = true;
       this.infoDetails = data;
     },
-    AnnulerDemande(){
-        axios.delete("http://localhost/FILEROUGE/Organisateur/DeleteDemande/"+this.infoDetails["id"])
-        .then(response => {
-            console.log(response);
-            this.OrgNoValidate();
+    AnnulerDemande(data) {
+      axios
+        .post("http://localhost/FILEROUGE/Organisateur/DeleteDemande", {
+          id: data.id,
+          idOrganisateur: data.idOrganisateur,
         })
-    }
+        .then((response) => {
+          console.log(response);
+          this.information = this.information.filter(function (iteam) {
+            return iteam.idOrganisateur != data.idOrganisateur;
+          });
+        });
+    },
+    ValideDemande(data) {
+      axios
+        .post("http://localhost/FILEROUGE/Organisateur/ValideDemande", {
+          id: data.idOrganisateur,
+          Suspended: 1,
+        })
+        .then((response) => {
+          console.log(response);
+          this.information = this.information.filter(function (iteam) {
+            return iteam.idOrganisateur != data.idOrganisateur;
+          });
+        });
+    },
   },
   mounted() {
     this.OrgNoValidate();
@@ -348,7 +375,7 @@ input {
   z-index: -100;
 }
 
- .modal__overlay {
+.modal__overlay {
   opacity: 1;
   transform: scale(1);
   z-index: 800;

@@ -22,8 +22,9 @@ class OrganisateurModel
         $CLIENT = $ModelClients->updatesuspended($data);
         return $CLIENT;
     }
-  
-    public function insertLocal($data){
+
+    public function insertLocal($data)
+    {
         $ModelClients = new GlobalModel("local");
         $CLIENT = $ModelClients->insert($data);
         return $CLIENT;
@@ -35,7 +36,20 @@ class OrganisateurModel
         $CLIENT = $ModelClients->selectDemandeOrg();
         return $CLIENT;
     }
-
+    public function DeleteDemande($data)
+    {
+        $ModelOrg = new GlobalModel("organisateur");
+        $DElet = $ModelOrg->Delete($data->idOrganisateur);
+        $Modelloacl = new GlobalModel("local");
+        $DElet = $Modelloacl->Delete($data->id);
+        return $DElet;
+    }
+    public function ValideDemande($data)
+    {
+        $ModelOrg = new GlobalModel("organisateur");
+        $DElet = $ModelOrg->updatesuspended($data);
+        return $DElet;
+    }
 
 
 

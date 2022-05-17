@@ -75,6 +75,28 @@ class Organisateur extends Controller
     echo json_encode($Cliens);
   }
 
+  public function DeleteDemande(){
+    $CliensModel = $this->model('OrganisateurModel');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $CliensModel->DeleteDemande($data);
+       echo json_encode("true");
+     }    
+  }
+
+  public function ValideDemande()
+  {
+    $CliensModel = $this->model('OrganisateurModel');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $CliensModel->ValideDemande($data);
+      echo json_encode("true");
+    }
+  
+  }
+
 
 
 

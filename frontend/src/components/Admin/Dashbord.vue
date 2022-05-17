@@ -1,301 +1,356 @@
 <template>
-
-        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
-            <div
-                class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
-                <div class="flex justify-between">
-                    <div class="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
-                        <div class="flex flex-wrap items-stretch w-full h-full mb-6 relative">
-                            <div class="flex">
-                                <span
-                                    class="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
-                                    <svg width="18" height="18" class="w-4 lg:w-auto" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8.11086 15.2217C12.0381 15.2217 15.2217 12.0381 15.2217 8.11086C15.2217 4.18364 12.0381 1 8.11086 1C4.18364 1 1 4.18364 1 8.11086C1 12.0381 4.18364 15.2217 8.11086 15.2217Z"
-                                            stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M16.9993 16.9993L13.1328 13.1328" stroke="#455A64"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </div>
-                            <input type="text"
-                                class="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-gray-500 font-thin"
-                                placeholder="Search">
-                        </div>
-                    </div>
+  <div class="w-full h-screen flex justify-center items-start overflow-scroll">
+    <div class="table w-full p-4 mt-20">
+      <table class="w-full border">
+        <thead>
+          <tr class="bg-orange-50 border-b">
+            <th
+              class="p-2 border-r cursor-pointer text-sm font-bold text-gray-500"
+            >
+              <div class="flex items-center justify-center">
+                Name
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                  />
+                </svg>
+              </div>
+            </th>
+            <th
+              class="p-2 border-r cursor-pointer text-sm font-bold text-gray-500"
+            >
+              <div class="flex items-center justify-center">
+                Email
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                  />
+                </svg>
+              </div>
+            </th>
+            <th
+              class="p-2 border-r cursor-pointer text-sm font-bold text-gray-500"
+            >
+              <div class="flex items-center justify-center">
+                Address
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                  />
+                </svg>
+              </div>
+            </th>
+            <th
+              class="p-2 border-r cursor-pointer text-sm font-bold text-gray-500"
+            >
+              <div class="flex items-center justify-center">
+                Action
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                  />
+                </svg>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="Org in information"
+            :key="Org"
+            class="bg-gray-100 text-center border-b text-sm text-gray-600"
+          >
+            <td class="p-2 border-r">{{ Org["FirstName"] }}</td>
+            <td class="p-2 border-r">{{ Org["Email"] }}</td>
+            <td class="p-2 border-r">{{ Org["Address"] }}</td>
+            <td class="p-4 flex gap-4 justify-center items-center">
+              <a
+                href="#"
+                class="bg-blue-500 p-2 text-white hover:shadow-lg font-normal w-32"
+                >Valider</a
+              >
+              <a
+                href="#"
+                class="bg-red-500 p-2 text-white hover:shadow-lg font-normal w-32"
+                >Supprimer</a
+              >
+              <div class="modal"> 
+                <button id="modal__trigger" for="modal__trigger" @click="infoDetails = Org">Details</button>
+                <div
+                v-if="infoDetails"
+                  class="modal__overlay"
+                  role="dialog"
+                  aria-labelledby="modal__title"
+                  aria-describedby="modal_desc"
+                >
+                  <div class="modal__wrap">
+                    <label @click="infoDetails = ''" for="modal__trigger"
+                      >&#10006;</label
+                    >
+                    <h2 id="modal__title"></h2>
+                    <h2 id="modal__title">{{ infoDetails["FirstName"] }}</h2>
+                    <h2 id="modal__title">{{ infoDetails["LastName"] }}</h2>
+                    <h2 id="modal__title">
+                      {{ infoDetails["business_name"] }}
+                    </h2>
+                    <h2 id="modal__title">{{ infoDetails["Email"] }}</h2>
+                    <h2 id="modal__title">{{ infoDetails["Phone"] }}</h2>
+                    <h2 id="modal__title">{{ infoDetails["Address"] }}</h2>
+                    <h2 id="modal__title">{{ infoDetails["NumSTadieum"] }}</h2>
+                    <h2 id="modal__title">{{ infoDetails["Ville"] }}</h2>
+                    <h2 id="modal__title">{{ infoDetails["Jour"] }}</h2>
+                    <h2 id="modal__title">
+                      {{ infoDetails["business_name"] }}
+                    </h2>
+                    <h2 id="modal__title">{{ infoDetails["id"] }}</h2>
+                  </div>
                 </div>
-            </div>
-            <div
-                class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
-                <table class="min-w-full">
-                    <thead>
-                        <tr>
-                            <th
-                                class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">
-                                ID</th>
-                            <th
-                                class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                Fullname</th>
-                            <th
-                                class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                Email</th>
-                            <th
-                                class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                Phone</th>
-                            <th
-                                class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                Status</th>
-                            <th
-                                class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
-                                Created At</th>
-                            <th class="px-6 py-3 border-b-2 border-gray-300"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white">
-                        <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                damilareanjorin1@gmail.com</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                +2348106420637</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">active</span>
-                                </span>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                                September 12</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button
-                                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View
-                                    Details</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                damilareanjorin1@gmail.com</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                +2348106420637</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">active</span>
-                                </span>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                                September 12</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button
-                                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View
-                                    Details</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                damilareanjorin1@gmail.com</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                +2348106420637</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                                    <span aria-hidden
-                                        class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">not active</span>
-                                </span>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                                September 12</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button
-                                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View
-                                    Details</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                damilareanjorin1@gmail.com</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                +2348106420637</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden
-                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">active</span>
-                                </span>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                                September 12</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button
-                                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View
-                                    Details</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="flex items-center">
-                                    <div>
-                                        <div class="text-sm leading-5 text-gray-800">#1</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                                <div class="text-sm leading-5 text-blue-900">Damilare Anjorin</div>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                damilareanjorin1@gmail.com</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                +2348106420637</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
-                                <span
-                                    class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
-                                    <span aria-hidden
-                                        class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
-                                    <span class="relative text-xs">disabled</span>
-                                </span>
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap border-b border-gray-500 text-blue-900 text-sm leading-5">
-                                September 12</td>
-                            <td
-                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                <button
-                                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View
-                                    Details</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
-                    <div>
-                        <p class="text-sm leading-5 text-blue-700">
-                            Showing
-                            <span class="font-medium">1</span>
-                            to
-                            <span class="font-medium">200</span>
-                            of
-                            <span class="font-medium">2000</span>
-                            results
-                        </p>
-                    </div>
-                    <div>
-                        <nav class="relative z-0 inline-flex shadow-sm">
-                            <div>
-                                <a href="#"
-                                    class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                    aria-label="Previous" v-on:click.prevent="changePage(pagination?.current_page - 1)">
-                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#"
-                                    class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-blue-700 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-tertiary active:text-gray-700 transition ease-in-out duration-150 hover:bg-tertiary">
-                                    1
-                                </a>
-                                <a href="#"
-                                    class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-blue-600 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-tertiary active:text-gray-700 transition ease-in-out duration-150 hover:bg-tertiary">
-                                    2
-                                </a>
-                                <a href="#"
-                                    class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-blue-600 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-tertiary active:text-gray-700 transition ease-in-out duration-150 hover:bg-tertiary">
-                                    3
-                                </a>
-                            </div>
-                            <div v-if="pagination?.current_page < pagination?.last_page">
-                                <a href="#"
-                                    class="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-500 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                    aria-label="Next">
-                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
-    name: "dash-bord",
-}
+  name: "dash-bord",
+  data() {
+    return {
+      information: "",
+      detail: false,
+      infoDetails: "",
+    };
+  },
+  methods: {
+    OrgNoValidate() {
+      axios
+        .get("http://localhost/FILEROUGE/Organisateur/SelectDemande")
+        .then((response) => {
+          this.information = response.data;
+          console.log(this.information);
+        });
+    },
+    details(data) {
+      console.log(data.id);
+      this.detail = true;
+      this.infoDetails = data;
+    },
+    AnnulerDemande(){
+        axios.delete("http://localhost/FILEROUGE/Organisateur/DeleteDemande/"+this.infoDetails["id"])
+        .then(response => {
+            console.log(response);
+            this.OrgNoValidate();
+        })
+    }
+  },
+  mounted() {
+    this.OrgNoValidate();
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,900);
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+$lato: "Lato", sans-serif;
+
+//color
+$yellow: #ffd300;
+$white: #f2f1f1;
+$black: #000000;
+$black-light: #5e5e5e;
+
+//font weights:
+$thin: 300;
+$normal: 400;
+$bold: 900;
+
+body {
+  background: $white;
+  color: $black-light;
+  font-family: $lato;
+  font-weight: $thin;
+  text-shadow: 1px 1px 1px #fff;
+  text-align: center;
+}
+
+h1 {
+  @media (min-width: 500px) {
+    font-size: 2.25em;
+    font-size: 7vw;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 4.5em;
+  }
+}
+
+h2 {
+  font-size: 1em;
+  line-height: 1.2;
+  margin: 1.414em 0 0.5em;
+
+  @media (min-width: 500px) {
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 800px) {
+    font-size: 1.8em;
+  }
+}
+
+h1 {
+  color: $black;
+  font-family: "Audiowide", cursive;
+  font-weight: $bold;
+  margin: 0.5em 0 2.5em;
+  span {
+    color: $yellow;
+  }
+}
+
+.wrap {
+  padding: 1em;
+  text-align: center;
+  @media (min-width: 700px) {
+    padding: 1em 2em;
+  }
+}
+
+.modal {
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+}
+
+.modal > button {
+  background: #ffd300;
+  border: 1px solid #f0c600;
+  border-radius: 0.2em;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.75em 1.5em;
+  text-shadow: 1px 1px 1px #fff;
+  transition: all 0.55s;
+}
+.modal > label:hover {
+  transform: scale(0.97);
+}
+.modal__overlay {
+  background: #00000091;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-shadow: none;
+  top: 0;
+  z-index: 600;
+}
+// .modal__wrap {
+//   position: relative;
+//   margin: 0 auto;
+// width: 90%;
+// }
+@media (min-width: 50em) {
+  .modal__wrap {
+    padding: 1.75em;
+  }
+}
+@media (min-height: 37.5em) {
+  .modal__wrap {
+    left: 50%;
+    position: absolute;
+    top: 80%;
+    transform: translate(-50%, -80%);
+  }
+}
+
+.modal__wrap label {
+  background: #ffd300;
+  border-radius: 50%;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5em;
+  line-height: 1.5;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  width: 1.5em;
+}
+.modal__wrap h2 {
+  color: #ffd300;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+.modal__wrap p {
+  color: #ffd300;
+  text-align: justify;
+}
+.modal input:focus ~ label {
+  transform: scale(0.97);
+}
+
+input {
+  position: absolute;
+  top: -1000px;
+}
+
+.modal__overlay {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -100;
+}
+
+ .modal__overlay {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 800;
+}
 </style>

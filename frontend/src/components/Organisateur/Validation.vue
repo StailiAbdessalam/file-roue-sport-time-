@@ -390,7 +390,7 @@ export default {
           new Date().getTime().toString(36);
         let storageRef = fireStorage.ref(
           fireStorage.getStorage(),
-          "images/" + newname + ".png"
+          "Profil/" + newname + ".png"
         );
         const local = this.local;
         await fireStorage.uploadBytes(storageRef, file).then(function () {

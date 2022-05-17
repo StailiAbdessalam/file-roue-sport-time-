@@ -89,7 +89,6 @@ export default {
   },
   methods: {
     login() {
-      console.log(this.personne);
       axios
         .post(`http://localhost/FILEROUGE/${this.personne}/index`, {
           ID: this.ID,
@@ -97,7 +96,6 @@ export default {
         .then((response) => {
           if (response.data.status == "information correct") {
             if (response.data.data.suspended == 0) {
-              console.log(response.data.data);
               swal({
                 title: "Welcome",
                 text: "pour continuer veuillez vous Validate your account",
@@ -118,8 +116,6 @@ export default {
               localStorage.setItem("user", this.personne);
               this.setRole(this.personne);
               this.$router.push("/");
-              // this.$router.go("/");
-              // localStorage.setItem('ID', this.ID)
             }
           } else {
             this.error = response.data.message;

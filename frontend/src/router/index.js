@@ -47,24 +47,37 @@ const routes = [
     name: "Stadieum",
     component: () =>
       import(/* webpackChunkName: "home" */ "../Pages/Users/Stadieum.vue"),
-  }, {
+  },
+  {
     path: "/Profil",
     name: "Profil",
     component: () =>
       import(/* webpackChunkName: "home" */ "../Pages/Organisateur/Profil.vue"),
-   },
-   {
+  },
+  {
     path: "/Validation",
     name: "Validation",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Organisateur/Validation.vue"),
-  }, {
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Organisateur/Validation.vue"
+      ),
+  },
+  {
     path: "/AddPost",
     name: "AddPost",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Organisateur/AddPost.vue"),
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Organisateur/AddPost.vue"
+      ),
   },
-  
+  {
+    path: "/Archieve",
+    name: "Archieve",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Admin/Archieve.vue"
+      ),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

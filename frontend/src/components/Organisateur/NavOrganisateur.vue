@@ -1,558 +1,579 @@
 <template>
-    <div class="sidebar" :class="isOpened ? 'open' : ''" :style="cssVars">
-        <div class="logo-details" style="margin: 6px 14px 0 14px;">
-            <!-- <img src="../assets/img/LOGO.png" alt="menu-logo" class="menu-logo icon"> -->
-            <div class="logo_name">
-                Sport Time
-            </div>
-            <i class="bx" :class="isOpened ? 'bx-menu-alt-right' : 'bx-menu'" id="btn" @click="isOpened = !isOpened" />
-        </div>
-        <div
-            style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
-            <div id="my-scroll" style="margin: 6px 14px 0 14px;">
-                <ul class="nav-list" style="overflow: visible;">
-              
-                    <li v-if="isSearch" @click="isOpened = true">
-                        <i class="bx bx-search" />
-                        <input type="text" placeholder="Search..."
-                            @input="$emit('search-input-emit', $event.target.value)">
-                        <span class="tooltip">Search</span>
-                    </li>
-                    <!-- pour afficher tout les button de nav-bar -->
-                    <span  v-for="(menuItem, index) in menuItems" :key="index">
-                        <li class="hover:cursor-pointer" @click="deriction(menuItem.link)">
-                            <a>
-                                <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
-                                <span class="links_name">{{ menuItem.name }}</span>
-                            </a>
-                            <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
-                        </li>
-                    </span>
-                </ul>
-            </div>
-            <div class="profile">
-                <div class="profile-details">
-                    <img src="../../assets/img/photo.jpg" alt="profileImg">
-                    <div class="name_job">
-                        <div class="name">
-                            Abdessalam staili
-                        </div>
-                        <div class="job">
-                            Admin
-                        </div>
-                    </div>
-                </div>
-                <i  v-if="isExitButton" class="bx bx-log-out hover:cursor-pointer" id="log_out" @click="logout()" />
-            </div>
-        </div>
+  <div class="sidebar" :class="isOpened ? 'open' : ''" :style="cssVars">
+    <div class="logo-details" style="margin: 6px 14px 0 14px">
+      <!-- <img src="../assets/img/LOGO.png" alt="menu-logo" class="menu-logo icon"> -->
+      <div class="logo_name">Sport Time</div>
+      <i
+        class="bx"
+        :class="isOpened ? 'bx-menu-alt-right' : 'bx-menu'"
+        id="btn"
+        @click="isOpened = !isOpened"
+      />
     </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        max-height: calc(100% - 60px);
+      "
+    >
+      <div id="my-scroll" style="margin: 6px 14px 0 14px">
+        <ul class="nav-list" style="overflow: visible">
+          <li v-if="isSearch" @click="isOpened = true">
+            <i class="bx bx-search" />
+            <input
+              type="text"
+              placeholder="Search..."
+              @input="$emit('search-input-emit', $event.target.value)"
+            />
+            <span class="tooltip">Search</span>
+          </li>
+          <!-- pour afficher tout les button de nav-bar -->
+          <span v-for="(menuItem, index) in menuItems" :key="index">
+            <li class="hover:cursor-pointer" @click="deriction(menuItem.link)">
+              <a>
+                <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
+                <span class="links_name">{{ menuItem.name }}</span>
+              </a>
+              <span class="tooltip">{{
+                menuItem.tooltip || menuItem.name
+              }}</span>
+            </li>
+          </span>
+        </ul>
+      </div>
+      <div class="profile">
+        <div class="profile-details">
+          <img src="../../assets/img/photo.jpg" alt="profileImg" />
+          <div class="name_job">
+            <div class="name">Abdessalam staili</div>
+            <div class="job">Admin</div>
+          </div>
+        </div>
+        <i
+          v-if="isExitButton"
+          class="bx bx-log-out hover:cursor-pointer"
+          id="log_out"
+          @click="logout()"
+        />
+      </div>
+    </div>
+  </div>
 </template>
-
-
 
 <script>
 export default {
-    name: 'SidebarMenuAkahon',
-    props: {
-        //! Menu settings
-        isMenuOpen: {
-            type: Boolean,
-            default: true,
-        },
-        menuIcon: {
-            type: String,
-            default: 'bxl-c-plus-plus',
-        },
-        isPaddingLeft: {
-            type: Boolean,
-            default: true,
-        },
-        menuOpenedPaddingLeftBody: {
-            type: String,
-            default: '250px'
-        },
-        menuClosedPaddingLeftBody: {
-            type: String,
-            default: '78px'
-        },
+  name: "SidebarMenuAkahon",
+  props: {
+    //! Menu settings
+    isMenuOpen: {
+      type: Boolean,
+      default: true,
+    },
+    menuIcon: {
+      type: String,
+      default: "bxl-c-plus-plus",
+    },
+    isPaddingLeft: {
+      type: Boolean,
+      default: true,
+    },
+    menuOpenedPaddingLeftBody: {
+      type: String,
+      default: "250px",
+    },
+    menuClosedPaddingLeftBody: {
+      type: String,
+      default: "78px",
+    },
 
-        //! Menu items
-        menuItems: {
-            type: Array,
-            default: () => [
-                {
-                    link: '/',
-                    name: 'Dashboard',
-                    tooltip: 'Dashboard',
-                    icon: 'bx-grid-alt',
-                },
-                // {
-                //     link: '#',
-                //     name: 'User',
-                //     tooltip: 'User',
-                //     icon: 'bx-user',
-                // },
-                {
-                    link: '/AddPost',
-                    name: 'Add Post',
-                    tooltip: 'Post Sport',
-                    icon: 'bx-basketball',
+    //! Menu items
+    menuItems: {
+      type: Array,
+      default: () => [
+        {
+          link: "/",
+          name: "Home",
+          tooltip: "Home",
+          icon: "bx-home",
+        },
+        // {
+        //   link: "/Dashboard",
+        //   name: "Dashboard",
+        //   tooltip: "Dashboard",
+        //   icon: "bx-grid-alt",
+        // },
+        // {
+        //     link: '#',
+        //     name: 'User',
+        //     tooltip: 'User',
+        //     icon: 'bx-user',
+        // },
+       
+        {
+          link: "/Reservation",
+          name: "Tous Reservation",
+          tooltip: "Reservation",
+          icon: "bx-cart-alt",
+        },
+         {
+          link: "/AddPost",
+          name: "Add Post",
+          tooltip: "Post Sport",
+          icon: "bx-basketball",
+        },
+        {
+          link: "/Profil",
+          name: "Profil",
+          tooltip: "Contact",
+          icon: "bx-user",
+        },
+        // {
+        //     link: '#',
+        //     name: 'Saved',
+        //     tooltip: 'Saved',
+        //     icon: 'bx-heart',
+        // },
+        {
+          link: "/Payement",
+          name: "Payement",
+          tooltip: "Payement",
+          icon: "bx-heart",
+        },
+        {
+          link: "/setting",
+          name: "Setting",
+          tooltip: "Setting",
+          icon: "bx-cog",
+        },
+      ],
+    },
 
-                },
-                {
-                    link: '/Reservation',
-                    name: 'Tous Reservation',
-                    tooltip: 'Reservation',
-                    icon: 'bx-cart-alt',
-                },
-                {
-                    link: '/Profil',
-                    name: 'Profil',
-                    tooltip: 'Contact',
-                    icon: 'bx-user',
-                },
-                // {
-                //     link: '#',
-                //     name: 'Saved',
-                //     tooltip: 'Saved',
-                //     icon: 'bx-heart',
-                // },
-                {
-                    link: '/abonnement',
-                    name: 'abonnement',
-                    tooltip: 'abonnement',
-                    icon: 'bx-heart',
+    //! Search
+    isSearch: {
+      type: Boolean,
+      default: true,
+    },
+    //! Exit button
+    isExitButton: {
+      type: Boolean,
+      default: true,
+    },
 
-                },
-                {
-                    link: '/setting',
-                    name: 'Setting',
-                    tooltip: 'Setting',
-                    icon: 'bx-cog',
-                },
-            ],
-        },
-
-        //! Search
-        isSearch: {
-            type: Boolean,
-            default: true,
-        },
-        //! Exit button
-        isExitButton: {
-            type: Boolean,
-            default: true,
-        },
-
-        //! Styles
-        bgColor: {
-            type: String,
-            default: '#3aa32a',
-        },
-        secondaryColor: {
-            type: String,
-            default: '#1d1b31',
-        },
-        homeSectionColor: {
-            type: String,
-            default: '#e4e9f7',
-        },
-        logoTitleColor: {
-            type: String,
-            default: '#fff',
-        },
-        iconsColor: {
-            type: String,
-            default: '#fff',
-        },
-        itemsTooltipColor: {
-            type: String,
-            default: '#e4e9f7',
-        },
-        searchInputTextColor: {
-            type: String,
-            default: '#fff',
-        },
-        menuItemsHoverColor: {
-            type: String,
-            default: '#fff',
-        },
-        menuItemsTextColor: {
-            type: String,
-            default: '#fff',
-        },
-        menuFooterTextColor: {
-            type: String,
-            default: '#fff',
-        },
+    //! Styles
+    bgColor: {
+      type: String,
+      default: "#3aa32a",
     },
-    data() {
-        return {
-            isOpened: false
-        }
+    secondaryColor: {
+      type: String,
+      default: "#1d1b31",
     },
-    mounted() {
-        this.isOpened = this.isMenuOpen
+    homeSectionColor: {
+      type: String,
+      default: "#e4e9f7",
     },
-    computed: {
-        cssVars() {
-            return {
-                '--bg-color': this.bgColor,
-                '--secondary-color': this.secondaryColor,
-                '--home-section-color': this.homeSectionColor,
-                '--logo-title-color': this.logoTitleColor,
-                '--icons-color': this.iconsColor,
-                '--items-tooltip-color': this.itemsTooltipColor,
-                '--serach-input-text-color': this.searchInputTextColor,
-                '--menu-items-hover-color': this.menuItemsHoverColor,
-                '--menu-items-text-color': this.menuItemsTextColor,
-                '--menu-footer-text-color': this.menuFooterTextColor,
-            }
-        },
+    logoTitleColor: {
+      type: String,
+      default: "#fff",
     },
-    watch: {
-        isOpened() {
-            window.document.body.style.paddingLeft = this.isOpened && this.isPaddingLeft ? this.menuOpenedPaddingLeftBody : this.menuClosedPaddingLeftBody
-        }
+    iconsColor: {
+      type: String,
+      default: "#fff",
     },
-    methods: {
-        deriction(event) {
-            console.log(event);
-            this.$router.push(event);
-        },
-        logout(){
-            localStorage.removeItem('user');
-            this.$router.go('/Login')
-        }
+    itemsTooltipColor: {
+      type: String,
+      default: "#e4e9f7",
     },
-}
+    searchInputTextColor: {
+      type: String,
+      default: "#fff",
+    },
+    menuItemsHoverColor: {
+      type: String,
+      default: "#fff",
+    },
+    menuItemsTextColor: {
+      type: String,
+      default: "#fff",
+    },
+    menuFooterTextColor: {
+      type: String,
+      default: "#fff",
+    },
+  },
+  data() {
+    return {
+      isOpened: false,
+    };
+  },
+  mounted() {
+    this.isOpened = this.isMenuOpen;
+  },
+  computed: {
+    cssVars() {
+      return {
+        "--bg-color": this.bgColor,
+        "--secondary-color": this.secondaryColor,
+        "--home-section-color": this.homeSectionColor,
+        "--logo-title-color": this.logoTitleColor,
+        "--icons-color": this.iconsColor,
+        "--items-tooltip-color": this.itemsTooltipColor,
+        "--serach-input-text-color": this.searchInputTextColor,
+        "--menu-items-hover-color": this.menuItemsHoverColor,
+        "--menu-items-text-color": this.menuItemsTextColor,
+        "--menu-footer-text-color": this.menuFooterTextColor,
+      };
+    },
+  },
+  watch: {
+    isOpened() {
+      window.document.body.style.paddingLeft =
+        this.isOpened && this.isPaddingLeft
+          ? this.menuOpenedPaddingLeftBody
+          : this.menuClosedPaddingLeftBody;
+    },
+  },
+  methods: {
+    deriction(event) {
+      console.log(event);
+      this.$router.push(event);
+    },
+    logout() {
+      localStorage.removeItem("user");
+      this.$router.go("/Login");
+    },
+  },
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-@import url('https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .menu-logo {
-    width: 30px;
-    margin: 0 10px 0 10px;
+  width: 30px;
+  margin: 0 10px 0 10px;
 }
 
 .sidebar {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    min-height: min-content;
-    /* overflow-y: auto; */
-    width: 78px;
-    background: var(--bg-color);
-    /* padding: 6px 14px 0 14px; */
-    z-index: 99;
-    transition: all 0.5s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  min-height: min-content;
+  /* overflow-y: auto; */
+  width: 78px;
+  background: var(--bg-color);
+  /* padding: 6px 14px 0 14px; */
+  z-index: 99;
+  transition: all 0.5s ease;
 }
 
 .sidebar.open {
-    width: 250px;
+  width: 250px;
 }
 
 .sidebar .logo-details {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .sidebar .logo-details .icon {
-    opacity: 0;
-    transition: all 0.5s ease;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 .sidebar .logo-details .logo_name {
-    color: var(--logo-title-color);
-    font-size: 20px;
-    font-weight: 600;
-    opacity: 0;
-    transition: all 0.5s ease;
+  color: var(--logo-title-color);
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 .sidebar.open .logo-details .icon,
 .sidebar.open .logo-details .logo_name {
-    opacity: 1;
+  opacity: 1;
 }
 
 .sidebar .logo-details #btn {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    font-size: 22px;
-    transition: all 0.4s ease;
-    font-size: 23px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.5s ease;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
 
 .sidebar.open .logo-details #btn {
-    text-align: right;
+  text-align: right;
 }
 
 .sidebar i {
-    color: var(--icons-color);
-    height: 60px;
-    min-width: 50px;
-    font-size: 28px;
-    text-align: center;
-    line-height: 60px;
+  color: var(--icons-color);
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
 }
 
 .sidebar .nav-list {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .sidebar li {
-    position: relative;
-    margin: 8px 0;
-    list-style: none;
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
 }
 
 .sidebar li .tooltip {
-    position: absolute;
-    top: -20px;
-    left: calc(100% + 15px);
-    z-index: 3;
-    background: var(--items-tooltip-color);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 15px;
-    font-weight: 400;
-    opacity: 0;
-    white-space: nowrap;
-    pointer-events: none;
-    transition: 0s;
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: var(--items-tooltip-color);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
 }
 
 .sidebar li:hover .tooltip {
-    opacity: 1;
-    pointer-events: auto;
-    transition: all 0.4s ease;
-    top: 50%;
-    transform: translateY(-50%);
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .sidebar.open li .tooltip {
-    display: none;
+  display: none;
 }
 
 .sidebar input {
-    font-size: 15px;
-    color: var(--serach-input-text-color);
-    font-weight: 400;
-    outline: none;
-    height: 50px;
-    width: 100%;
-    width: 50px;
-    border: none;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    background: var(--secondary-color);
+  font-size: 15px;
+  color: var(--serach-input-text-color);
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: var(--secondary-color);
 }
 
 .sidebar.open input {
-    padding: 0 20px 0 50px;
-    width: 100%;
+  padding: 0 20px 0 50px;
+  width: 100%;
 }
 
 .sidebar .bx-search {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 22px;
-    background: var(--secondary-color);
-    color: var(--icons-color);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: var(--secondary-color);
+  color: var(--icons-color);
 }
 
 .sidebar.open .bx-search:hover {
-    background: var(--secondary-color);
-    color: var(--icons-color);
+  background: var(--secondary-color);
+  color: var(--icons-color);
 }
 
 .sidebar .bx-search:hover {
-    background: var(--menu-items-hover-color);
-    color: var(--bg-color);
+  background: var(--menu-items-hover-color);
+  color: var(--bg-color);
 }
 
 .sidebar li a {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 12px;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    background: var(--bg-color);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: var(--bg-color);
 }
 
 .sidebar li a:hover {
-    background: var(--menu-items-hover-color);
+  background: var(--menu-items-hover-color);
 }
 
 .sidebar li a .links_name {
-    color: var(--menu-items-text-color);
-    font-size: 15px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
+  color: var(--menu-items-text-color);
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
 }
 
 .sidebar.open li a .links_name {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
-    transition: all 0.5s ease;
-    color: var(--bg-color);
+  transition: all 0.5s ease;
+  color: var(--bg-color);
 }
 
 .sidebar li i {
-    height: 50px;
-    line-height: 50px;
-    font-size: 18px;
-    border-radius: 12px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
 }
 
 .sidebar div.profile {
-    position: relative;
-    height: 60px;
-    width: 78px;
-    padding: 10px 14px;
-    background: var(--secondary-color);
-    transition: all 0.5s ease;
-    overflow: hidden;
+  position: relative;
+  height: 60px;
+  width: 78px;
+  padding: 10px 14px;
+  background: var(--secondary-color);
+  transition: all 0.5s ease;
+  overflow: hidden;
 }
 
 .sidebar.open div.profile {
-    width: 250px;
+  width: 250px;
 }
 
 .sidebar div .profile-details {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .sidebar div img {
-    height: 45px;
-    width: 45px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-right: 10px;
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
 }
 
 .sidebar div.profile .name,
 .sidebar div.profile .job {
-    font-size: 15px;
-    font-weight: 400;
-    color: var(--menu-footer-text-color);
-    white-space: nowrap;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--menu-footer-text-color);
+  white-space: nowrap;
 }
 
 .sidebar div.profile .job {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .sidebar .profile #log_out {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    background: var(--secondary-color);
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 0px;
-    transition: all 0.5s ease;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--secondary-color);
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
 }
 
 .sidebar.open .profile #log_out {
-    width: 50px;
-    background: var(--secondary-color);
-    opacity: 0;
+  width: 50px;
+  background: var(--secondary-color);
+  opacity: 0;
 }
 
 .sidebar.open .profile:hover #log_out {
-    opacity: 1;
+  opacity: 1;
 }
 
 .sidebar.open .profile #log_out:hover {
-    opacity: 1;
-    color: red;
+  opacity: 1;
+  color: red;
 }
 
 .sidebar .profile #log_out:hover {
-    color: red;
+  color: red;
 }
 
 .home-section {
-    position: relative;
-    background: var(--home-section-color);
-    min-height: 100vh;
-    top: 0;
-    left: 78px;
-    width: calc(100% - 78px);
-    transition: all 0.5s ease;
-    z-index: 2;
+  position: relative;
+  background: var(--home-section-color);
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
 }
 
-.sidebar.open~.home-section {
-    left: 250px;
-    width: calc(100% - 250px);
+.sidebar.open ~ .home-section {
+  left: 250px;
+  width: calc(100% - 250px);
 }
 
 .home-section .text {
-    display: inline-block;
-    color: var(--bg-color);
-    font-size: 25px;
-    font-weight: 500;
-    margin: 18px;
+  display: inline-block;
+  color: var(--bg-color);
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
 }
 
 .my-scroll-active {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 #my-scroll {
-    overflow-y: auto;
-    height: calc(100% - 60px);
+  overflow-y: auto;
+  height: calc(100% - 60px);
 }
 
 #my-scroll::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 420px) {
-    .sidebar li .tooltip {
-        display: none;
-    }
+  .sidebar li .tooltip {
+    display: none;
+  }
 }
 </style>

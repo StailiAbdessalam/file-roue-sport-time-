@@ -1,16 +1,16 @@
 <template>
   <div>
-      <AllOrg/>
+    <Archieve />
   </div>
 </template>
 
 <script>
-import AllOrg from "../../components/Admin/AllOrg.vue";
+import Archieve from "../../components/Admin/Archieve.vue";
 export default {
-  name: "all-org",
+  name: "Archi-eve",
   components: {
-    AllOrg
-  }
+    Archieve,
+  },
 };
 </script>
 

@@ -31,13 +31,6 @@ class Organisateur extends Controller
       }
     }
   }
-  public function selectAll()
-  {
-    $CliensModel = $this->model('ClientsModel');
-    $Cliens = $CliensModel->selectAll();
-    echo json_encode($Cliens);
-  }
-
 
   public function register()
   {
@@ -75,6 +68,12 @@ class Organisateur extends Controller
     }
   }
 
+  public function SelectDemande()
+  {
+    $CliensModel = $this->model('OrganisateurModel');
+    $Cliens = $CliensModel->selectDemandeOrg();
+    echo json_encode($Cliens);
+  }
 
 
 
@@ -113,13 +112,12 @@ class Organisateur extends Controller
 
 
 
-
-
-
-
-
-
-
+  public function selectAll()
+  {
+    $CliensModel = $this->model('ClientsModel');
+    $Cliens = $CliensModel->selectAll();
+    echo json_encode($Cliens);
+  }
 
   public function getAllRDV()
   {

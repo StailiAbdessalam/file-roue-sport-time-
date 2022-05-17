@@ -29,7 +29,12 @@ class OrganisateurModel
         return $CLIENT;
     }
 
-
+    public function selectDemandeOrg()
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->selectDemandeOrg();
+        return $CLIENT;
+    }
 
 
 

@@ -31,12 +31,7 @@ class Admin extends Controller
       }
     }
   }
-  public function selectAll()
-  {
-    $CliensModel = $this->model('ClientsModel');
-    $Cliens = $CliensModel->selectAll();
-    echo json_encode($Cliens);
-  }
+
 
 
   public function register()

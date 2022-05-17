@@ -72,6 +72,28 @@
         }
 
 
+        public function selectAllOrganisateur()
+        {
+            $conn = $this->connection;
+            $requi = "SELECT *  FROM `organisateur` left join local on local.idOrganisateur = organisateur.id WHERE organisateur.suspended = 1";
+            $stm = $conn->prepare($requi);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -95,6 +117,21 @@
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

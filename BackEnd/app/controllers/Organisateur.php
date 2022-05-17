@@ -44,8 +44,9 @@ class Organisateur extends Controller
       echo json_encode($data);
     }
   }
- 
-  public function insertLocal(){
+
+  public function insertLocal()
+  {
     $CreateAcc = $this->model('OrganisateurModel');
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $json = file_get_contents('php://input');
@@ -61,9 +62,9 @@ class Organisateur extends Controller
   {
     $CliensModel = $this->model('OrganisateurModel');
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-     $json = file_get_contents('php://input');
-     $data = json_decode($json);
-     $CliensModel->updatesuspended($data);
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $CliensModel->updatesuspended($data);
       echo json_encode("true");
     }
   }
@@ -75,14 +76,15 @@ class Organisateur extends Controller
     echo json_encode($Cliens);
   }
 
-  public function DeleteDemande(){
+  public function DeleteDemande()
+  {
     $CliensModel = $this->model('OrganisateurModel');
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
       $CliensModel->DeleteDemande($data);
-       echo json_encode("true");
-     }    
+      echo json_encode("true");
+    }
   }
 
   public function ValideDemande()
@@ -94,11 +96,25 @@ class Organisateur extends Controller
       $CliensModel->ValideDemande($data);
       echo json_encode("true");
     }
-  
   }
 
 
+  public function selectOrg()
+  {
+    $CliensModel = $this->model('OrganisateurModel');
+    $Cliens = $CliensModel->selectOrg();
+    echo json_encode($Cliens);
+  }
 
+  public function ArchiverDemande(){
+    $CliensModel = $this->model('OrganisateurModel');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $CliensModel->ArchiverDemande($data);
+      echo json_encode("true");
+    }
+  }
 
 
 

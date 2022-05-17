@@ -51,6 +51,26 @@ class OrganisateurModel
         return $DElet;
     }
 
+    public function selectOrg()
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->selectAllOrganisateur();
+        return $CLIENT;
+    }
+    public function ArchiverDemande($data){
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->updatesuspended($data);
+        return $CLIENT;
+    }
+
+
+
+
+
+
+
+
+
 
 
 

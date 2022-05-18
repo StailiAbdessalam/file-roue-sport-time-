@@ -87,18 +87,6 @@ class Organisateur extends Controller
     }
   }
 
-  public function ValideDemande()
-  {
-    $CliensModel = $this->model('OrganisateurModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
-      $CliensModel->ValideDemande($data);
-      echo json_encode("true");
-    }
-  }
-
-
   public function selectOrg()
   {
     $CliensModel = $this->model('OrganisateurModel');
@@ -106,15 +94,25 @@ class Organisateur extends Controller
     echo json_encode($Cliens);
   }
 
-  public function ArchiverDemande(){
+  public function selectArchive()
+  {
     $CliensModel = $this->model('OrganisateurModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
+    $Cliens = $CliensModel->selectArchive();
+    echo json_encode($Cliens);
+  }
+  public function getOne()
+  {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+     $json = file_get_contents('php://input');
       $data = json_decode($json);
-      $CliensModel->ArchiverDemande($data);
-      echo json_encode("true");
+      $CliensModel = $this->model('OrganisateurModel');
+      $Cliens = $CliensModel->getOne($data->id);
+      
+      echo json_encode($Cliens);
+
     }
   }
+
 
 
 
@@ -163,14 +161,6 @@ class Organisateur extends Controller
       $RDV = $this->model('RDVModel');
       $RDVs = $RDV->selectAll($_GET['id']);
       echo json_encode($RDVs);
-    }
-  }
-  public function getOne()
-  {
-    if ($_SERVER["REQUEST_METHOD"] === "GET") {
-      $select = $this->model('UserModel');
-      $selected = $select->select($_GET['id']);
-      echo json_encode($selected);
     }
   }
   public function addAppointment()

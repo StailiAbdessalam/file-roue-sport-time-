@@ -131,12 +131,12 @@ export default {
             tooltip: 'Archieve',
             icon: 'bx-block',
         },
-        {
-          link: "/abonnement",
-          name: "abonnement",
-          tooltip: "abonnement",
-          icon: "bx-heart",
-        },
+        // {
+        //   link: "/abonnement",
+        //   name: "abonnement",
+        //   tooltip: "abonnement",
+        //   icon: "bx-heart",
+        // },
 
         {
           link: "/setting",
@@ -240,6 +240,7 @@ export default {
       localStorage.removeItem("user");
       this.setRole(" ");
       this.$router.push("/Login");
+      // this.$router.go();
     },
   },
 };

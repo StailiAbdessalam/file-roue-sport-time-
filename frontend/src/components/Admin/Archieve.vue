@@ -103,8 +103,15 @@
               <a
                 href="#"
                 class="bg-red-500 p-2 text-white hover:shadow-lg font-normal w-32"
-                @click="ArchiverDemande(Org)"
-                >Supprimer</a
+                  @click="SUpprimerCompte(Org)"
+              
+                >SUpprimmer</a
+              >
+              <a
+                 @click="DesArchiver(Org)"
+                href="#"
+                class="bg-blue-500 p-2 text-white hover:shadow-lg font-normal w-32"
+                >DeSArchivier</a
               >
               
             </td>
@@ -129,19 +136,30 @@ export default {
   methods: {
     OrgArchiver() {
       axios
-        .get("http://localhost/FILEROUGE/Organisateur/selectOrg")
+        .get("http://localhost/FILEROUGE/Organisateur/selectArchive")
         .then((response) => {
           this.information = response.data;
           console.log(this.information);
         });
     },
-    ArchiverDemande(data) {
-        console.log(data.id);
-        console.log(data.idOrganisateur);
+    DesArchiver(data) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/ArchiverDemande", {
-          Suspended: "X",
+        .post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
+          Suspended: "1",
           id: data.idOrganisateur,
+        })
+        .then((response) => {
+          console.log(response);
+          this.information = this.information.filter(function (iteam) {
+            return iteam.idOrganisateur != data.idOrganisateur;
+          });
+        });
+    },
+     SUpprimerCompte(data) {
+      axios
+        .post("http://localhost/FILEROUGE/Organisateur/DeleteDemande", {
+          id: data.id,
+          idOrganisateur: data.idOrganisateur,
         })
         .then((response) => {
           console.log(response);

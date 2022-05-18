@@ -182,7 +182,7 @@ export default {
         console.log(data.id);
         console.log(data.idOrganisateur);
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/ArchiverDemande", {
+        .post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
           Suspended: "X",
           id: data.idOrganisateur,
         })

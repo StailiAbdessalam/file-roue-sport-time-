@@ -81,7 +81,24 @@
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
-
+        public function selectArchive()
+        {
+            $conn = $this->connection;
+            $requi = "SELECT *  FROM `organisateur` left join local on local.idOrganisateur = organisateur.id WHERE organisateur.suspended = 'X'";
+            $stm = $conn->prepare($requi);
+            $stm->execute();
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        public function getOne($id)
+        {
+            $conn = $this->connection;
+            $requi = "SELECT *  FROM `organisateur` left join local on local.idOrganisateur = organisateur.id WHERE organisateur.id = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["id" => $id]);
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
 
 
 

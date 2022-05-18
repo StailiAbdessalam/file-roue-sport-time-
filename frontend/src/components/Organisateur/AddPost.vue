@@ -67,17 +67,7 @@
             </select>
           </div>
 
-          <div  class="grid grid-cols-1">
-            <label
-              class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold"
-              >text hover</label
-            >
-            <input
-              class="py-2 px-3 rounded-lg border-2 border-green-300 mt-1 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-              type="text"
-              placeholder="text hover"
-            />
-          </div>
+          
         </div>
 
         <!-- <div class="grid grid-cols-1 mt-5 mx-7">

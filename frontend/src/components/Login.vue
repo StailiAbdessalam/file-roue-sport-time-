@@ -114,8 +114,9 @@ export default {
               });
             } else {
               localStorage.setItem("user", this.personne);
+              localStorage.setItem("id",response.data.data.id); 
               this.setRole(this.personne);
-              this.$router.push("/");
+              this.$router.push("/")
             }
           } else {
             this.error = response.data.message;

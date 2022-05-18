@@ -199,7 +199,7 @@ export default {
     },
     ValideDemande(data) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/ValideDemande", {
+        .post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
           id: data.idOrganisateur,
           Suspended: 1,
         })

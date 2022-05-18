@@ -46,10 +46,10 @@
       </div>
       <div class="profile">
         <div class="profile-details">
-          <img src="../../assets/img/photo.jpg" alt="profileImg" />
+          <img :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${User.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`" alt="profileImg" />
           <div class="name_job">
-            <div class="name">Abdessalam staili</div>
-            <div class="job">Admin</div>
+            <div class="name">{{User.LastName}}{{User.FirstName}}</div>
+            <div class="job">{{role}}</div>
           </div>
         </div>
         <i
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "SidebarMenuAkahon",
   props: {
@@ -99,6 +100,12 @@ export default {
           tooltip: "Home",
           icon: "bx-home",
         },
+        {
+          link: "/AddPost",
+          name: "Add Post",
+          tooltip: "Post Sport",
+          icon: "bx-basketball",
+        },
         // {
         //   link: "/Dashboard",
         //   name: "Dashboard",
@@ -117,12 +124,6 @@ export default {
           name: "Tous Reservation",
           tooltip: "Reservation",
           icon: "bx-cart-alt",
-        },
-         {
-          link: "/AddPost",
-          name: "Add Post",
-          tooltip: "Post Sport",
-          icon: "bx-basketball",
         },
         {
           link: "/Profil",
@@ -207,10 +208,13 @@ export default {
   data() {
     return {
       isOpened: false,
+      User: "",
+      role:localStorage.getItem('user')
     };
   },
   mounted() {
     this.isOpened = this.isMenuOpen;
+    this.getOrganisateur();
   },
   computed: {
     cssVars() {
@@ -245,6 +249,14 @@ export default {
       localStorage.removeItem("user");
       this.$router.go("/Login");
     },
+    getOrganisateur(){
+      axios.post("http://localhost/FILEROUGE/Organisateur/getOne",{
+        id:localStorage.getItem("id")
+      }).then(res=>{
+        console.log(res);
+        this.User=res.data;
+      })
+    }
   },
 };
 </script>

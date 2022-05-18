@@ -44,26 +44,25 @@ class OrganisateurModel
         $DElet = $Modelloacl->Delete($data->id);
         return $DElet;
     }
-    public function ValideDemande($data)
-    {
-        $ModelOrg = new GlobalModel("organisateur");
-        $DElet = $ModelOrg->updatesuspended($data);
-        return $DElet;
-    }
-
     public function selectOrg()
     {
         $ModelClients = new GlobalModel("organisateur");
         $CLIENT = $ModelClients->selectAllOrganisateur();
         return $CLIENT;
     }
-    public function ArchiverDemande($data){
+    public function selectArchive()
+    {
         $ModelClients = new GlobalModel("organisateur");
-        $CLIENT = $ModelClients->updatesuspended($data);
+        $CLIENT = $ModelClients->selectArchive();
         return $CLIENT;
     }
 
-
+    public function getOne($id)
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->getOne($id);
+        return $CLIENT;
+    }
 
 
 

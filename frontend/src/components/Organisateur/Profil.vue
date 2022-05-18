@@ -16,7 +16,7 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello Abdessalam</h1>
+            <h1 class="display-2 text-white">Hello {{user.FirstName}}</h1>
             <p class="text-white mt-0 mb-5">
               This is your profile page. You can see the progress you've made
               with your work and manage your projects or assigned tasks
@@ -37,11 +37,7 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img
-
-                    src="https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F9n1x2b9fk3rl3ak174v.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757"
-                      class="rounded-circle"
-                    />
+                   <img  class="rounded-circle" :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${user.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`" alt="profileImg" />
                   </a>
                 </div>
               </div>
@@ -79,23 +75,20 @@
               </div>
               <div class="text-center">
                 <h3>
-                  Abdessalam STaili<span class="font-weight-light">, 19</span>
+                  {{user.FirstName}}{{user.LastName}}<span class="font-weight-light">, 19</span>
                 </h3>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>Meknes, Maroc
+                  <i class="ni location_pin mr-2"></i>{{user.Ville}} , Maroc
                 </div>
                 <div class="h5 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>Solution Manager
-                  - Creative Tim Officer
+                  <i class="ni business_briefcase-24 mr-2"></i>{{user.Email}}
                 </div>
                 <div>
-                  <i class="ni education_hat mr-2"></i>University of Computer
-                  Science
+                  <i class="ni education_hat mr-2"></i>{{user.Phone}}
                 </div>
                 <hr class="my-4" />
                 <p>
-                  Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick
-                  Murphy — writes, performs and records all of his own music.
+                 {{user.About}}
                 </p>
               </div>
             </div>
@@ -113,6 +106,8 @@
                 </div>
               </div>
             </div>
+
+<!-- edit your prophile -->
 
             <div v-if="edit" class="card-body">
               <form>
@@ -215,33 +210,6 @@
                         />
                       </div>
                     </div>
-                    <div class="col-lg-4">
-                      <div class="form-group focused">
-                        <label class="form-control-label" for="input-country"
-                          >Country</label
-                        >
-                        <input
-                          type="text"
-                          id="input-country"
-                          class="form-control form-control-alternative"
-                          placeholder="Country"
-                          value="United States"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-4">
-                      <div class="form-group">
-                        <label class="form-control-label" for="input-country"
-                          >Postal code</label
-                        >
-                        <input
-                          type="number"
-                          id="input-postal-code"
-                          class="form-control form-control-alternative"
-                          placeholder="Postal code"
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <hr class="my-4" />
@@ -272,12 +240,30 @@ A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea
 </template>
 
 <script>
+import store from "@/store";
 export default {
   name: "Pro-fil",
   data() {
     return {
       edit: false,
+      information :{
+        
+      },
     };
+  },
+  mounted() {
+    this.isOpened = this.isMenuOpen;
+    this.getOrganisateur();
+  },
+  computed: {
+    user: () => {
+      return store.getters.User;
+    },
+  },
+  methods: {
+    getOrganisateur() {
+      this.$store.dispatch("getOrganisateur");
+    },
   },
 };
 </script>

@@ -1,12 +1,28 @@
-import {createStore} from 'vuex'
+import { createStore } from "vuex";
+import axios from "axios";
 export default createStore({
-    state:{
-        suspend:"",
+  state: {
+    suspend: "",
+    User: {},
+  },
+  getters: {
+    User: (state) => state.User,
+  },
+  mutations: {
+    SetUser: (state, User) => {
+      state.User = User;
     },
-    getters:{
-        
+  },
+  actions: {
+    getOrganisateur({ commit }) {
+      axios
+        .post("http://localhost/FILEROUGE/Organisateur/getOne", {
+          id: localStorage.getItem("id"),
+        })
+        .then((res) => {
+          console.log(res.data);
+          commit("SetUser", res.data);
+        });
     },
-    mutations: {},
-    actions:{}
-  })
-
+  },
+});

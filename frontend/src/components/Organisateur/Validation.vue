@@ -162,6 +162,19 @@
                   <label
                     for="profession"
                     class="font-bold mb-1 text-gray-700 block"
+                    >About me</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                    placeholder="ecrir des description ..."
+                    v-model="local.About"
+                  />
+                </div> 
+                <div class="mb-5">
+                  <label
+                    for="profession"
+                    class="font-bold mb-1 text-gray-700 block"
                     >STadieum</label
                   >
                   <input
@@ -356,6 +369,7 @@ export default {
       gender: "Male",
 
       local: {
+        About:"",
         Photo: "",
         Ville: "",
         Jour: "",

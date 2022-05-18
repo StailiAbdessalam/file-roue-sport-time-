@@ -5,6 +5,7 @@ import router from "./router/index";
 import "./index.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import store from './store';
 
 // import  firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -30,4 +31,4 @@ const firebaseConfig = {
 export default initializeApp(firebaseConfig);
 
 // export default getFirestore();
-createApp(App).use(router).mount("#app");
+createApp(App).use(store).use(router).mount("#app");

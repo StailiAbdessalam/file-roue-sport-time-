@@ -51,7 +51,7 @@
             alt="profileImg"
           />
           <div class="name_job">
-            <div class="name">{{ user.LastName }}{{ user.FirstName }}</div>
+            <div class="name">{{ user.LastName }}   {{ user.FirstName }}</div>
             <div class="job">{{ role }}</div>
           </div>
         </div>

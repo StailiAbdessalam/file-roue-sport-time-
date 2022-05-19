@@ -170,39 +170,6 @@
                     placeholder="ecrir des description ..."
                     v-model="local.About"
                   />
-                </div> 
-                <div class="mb-5">
-                  <label
-                    for="profession"
-                    class="font-bold mb-1 text-gray-700 block"
-                    >STadieum</label
-                  >
-                  <input
-                    type="number"
-                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                    placeholder="combien des stades dans votre local"
-                    v-model="local.NumSTadieum"
-                  />
-                </div>
-                <div class="mb-5">
-                  <label
-                    for="profession"
-                    class="font-bold mb-1 text-gray-700 block"
-                    >Jour</label
-                  >
-                  <select
-                    v-model="local.Jour"
-                    class="py-2 px-3 rounded-lg border-2 border-green-300 mt-1 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-                  >
-                    <option>7/7</option>
-                    <option>6/7</option>
-                    <option>5\7</option>
-                  </select>
-                  <!-- <input
-                    type="profession"
-                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                    placeholder="eg. Web Developer"
-                  /> -->
                 </div>
               </div>
             </transition>
@@ -369,7 +336,7 @@ export default {
       gender: "Male",
 
       local: {
-        About:"",
+        About: "",
         Photo: "",
         Ville: "",
         Jour: "",
@@ -421,10 +388,8 @@ export default {
         console.log(e);
       }
       axios.post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
-        
-          id: this.local.idOrganisateur,
-          Suspended: -1,
-        
+        id: this.local.idOrganisateur,
+        Suspended: -1,
       });
     },
     checkPasswordStrength() {

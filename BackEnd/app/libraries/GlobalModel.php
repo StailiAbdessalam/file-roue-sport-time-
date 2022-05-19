@@ -100,6 +100,24 @@
             return $result;
         }
 
+        public function UpdateOrg($data, $id)
+        {
+            $conn = $this->connection;
+            $requi = "UPDATE `organisateur` SET `FirstName`=:FirstName,`LastName`=:LastName,`Email`=:Email,`Phone`=:Phone, `business_name`=:business_name  WHERE id=:id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["FirstName" => $data["FirstName"], "LastName" => $data["LastName"], "Email" => $data["Email"], "Phone" => $data["Phone"], "business_name" => $data["business_name"], "id" => $id]);
+            return $stm->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function UpdateLocal($data,$id)
+        {
+            $conn = $this->connection;
+            $requi = "UPDATE `local` SET `Address`=:Address,`Ville`=:Ville , `About`=:About WHERE id=:id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["Address" => $data["Address"], "Ville" => $data["Ville"], "About"=>$data["About"], "id" => $id]);
+            return $stm->fetch(PDO::FETCH_ASSOC);
+        }
+
 
 
 

@@ -43,10 +43,10 @@ const routes = [
       import(/* webpackChunkName: "home" */ "../Pages/Admin/Dashbord.vue"),
   },
   {
-    path: "/Stadieum",
-    name: "Stadieum",
+    path: "/local",
+    name: "local",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Users/Stadieum.vue"),
+      import(/* webpackChunkName: "home" */ "../Pages/Users/local.vue"),
   },
   {
     path: "/Profil",
@@ -63,11 +63,11 @@ const routes = [
       ),
   },
   {
-    path: "/AddPost",
-    name: "AddPost",
+    path: "/AddStade",
+    name: "Add Stade",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "../Pages/Organisateur/AddPost.vue"
+        /* webpackChunkName: "home" */ "../Pages/Organisateur/AddStade.vue"
       ),
   },
   {

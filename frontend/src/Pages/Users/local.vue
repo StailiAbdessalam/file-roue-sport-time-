@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import staduim from "../../components/Users/Stadieum.vue";
+import staduim from "../../components/Users/local.vue";
 export default {
   name: "stadi-eum",
   components: {

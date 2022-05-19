@@ -1,15 +1,15 @@
 <template>
   <div>
-    <AddPOst />
+    <AddStade />
   </div>
 </template>
 
 <script>
-import AddPOst from "../../components/Organisateur/AddPost.vue";
+import AddStade from "../../components/Organisateur/AddStade.vue";
 export default {
-  name: "Add-Post",
+  name: "Add-stade",
   components: {
-    AddPOst,
+    AddStade,
   },
 };
 </script>

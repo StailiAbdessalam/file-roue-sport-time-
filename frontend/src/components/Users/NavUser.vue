@@ -21,7 +21,7 @@
     >
       <div id="my-scroll" style="margin: 6px 14px 0 14px">
         <ul class="nav-list" style="overflow: visible">
-          <li v-if="isSearch" @click="isOpened = true">
+          <li  v-if="isSearch" @click="isOpened = true">
             <i class="bx bx-search" />
             <input
               type="text"
@@ -32,7 +32,7 @@
           </li>
           <!-- pour afficher tout les button de nav-bar -->
           <span v-for="(menuItem, index) in menuItems" :key="index">
-            <li @click="deriction(menuItem.link)">
+            <li class="hover:cursor-pointer" @click="deriction(menuItem.link)">
               <a>
                 <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
                 <span class="links_name">{{ menuItem.name }}</span>
@@ -99,17 +99,17 @@ export default {
           tooltip: "Home",
           icon: "bx-home",
         },
+        // {
+        //   link: "/Reservation",
+        //   name: "Reservation",
+        //   tooltip: "Reservation",
+        //   icon: "bx-cart-alt",
+        // },
         {
-          link: "/Reservation",
-          name: "Reservation",
-          tooltip: "Reservation",
+          link: "/local",
+          name: "local",
+          tooltip: "local",
           icon: "bx-cart-alt",
-        },
-        {
-          link: "/Stadieum",
-          name: "Stadieum",
-          tooltip: "Stadieum",
-          icon: "ic:outline-sports-score",
         },
         {
           link: "/Contact",

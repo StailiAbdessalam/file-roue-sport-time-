@@ -63,6 +63,14 @@ class OrganisateurModel
         $CLIENT = $ModelClients->getOne($id);
         return $CLIENT;
     }
+    public function updareprofile($Org, $local, $idOrg, $idlocal)
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->UpdateOrg($Org, $idOrg);
+        $ModelClients = new GlobalModel("local");
+        $CLIENT = $ModelClients->UpdateLocal($local, $idlocal);
+        return $CLIENT;
+    }
 
 
 

@@ -72,6 +72,13 @@ class OrganisateurModel
         return $CLIENT;
     }
 
+    public function selectAllLocal()
+    {
+        $ModelClients = new GlobalModel("local");
+        $CLIENT = $ModelClients->selectAll();
+        return $CLIENT;
+    }
+
 
 
 

@@ -118,21 +118,28 @@ class Organisateur extends Controller
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
-    $Org = [
-      "FirstName" => $data->FirstName,
-      "LastName" => $data->LastName,
-      "Email" => $data->Email,
-      "Phone" => $data->Phone,
-      "business_name" => $data->business_name,
-    ];
-    $local = [
-      "Address" => $data->Address,
-      "Ville" => $data->Ville,
-      "About" => $data->About,
-    ];
-      $CliensModel->updareprofile($Org,$local,$data->idOrganisateur,$data->id);
+      $Org = [
+        "FirstName" => $data->FirstName,
+        "LastName" => $data->LastName,
+        "Email" => $data->Email,
+        "Phone" => $data->Phone,
+        "business_name" => $data->business_name,
+      ];
+      $local = [
+        "Address" => $data->Address,
+        "Ville" => $data->Ville,
+        "About" => $data->About,
+      ];
+      $CliensModel->updareprofile($Org, $local, $data->idOrganisateur, $data->id);
       echo json_encode("true");
     }
+  }
+
+  public function selectAllLocal()
+  {
+    $CliensModel = $this->model('OrganisateurModel');
+    $Cliens = $CliensModel->selectAllLocal();
+    echo json_encode($Cliens);
   }
 
 

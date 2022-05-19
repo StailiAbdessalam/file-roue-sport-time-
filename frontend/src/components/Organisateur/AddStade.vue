@@ -132,7 +132,7 @@
 
 <script>
 export default {
-  name: "Add-Post",
+  name: "Add-Stade",
   data() {
       return {
         

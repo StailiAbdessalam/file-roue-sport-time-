@@ -88,7 +88,7 @@ export default {
                     link: "/AddPost",
                     name: "Add Post",
                     tooltip: "Post Sport",
-                    icon: "bx-basketball",
+                    icon: "bx-plus",
                 },
                 // {
                 //   link: "/Dashboard",
@@ -104,7 +104,7 @@ export default {
                 // },
 
                 {
-                    link: "/Reservation",
+                    link: "/AllReservation",
                     name: "Tous Reservation",
                     tooltip: "Reservation",
                     icon: "bx-cart-alt",
@@ -122,10 +122,10 @@ export default {
                 //     icon: 'bx-heart',
                 // },
                 {
-                    link: "/Payement",
-                    name: "Payement",
-                    tooltip: "Payement",
-                    icon: "bx-heart",
+                    link: "/terrain",
+                    name: "Stadieum",
+                    tooltip: "Stadieum",
+                    icon: "bx-basketball",
                 },
                 {
                     link: "/setting",

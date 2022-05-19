@@ -74,9 +74,13 @@ const routes = [
     path: "/Archieve",
     name: "Archieve",
     component: () =>
-      import(
-        /* webpackChunkName: "home" */ "../Pages/Admin/Archieve.vue"
-      ),
+      import(/* webpackChunkName: "home" */ "../Pages/Admin/Archieve.vue"),
+  },
+  {
+    path: "/AllReservation",
+    name: "AllReservation",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../Pages/Organisateur/AllReservation.vue"),
   },
 ];
 const router = createRouter({

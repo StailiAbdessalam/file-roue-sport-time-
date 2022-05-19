@@ -16,7 +16,7 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hello {{user.FirstName}}</h1>
+            <h1 class="display-2 text-white">Hello {{ user.FirstName }}</h1>
             <p class="text-white mt-0 mb-5">
               This is your profile page. You can see the progress you've made
               with your work and manage your projects or assigned tasks
@@ -37,7 +37,11 @@
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                   <img  class="rounded-circle" :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${user.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`" alt="profileImg" />
+                    <img
+                      class="rounded-circle"
+                      :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${user.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`"
+                      alt="profileImg"
+                    />
                   </a>
                 </div>
               </div>
@@ -75,20 +79,19 @@
               </div>
               <div class="text-center">
                 <h3>
-                  {{user.FirstName}}{{user.LastName}}<span class="font-weight-light">, 19</span>
+                  {{ user.FirstName }}    {{ user.LastName
+                  }}<span class="font-weight-light">, 19</span>
                 </h3>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>{{user.Ville}} , Maroc
+                  <i class="ni location_pin mr-2"></i>{{ user.Ville }} , Maroc
                 </div>
                 <div class="h5 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>{{user.Email}}
+                  <i class="ni business_briefcase-24 mr-2"></i>{{ user.Email }}
                 </div>
-                <div>
-                  <i class="ni education_hat mr-2"></i>{{user.Phone}}
-                </div>
+                <div><i class="ni education_hat mr-2"></i>{{ user.Phone }}</div>
                 <hr class="my-4" />
                 <p>
-                 {{user.About}}
+                  {{ user.About }}
                 </p>
               </div>
             </div>
@@ -107,24 +110,27 @@
               </div>
             </div>
 
-<!-- edit your prophile -->
+            <!-- edit your prophile -->
 
             <div v-if="edit" class="card-body">
               <form>
-                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="flex justify-between">
+                  <h6 class="heading-small text-muted mb-4">
+                    User information
+                  </h6>
+                </div>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username"
-                          >Username</label
+                          >business_name</label
                         >
                         <input
                           type="text"
                           id="input-username"
                           class="form-control form-control-alternative"
-                          placeholder="Username"
-                          value="lucky.jesse"
+                          v-model="user.business_name"
                         />
                       </div>
                     </div>
@@ -137,7 +143,7 @@
                           type="email"
                           id="input-email"
                           class="form-control form-control-alternative"
-                          placeholder="jesse@example.com"
+                          v-model="user.Email"
                         />
                       </div>
                     </div>
@@ -152,8 +158,7 @@
                           type="text"
                           id="input-first-name"
                           class="form-control form-control-alternative"
-                          placeholder="First name"
-                          value="Lucky"
+                          v-model="user.FirstName"
                         />
                       </div>
                     </div>
@@ -166,8 +171,7 @@
                           type="text"
                           id="input-last-name"
                           class="form-control form-control-alternative"
-                          placeholder="Last name"
-                          value="Jesse"
+                          v-model="user.LastName"
                         />
                       </div>
                     </div>
@@ -188,8 +192,7 @@
                         <input
                           id="input-address"
                           class="form-control form-control-alternative"
-                          placeholder="Home Address"
-                          value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                          v-model="user.Address"
                           type="text"
                         />
                       </div>
@@ -205,8 +208,20 @@
                           type="text"
                           id="input-city"
                           class="form-control form-control-alternative"
-                          placeholder="City"
-                          value="New York"
+                          v-model="user.Ville"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-city"
+                          >Phone</label
+                        >
+                        <input
+                          type="text"
+                          id="input-city"
+                          class="form-control form-control-alternative"
+                          v-model="user.Phone"
                         />
                       </div>
                     </div>
@@ -221,14 +236,13 @@
                     <textarea
                       rows="4"
                       class="form-control form-control-alternative"
-                      placeholder="A few words about you ..."
-                    >
-A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea
-                    >
+                      v-model="user.About"
+                    ></textarea>
                   </div>
                 </div>
-                <button @click="edit = false" class="btn btn-info">
-                  Valide
+                <button @click="update" class="btn btn-info">Valide</button>
+                <button @click="annuler" class="bg-red-600 btn text-white">
+                  Annuler
                 </button>
               </form>
             </div>
@@ -241,28 +255,36 @@ A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea
 
 <script>
 import store from "@/store";
+import axios from "axios";
 export default {
   name: "Pro-fil",
   data() {
     return {
       edit: false,
-      information :{
-        
-      },
+      information: {},
+      userOld: store.state.User,
+      user: { ...store.state.User },
     };
   },
+
   mounted() {
     this.isOpened = this.isMenuOpen;
     this.getOrganisateur();
   },
-  computed: {
-    user: () => {
-      return store.getters.User;
-    },
-  },
   methods: {
     getOrganisateur() {
       this.$store.dispatch("getOrganisateur");
+    },
+    update() {
+      this.edit = false;
+      axios.post("http://localhost/FILEROUGE/Organisateur/updareprofile", this.user).then((res) => {
+        this.$store.dispatch("getOrganisateur");
+        console.log(res);
+      });
+    },
+    annuler() {
+      this.edit = false;
+      this.user = { ...this.userOld };
     },
   },
 };

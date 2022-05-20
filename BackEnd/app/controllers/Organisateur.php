@@ -177,6 +177,7 @@ class Organisateur extends Controller
 
 
 
+
   public function selectAll()
   {
     $CliensModel = $this->model('ClientsModel');

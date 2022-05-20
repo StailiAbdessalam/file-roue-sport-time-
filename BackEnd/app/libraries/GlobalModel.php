@@ -22,7 +22,10 @@
             $con = $this->connection;
             $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
             $stm = $con->prepare($requi);
+            // var_dump($requi);
+            // var_dump($data);
             $result = $stm->execute($data);
+
             return $result;
         }
 

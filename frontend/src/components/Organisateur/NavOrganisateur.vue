@@ -254,7 +254,6 @@ export default {
       this.$store.dispatch("getOrganisateur");
     },
     deriction(event) {
-      console.log(event);
       this.$router.push(event);
     },
     logout() {
@@ -269,7 +268,6 @@ export default {
     //       id: localStorage.getItem("id"),
     //     })
     //     .then((res) => {
-    //       console.log(res);
     //       this.User = res.data;
     //     });
     // },

@@ -143,7 +143,7 @@ export default {
         //     icon: 'bx-heart',
         // },
         {
-          link: "/terrain",
+          link: "/AllStade",
           name: "Stadieum",
           tooltip: "Stadieum",
           icon: "bx-basketball",

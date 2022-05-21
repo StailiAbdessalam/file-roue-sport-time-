@@ -79,7 +79,7 @@
               </div>
               <div class="text-center">
                 <h3>
-                  {{ user.FirstName }}    {{ user.LastName
+                  {{ user.FirstName }}   {{ user.LastName
                   }}<span class="font-weight-light">, 19</span>
                 </h3>
                 <div class="h5 font-weight-300">

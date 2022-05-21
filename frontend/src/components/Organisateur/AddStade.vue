@@ -1,7 +1,8 @@
 <template>
   <div
-    class="flex h-screen bg-gray-200 items-center justify-center mt-32 mb-32"
+    class="flex h-screen bg-green-200 items-center justify-center mt-32 mb-32"
   >
+    <white v-if="load" />
     <div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
       <div class="flex justify-center py-4">
         <!-- <div class="flex bg-orange-200 rounded-full md:p-4 p-2 border-2 border-orange-300">
@@ -124,7 +125,7 @@
         <button
           class="w-auto bg-orange-500 hover:bg-orange-700 rounded-lg shadow-xl font-medium text-white px-4 py-2"
         >
-         cancel
+          cancel
         </button>
         <button
           @click="ADDStade"
@@ -138,6 +139,7 @@
 </template>
 
 <script>
+import white from "../../components/chose/whit.vue";
 import store from "../../store/index";
 import axios from "axios";
 import * as fireStorage from "firebase/storage";
@@ -145,6 +147,7 @@ export default {
   name: "Add-Stade",
   data() {
     return {
+      load: false,
       Stade: {
         idLocal: "",
         Title: "",
@@ -165,6 +168,7 @@ export default {
       console.log(this.images);
     },
     async ADDStade() {
+      this.load = true;
       try {
         let file = this.images;
         let newname =
@@ -183,18 +187,23 @@ export default {
           ...Stade,
           images: newname,
         });
+
+        this.load = false;
       } catch (e) {
         console.log(e);
       }
     },
-    localid(){
-      this.Stade.idLocal=store.state.User.id;
-    }
+    localid() {
+      this.Stade.idLocal = store.state.User.id;
+    },
   },
   computed: {
     user: () => {
       return store.getters.User;
     },
+  },
+  components: {
+    white,
   },
 };
 </script>

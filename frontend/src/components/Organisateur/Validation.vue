@@ -339,8 +339,6 @@ export default {
         About: "",
         Photo: "",
         Ville: "",
-        Jour: "",
-        NumSTadieum: "",
         Address: "",
         idOrganisateur: localStorage.getItem("Id"),
       },

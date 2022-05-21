@@ -7,7 +7,7 @@ class OrganisateurModel
     {
         $ModelClients = new GlobalModel("organisateur");
         $CLIENT = $ModelClients->insert($data);
-        json_encode($CLIENT);
+        return $CLIENT;
     }
     public function fetchByRef($Ref)
     {
@@ -78,6 +78,13 @@ class OrganisateurModel
         $CLIENT = $ModelClients->selectAll();
         return $CLIENT;
     }
+    public function selectOneLocal($id)
+    {
+        $ModelClients = new GlobalModel("organisateur");
+        $CLIENT = $ModelClients->selectOneLocal($id);
+        return $CLIENT;
+    }
+
 
 
 

@@ -31,10 +31,10 @@ const routes = [
       import(/* webpackChunkName: "home" */ "../Pages/Admin/AllOrg.vue"),
   },
   {
-    path: "/Reservation",
-    name: "Reservation",
+    path: "/Stade/:id",
+    name: "Stade",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Users/Reservation.vue"),
+      import(/* webpackChunkName: "home" */ "../Pages/Users/Stade.vue"),
   },
   {
     path: "/Dashboard",
@@ -80,7 +80,17 @@ const routes = [
     path: "/AllReservation",
     name: "AllReservation",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Organisateur/AllReservation.vue"),
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Organisateur/AllReservation.vue"
+      ),
+  },
+  {
+    path: "/AllStade",
+    name: "AllStade",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Organisateur/AllStade.vue"
+      ),
   },
 ];
 const router = createRouter({

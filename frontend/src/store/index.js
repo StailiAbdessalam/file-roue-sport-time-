@@ -4,14 +4,19 @@ export default createStore({
   state: {
     suspend: "",
     User: {},
+    Stade: {},
   },
   getters: {
     User: (state) => state.User,
+    getStade: (state) => state.Stade,
   },
   mutations: {
     SetUser: (state, User) => {
       state.User = User;
     },
+    setLocal(state, Stade){
+      state.Stade = Stade;
+    }
   },
   actions: {
     getOrganisateur({ commit }) {

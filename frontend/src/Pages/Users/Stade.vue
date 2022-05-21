@@ -1,15 +1,15 @@
 <template>
     <div>
-        <Reservation />
+        <Stade />
     </div>
 </template>
 
 <script>
-import Reservation from '../../components/Users/Reservation.vue';
+import Stade from '../../components/Users/Stade.vue';
 export default {
     name: 'Reser-vation',
     components: {
-        Reservation
+        Stade
     }
 }
 </script>

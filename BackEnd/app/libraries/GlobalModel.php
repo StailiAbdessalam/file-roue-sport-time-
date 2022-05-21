@@ -22,10 +22,7 @@
             $con = $this->connection;
             $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
             $stm = $con->prepare($requi);
-            // var_dump($requi);
-            // var_dump($data);
             $result = $stm->execute($data);
-
             return $result;
         }
 
@@ -84,6 +81,15 @@
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+        public function selectOneLocal($id)
+        {
+            $conn = $this->connection;
+            $requi = "SELECT *  FROM `organisateur` left join local on local.idOrganisateur = organisateur.id WHERE local.id = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["id" => $id]);
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
         public function selectArchive()
         {
             $conn = $this->connection;
@@ -131,6 +137,14 @@
             return $result;
         }
 
+        public function select($id){
+            $conn = $this->connection;
+            $requi = "SELECT * FROM `$this->Table` WHERE idLocal = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["id" => $id]);
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
 
 
 

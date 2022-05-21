@@ -10,4 +10,11 @@ class StadeModel
         $CLIENT = $ModelClients->insert($data);
         return $CLIENT;
     }
+    public function getAllStadebyId($data)
+    {
+        $ModelClients = new GlobalModel("stadium");
+        // var_dump($data);
+        $CLIENT = $ModelClients->select($data["id"]);
+        return $CLIENT;
+    }
 }

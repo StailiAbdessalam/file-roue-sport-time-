@@ -142,6 +142,18 @@ class Organisateur extends Controller
     echo json_encode($Cliens);
   }
 
+  public function selectOneLocal()
+  {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $CliensModel = $this->model('OrganisateurModel');
+      $Cliens = $CliensModel->selectOneLocal($data->id);
+      echo json_encode($Cliens);
+    }
+  }
+
+  
 
 
 

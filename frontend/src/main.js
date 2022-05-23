@@ -31,4 +31,7 @@ const firebaseConfig = {
 export default initializeApp(firebaseConfig);
 
 // export default getFirestore();
-createApp(App).use(store).use(router).mount("#app");
+const app = createApp(App);
+app.config.globalProperties.$apiUrl = process.env.VUE_APP_API_URL
+app.use(store).use(router).mount("#app");
+

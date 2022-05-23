@@ -177,6 +177,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$apiUrl);
     this.getlocal();
     this.getAllStade();
   },

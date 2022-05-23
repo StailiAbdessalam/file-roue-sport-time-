@@ -49,7 +49,7 @@
           <img src="../../assets/img/photo.jpg" alt="profileImg" />
           <div class="name_job">
             <div class="name">Abdessalam staili</div>
-            <div class="job">Admin</div>
+            <div class="job">{{role}}</div>
           </div>
         </div>
         <i
@@ -188,6 +188,7 @@ export default {
   data() {
     return {
       isOpened: false,
+      role: localStorage.getItem("user"),
     };
   },
   mounted() {

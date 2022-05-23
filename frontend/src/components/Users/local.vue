@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-wrap mt-24" data-aos="fade-up">
-    <div v-for="local in locals" :key="local" class="max-w-lg mx-auto">
+  <div class="grid grid-cols-3 mt-24" data-aos="fade-up">
+    <div v-for="local in locals" :key="local" class="mx-2 h-fit">
       <div
-        class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 w-full"
+        class="bg-white shadow-md border border-gray-200 rounded-lg  mb-5 w-full"
       >
         <a href="#">
           <img
@@ -18,7 +18,7 @@
             </h5>
             <h3>{{ local.Address }}</h3>
           </a>
-          <p class="font-normal text-gray-700 mb-3">
+          <p class="font-normal text-gray-500 mb-3 truncate h-10">
             {{ local.About }}
           </p>
           <router-link class="text-white hover:cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center" :to="{ name: 'Stade', params: { id: local.id }}">read more</router-link>

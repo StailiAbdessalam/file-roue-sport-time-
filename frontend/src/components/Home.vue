@@ -1,12 +1,13 @@
 <template>
     <div class="flex flex-col justify-center items-center gap-20">
-        <div class="flex flex-col items-center justify-center w-full mt-20 gap-5">
+        <div class="flex flex-col items-center justify-center w-full mt-9 gap-5">
             <h1 class="font-bold md:text-5xl sm:text-xl text-center">A small business is only as good as <br> its tools.
             </h1>
             <p class="text-center sm:text-lg ">Welcome to the Sport Time website. Now is the time to book a time to play
                 in the nearest stadium.</p>
-            <div id="div_video" class="lg:w-[900px] lg:h-[600px] relative">
-                <img id="Res_video" class="w-full h-full -z-30" src="../assets/img/Group37.png" alt="">
+            <div id="div_video" class="lg:w-[70%]   relative">
+                <!-- <img id="Res_video" class="w-full h-full -z-30" src="../assets/img/Group37.png" alt=""> -->
+                <video class="w-full rounded-2xl" src="../assets/vidiou/soccer-players.mp4" autoplay muted loop></video>
             </div>
         </div>
         <div class="w-4/6 h-0 border-solid border border-amber-400  flex justify-center items-center">

@@ -6,7 +6,7 @@
     <NavUser v-if="Role == 'Client'" />
     <NavOrganisateur v-if="Role == 'organisateur'" />
     <router-view />
-    <Footer v-if='Role=="Amin"' />
+    <Footer v-if='Role!="Admin"' />
 
   </div>
 </template>

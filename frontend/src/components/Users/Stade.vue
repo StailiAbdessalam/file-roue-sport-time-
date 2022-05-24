@@ -163,7 +163,7 @@
                           />
                         </svg>
                       </div>
-                      <button class="btn btn-info">RESERVER</button>
+                      <button @click="addreservation" class="btn btn-info">RESERVER</button>
                     </div>
 
                     <h3 class="font-black text-gray-800 md:text-3xl text-xl">
@@ -188,7 +188,7 @@
                         required
                       />
                       <div class="box">
-                        <select class="bg-white border-2" name="" id="">
+                        <select v-model="Houres" class="bg-white border-2" name="" id="">
                           <option
                             class="bg-green-500"
                             v-for="H in HOO"
@@ -218,13 +218,13 @@ export default {
   data() {
     return {
       HOO: [],
+      Houres: "",
       local: "",
       stade: "",
       ChoixHour: "",
       Reservation:{
-        Time:"",
-        UserId:"",
-        StadeId:"",
+        idStadieum:this.$route.params.id,
+        idOrganisateur:localStorage.getItem("id"),
       }
     };
   },
@@ -261,9 +261,12 @@ export default {
         });
     },
     addreservation() {
-      axios
-        .post(`${this.$apiUrl}/Reservation/addReservation`, {})
-        .then(() => {});
+      // axios
+      //   .post(`${this.$apiUrl}/Reservation/addReservation`, {})
+      //   .then(() => {});
+      console.log(this.Reservation);
+      console.log(this.ChoixHour);
+      console.log(this.Houres);
     },
   },
 };

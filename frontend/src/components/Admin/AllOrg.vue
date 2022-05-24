@@ -104,7 +104,7 @@
                 href="#"
                 class="bg-red-500 p-2 text-white hover:shadow-lg font-normal w-32"
                 @click="ArchiverDemande(Org)"
-                >Supprimer</a
+                >Archiver</a
               >
               <div class="modal">
                 <button

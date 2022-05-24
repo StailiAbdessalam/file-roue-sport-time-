@@ -163,9 +163,7 @@
                           />
                         </svg>
                       </div>
-                      <button class="btn btn-info">
-                        RESERVER
-                      </button>
+                      <button class="btn btn-info">RESERVER</button>
                     </div>
 
                     <h3 class="font-black text-gray-800 md:text-3xl text-xl">
@@ -181,16 +179,22 @@
                       >
                     </p>
 
-                    <div class="flex bg-black">
+                    <div class="flex">
                       <input
                         v-model="ChoixHour"
-                        class="w-full p-6 content-around h-full bg-white"
+                        class="w-56 p-6 content-around h-2 border-2"
                         type="date"
                         placeholder="datetime"
+                        required
                       />
                       <div class="box">
-                        <select class="" name="" id="">
-                          <option v-for="H in HOO" :key="H" value="">
+                        <select class="bg-white border-2" name="" id="">
+                          <option
+                            class="bg-green-500"
+                            v-for="H in HOO"
+                            :key="H"
+                            value=""
+                          >
                             {{ H }} PM
                           </option>
                         </select>
@@ -213,10 +217,15 @@ export default {
   name: "Rese-rvation",
   data() {
     return {
-       HOO: [],
+      HOO: [],
       local: "",
       stade: "",
       ChoixHour: "",
+      Reservation:{
+        Time:"",
+        UserId:"",
+        StadeId:"",
+      }
     };
   },
   mounted() {
@@ -225,7 +234,7 @@ export default {
     this.Hour();
   },
   methods: {
-     Hour() {
+    Hour() {
       this.HOO = [];
       for (let i = 1; i < 24; i++) {
         this.HOO.push(i);
@@ -260,9 +269,42 @@ export default {
 };
 </script>
 
-
-
 <style lang="scss" scoped>
+.box select {
+  padding: 4px;
+  width: 100px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 49px;
+  font-size: 20px;
+  outline: none;
+}
+
+.box::before {
+  
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
 :root {
   --blue: #5e72e4;
   --indigo: #5603ad;
@@ -329,45 +371,6 @@ hr {
   box-sizing: content-box;
   height: 0;
 }
-
-
-
-.box select {
-  background-color: #40bc44;
-  color: white;
-  padding: 12px;
-  width: 100px;
-  height: 60px;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  outline: none;
-}
-
-.box::before {
-  font-family: FontAwesome;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  text-align: center;
-  font-size: 28px;
-  line-height: 45px;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-}
-
-.box:hover::before {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.box select option {
-  padding: 30px;
-}
-
 
 h1,
 h3,

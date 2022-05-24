@@ -183,7 +183,7 @@ export default {
         await fireStorage.uploadBytes(storageRef, file).then(function () {
           console.log("uploaded");
         });
-        await axios.post("http://localhost/FILEROUGE/Stade/AddStade", {
+        await axios.post(`${this.$apiUrl}/Stade/AddStade`, {
           ...Stade,
           images: newname,
         });

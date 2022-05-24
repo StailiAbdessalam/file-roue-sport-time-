@@ -41,7 +41,7 @@ export default {
   methods: {
     getAllLocal() {
       axios
-        .get("http://localhost/FILEROUGE/Organisateur/selectOrg")
+        .get(`${this.$apiUrl}/Organisateur/selectOrg`)
         .then((res) => {
           this.locals = res.data;
           // console.log(this.locals);

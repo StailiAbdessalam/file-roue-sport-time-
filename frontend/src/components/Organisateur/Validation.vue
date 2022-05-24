@@ -376,7 +376,7 @@ export default {
           console.log("uploaded");
         });
         await axios.post(
-          "http://localhost/FILEROUGE/Organisateur/insertLocal",
+          `${this.$apiUrl}/Organisateur/insertLocal`,
           {
             ...local,
             Photo: newname,
@@ -385,7 +385,7 @@ export default {
       } catch (e) {
         console.log(e);
       }
-      axios.post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
+      axios.post(`${this.$apiUrl}/Organisateur/updatesuspended`, {
         id: this.local.idOrganisateur,
         Suspended: -1,
       });

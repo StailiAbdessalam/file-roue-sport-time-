@@ -136,7 +136,7 @@ export default {
   methods: {
     OrgArchiver() {
       axios
-        .get("http://localhost/FILEROUGE/Organisateur/selectArchive")
+        .get(`${this.$apiUrl}/Organisateur/selectArchive`)
         .then((response) => {
           this.information = response.data;
           console.log(this.information);
@@ -144,7 +144,7 @@ export default {
     },
     DesArchiver(data) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
+        .post(`${this.$apiUrl}/Organisateur/updatesuspended`, {
           Suspended: "1",
           id: data.idOrganisateur,
         })
@@ -157,7 +157,7 @@ export default {
     },
      SUpprimerCompte(data) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/DeleteDemande", {
+        .post(`${this.$apiUrl}/Organisateur/DeleteDemande`, {
           id: data.id,
           idOrganisateur: data.idOrganisateur,
         })

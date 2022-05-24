@@ -264,7 +264,7 @@ export default {
 
     // getOrganisateur() {
     //   axios
-    //     .post("http://localhost/FILEROUGE/Organisateur/getOne", {
+    //     .post(`${this.$apiUrl}/Organisateur/getOne`, {
     //       id: localStorage.getItem("id"),
     //     })
     //     .then((res) => {

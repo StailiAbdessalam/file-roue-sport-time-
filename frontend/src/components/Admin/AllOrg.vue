@@ -167,7 +167,7 @@ export default {
   methods: {
     Organisateur() {
       axios
-        .get("http://localhost/FILEROUGE/Organisateur/selectOrg")
+        .get(`${this.$apiUrl}/Organisateur/selectOrg`)
         .then((response) => {
           this.information = response.data;
           console.log(this.information);
@@ -182,7 +182,7 @@ export default {
         console.log(data.id);
         console.log(data.idOrganisateur);
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
+        .post(`${this.$apiUrl}/Organisateur/updatesuspended`, {
           Suspended: "X",
           id: data.idOrganisateur,
         })

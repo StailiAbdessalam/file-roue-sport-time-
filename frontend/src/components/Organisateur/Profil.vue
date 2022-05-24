@@ -277,7 +277,7 @@ export default {
     },
     update() {
       this.edit = false;
-      axios.post("http://localhost/FILEROUGE/Organisateur/updareprofile", this.user).then((res) => {
+      axios.post(`${this.$apiUrl}/Organisateur/updareprofile`, this.user).then((res) => {
         this.$store.dispatch("getOrganisateur");
         console.log(res);
       });

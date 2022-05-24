@@ -173,7 +173,7 @@ export default {
   methods: {
     OrgNoValidate() {
       axios
-        .get("http://localhost/FILEROUGE/Organisateur/SelectDemande")
+        .get(`${this.$apiUrl}/Organisateur/SelectDemande`)
         .then((response) => {
           this.information = response.data;
           console.log(this.information);
@@ -186,7 +186,7 @@ export default {
     },
     AnnulerDemande(data) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/DeleteDemande", {
+        .post(`${this.$apiUrl}/Organisateur/DeleteDemande`, {
           id: data.id,
           idOrganisateur: data.idOrganisateur,
         })
@@ -199,7 +199,7 @@ export default {
     },
     ValideDemande(data) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/updatesuspended", {
+        .post(`${this.$apiUrl}/Organisateur/updatesuspended`, {
           id: data.idOrganisateur,
           Suspended: 1,
         })

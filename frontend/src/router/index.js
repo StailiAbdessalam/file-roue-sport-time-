@@ -92,6 +92,12 @@ const routes = [
         /* webpackChunkName: "home" */ "../Pages/Organisateur/AllStade.vue"
       ),
   },
+  {
+    path: "/Tiquer",
+    name: "Tiquer",
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../Pages/Users/Tiquer.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

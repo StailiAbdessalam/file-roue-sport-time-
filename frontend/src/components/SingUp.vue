@@ -92,7 +92,7 @@ export default {
     methods: {
         ADDClient() {
             this.load = true;
-            axios.post("http://localhost/FILEROUGE/Clientsr/register", this.dataClient).then(res => {
+            axios.post(`${this.$apiUrl}/Clientsr/register`, this.dataClient).then(res => {
                 this.Valide = true;
                 setTimeout(() => {
                     console.log(res.data);
@@ -103,7 +103,7 @@ export default {
         },
         FaitDemmande() {
             this.load = true;
-            axios.post("http://localhost/FILEROUGE/Organisateur/register", this.dataOrganisateur).then(res => {
+            axios.post(`${this.$apiUrl}/Organisateur/register`, this.dataOrganisateur).then(res => {
                 this.Valide = true;
                 setTimeout(() => {
                     this.$router.push("Login");

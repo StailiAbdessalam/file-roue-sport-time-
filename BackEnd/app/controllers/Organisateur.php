@@ -107,7 +107,6 @@ class Organisateur extends Controller
       $data = json_decode($json);
       $CliensModel = $this->model('OrganisateurModel');
       $Cliens = $CliensModel->getOne($data->id);
-
       echo json_encode($Cliens);
     }
   }

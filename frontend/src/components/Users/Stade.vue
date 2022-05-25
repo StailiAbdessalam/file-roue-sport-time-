@@ -163,7 +163,9 @@
                           />
                         </svg>
                       </div>
-                      <button @click="addreservation" class="btn btn-info">RESERVER</button>
+                      <div @click="addreservation(stad)" class="btn btn-info">
+                        RESERVER
+                      </div>
                     </div>
 
                     <h3 class="font-black text-gray-800 md:text-3xl text-xl">
@@ -181,19 +183,23 @@
 
                     <div class="flex">
                       <input
-                        v-model="ChoixHour"
+                        v-model="Reservation.Date"
                         class="w-56 p-6 content-around h-2 border-2"
                         type="date"
                         placeholder="datetime"
                         required
                       />
                       <div class="box">
-                        <select v-model="Houres" class="bg-white border-2" name="" id="">
+                        <select
+                          v-model="Reservation.Time"
+                          class="bg-white border-2"
+                          name=""
+                          id=""
+                        >
                           <option
                             class="bg-green-500"
                             v-for="H in HOO"
                             :key="H"
-                            value=""
                           >
                             {{ H }} PM
                           </option>
@@ -218,28 +224,28 @@ export default {
   data() {
     return {
       HOO: [],
-      Houres: "",
       local: "",
       stade: "",
-      ChoixHour: "",
-      Reservation:{
-        idStadieum:this.$route.params.id,
-        idOrganisateur:localStorage.getItem("id"),
-      }
+      Reservation: {
+        idStadieum: "",
+        idClient: localStorage.getItem("id"),
+        idLocal: "",
+        Time: "",
+        Date: "",
+      },
     };
   },
   mounted() {
     this.getlocal();
     this.getAllStade();
-    this.Hour();
+    this.selectHour();
   },
   methods: {
-    Hour() {
+    selectHour() {
       this.HOO = [];
       for (let i = 1; i < 24; i++) {
         this.HOO.push(i);
       }
-      console.log(this.HOO);
     },
     getlocal() {
       axios
@@ -257,16 +263,18 @@ export default {
         })
         .then((res) => {
           this.stade = res.data;
-          console.log(this.stade);
         });
     },
-    addreservation() {
-      // axios
-      //   .post(`${this.$apiUrl}/Reservation/addReservation`, {})
-      //   .then(() => {});
+    addreservation(data) {
+      this.Reservation.idStadieum = data.id;
+      this.Reservation.idLocal = data.idLocal;
+      axios
+        .post(`${this.$apiUrl}/Reservation/addReservation`, {
+          Reservation: this.Reservation,
+        })
+        .then(() => {});
+      console.log(data);
       console.log(this.Reservation);
-      console.log(this.ChoixHour);
-      console.log(this.Houres);
     },
   },
 };
@@ -284,7 +292,6 @@ export default {
 }
 
 .box::before {
-  
   font-family: FontAwesome;
   position: absolute;
   top: 0;

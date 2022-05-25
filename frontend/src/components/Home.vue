@@ -182,7 +182,6 @@ export default {
             x[myIndex - 1].style.display = "block";
             this.myIndex = myIndex;
             setTimeout(this.carousel, 5000);
-
         }
     },
     mounted() {

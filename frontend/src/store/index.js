@@ -21,11 +21,11 @@ export default createStore({
   actions: {
     getOrganisateur({ commit }) {
       axios
-        .post(`${this.$apiUrl}/Organisateur/getOne`, {
+        .post("http://localhost/FILEROUGE/Organisateur/getOne", {
           id: localStorage.getItem("id"),
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res);
           commit("SetUser", res.data);
         });
     },

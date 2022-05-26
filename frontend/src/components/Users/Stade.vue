@@ -214,10 +214,12 @@
         </div>
       </div>
     </div>
+    <!-- <Tiquer class="absolute top-0 left-0" /> -->
   </div>
 </template>
 
 <script>
+// import Tiquer from "./Tiquer.vue";
 import axios from "axios";
 export default {
   name: "Rese-rvation",
@@ -234,6 +236,9 @@ export default {
         Date: "",
       },
     };
+  },
+  components: {
+    // Tiquer,
   },
   mounted() {
     this.getlocal();
@@ -268,13 +273,15 @@ export default {
     addreservation(data) {
       this.Reservation.idStadieum = data.id;
       this.Reservation.idLocal = data.idLocal;
-      axios
-        .post(`${this.$apiUrl}/Reservation/addReservation`, {
-          Reservation: this.Reservation,
-        })
-        .then(() => {});
+      // axios
+      //   .post(`${this.$apiUrl}/Reservation/addReservation`, {
+      //     Reservation: this.Reservation,
+      //   })
+      //   .then(() => {});
+      this.$router.push("/paiyment");
       console.log(data);
       console.log(this.Reservation);
+
     },
   },
 };

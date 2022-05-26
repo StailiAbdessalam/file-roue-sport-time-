@@ -10,7 +10,7 @@
           class="relative h-full flex flex-col gap-3"
         >
           <div class="flex flex-col justify-center items-center">
-            <h1 class="form_Login_title">Sig Up in a new account</h1>
+            <h1 class="form_Login_title">Sig in </h1>
           </div>
           <form class="form_Login_formData" action="" @submit.prevent="login()">
             <label for="role">Role</label>

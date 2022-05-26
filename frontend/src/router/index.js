@@ -93,10 +93,10 @@ const routes = [
       ),
   },
   {
-    path: "/Tiquer",
-    name: "Tiquer",
+    path: "/paiyment",
+    name: "paiyment",
     component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Users/Tiquer.vue"),
+      import(/* webpackChunkName: "home" */ "../Pages/Users/paiyment.vue"),
   },
 ];
 const router = createRouter({

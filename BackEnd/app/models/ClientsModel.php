@@ -11,9 +11,9 @@ class ClientsModel
     }
     public function SelectOne($id)
     {
-        $ModelClients = new GlobalModel("Clients");
-        $CLIENT = $ModelClients->SelectOne($id);
-         json_encode($CLIENT);
+        $ModelClients = new GlobalModel("clients");
+        $CLIENT = $ModelClients->selectClients($id);
+        return $CLIENT;
     }
     public function remove($id)
     {

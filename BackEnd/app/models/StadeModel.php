@@ -17,4 +17,11 @@ class StadeModel
         $CLIENT = $ModelClients->select($data["id"]);
         return $CLIENT;
     }
+    public function getAllTime($data)
+    {
+        
+        $ModelClients = new GlobalModel("reservation");
+        $CLIENT = $ModelClients->selectAllTime($data);
+        return $CLIENT;
+    }
 }

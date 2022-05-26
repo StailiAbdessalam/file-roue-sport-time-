@@ -44,6 +44,7 @@ class Stade extends Controller
       $data = json_decode($json);
 
       $local = $Model->getAllTime($data);
+      $local = (array)$local;
       echo json_encode($local);
     }
   }

@@ -138,7 +138,8 @@
             return $result;
         }
 
-        public function select($id){
+        public function select($id)
+        {
             $conn = $this->connection;
             $requi = "SELECT * FROM `$this->Table` WHERE idLocal = :id";
             $stm = $conn->prepare($requi);
@@ -146,7 +147,26 @@
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+        public function selectClients($id)
+        {
+            $conn = $this->connection;
+            $requi = "SELECT * FROM `$this->Table` WHERE id = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["id" => $id]);
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        public function selectAllTime($dat)
+        {
+            $conn = $this->connection;
+            $requi = "SELECT Time FROM `$this->Table`  WHERE Date=:daate && idStadieum = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["daate" => $dat->date, "id" => $dat->id]);
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
 
+           
+        }
 
 
 

@@ -71,10 +71,12 @@ class Clients extends Controller
   }
   public function getOne()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "GET") {
-      $select = $this->model('UserModel');
-      $selected = $select->select($_GET['id']);
-      echo json_encode($selected);
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $CliensModel = $this->model('ClientsModel');
+      $Cliens = $CliensModel->SelectOne($data->id);
+      echo json_encode($Cliens);
     }
   }
   public function addAppointment()

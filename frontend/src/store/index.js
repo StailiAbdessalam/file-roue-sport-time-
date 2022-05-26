@@ -5,14 +5,20 @@ export default createStore({
     suspend: "",
     User: {},
     Stade: {},
+    Clients: {},
   },
   getters: {
     User: (state) => state.User,
+    Clients: (state) => state.Clients,
     getStade: (state) => state.Stade,
   },
   mutations: {
     SetUser: (state, User) => {
       state.User = User;
+    },
+    SetClient: (state, Clients) => {
+    
+      state.Clients = Clients;
     },
     setLocal(state, Stade){
       state.Stade = Stade;
@@ -25,8 +31,17 @@ export default createStore({
           id: localStorage.getItem("id"),
         })
         .then((res) => {
-          // console.log(res);
+         
           commit("SetUser", res.data);
+        });
+    },
+     getUser({ commit }) {
+      axios
+        .post("http://localhost/FILEROUGE/Clients/getOne", {
+          id: localStorage.getItem("id"),
+        })
+        .then((res) => {
+          commit("SetClient", res.data[0]);
         });
     },
   },

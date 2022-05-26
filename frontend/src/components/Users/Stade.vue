@@ -3,9 +3,8 @@
     <div class="main-content">
       <!-- Header -->
       <div
-        class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+        class="header pb-8 pt-5 d-flex align-items-center"
         style="
-          min-height: 600px;
           background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa88ujR9_66Y02EVUbKeOIh3GFog7q5vCX3Q&usqp=CAU);
           background-size: cover;
           background-position: center top;
@@ -183,6 +182,7 @@
 
                     <div class="flex">
                       <input
+                        @change="Changedate"
                         v-model="Reservation.Date"
                         class="w-56 p-6 content-around h-2 border-2"
                         type="date"
@@ -270,6 +270,15 @@ export default {
           this.stade = res.data;
         });
     },
+    Changedate() {
+      axios
+        .post(`${this.$apiUrl}/Stade/getAllTime`, {
+          date: this.Reservation.Date,
+        })
+        .then(() => {
+         
+        });
+    },
     addreservation(data) {
       this.Reservation.idStadieum = data.id;
       this.Reservation.idLocal = data.idLocal;
@@ -281,7 +290,6 @@ export default {
       this.$router.push("/paiyment");
       console.log(data);
       console.log(this.Reservation);
-
     },
   },
 };

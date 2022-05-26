@@ -104,4 +104,16 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.name == "SingUp" || to.name == "Singin" || to.name == "Home") {
+    next();
+  } else {
+    if (localStorage.getItem("id")) {
+      next();
+    } else {
+      next("/Login");
+    }
+  }
+});
+
 export default router;

@@ -83,7 +83,7 @@
                 Save my card for future purchases
               </label>
             </li> -->
-            <li>
+            <li class="mt-24">
               <button type="submit" class="button">Pay Now</button>
             </li>
           </ul>
@@ -282,7 +282,7 @@ input:focus {
 
 .modal__container {
   display: flex;
-  height: 65vh;
+  height: 58vh;
   width: 65vw;
   background-color: #ffffff;
   border-radius: 5px;

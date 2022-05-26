@@ -8,7 +8,6 @@
                     up</button>
             </div>
         </div>
-
     </div>
 </template>
 

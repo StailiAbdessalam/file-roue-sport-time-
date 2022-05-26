@@ -48,7 +48,7 @@
         <div class="profile-details">
           <img src="../../assets/img/photo.jpg" alt="profileImg" />
           <div class="name_job">
-            <div class="name">Abdessalam staili</div>
+            <div class="name">{{ Clients.LastName }}   {{ Clients.FirstName }}</div>
             <div class="job">{{role}}</div>
           </div>
         </div>
@@ -193,8 +193,12 @@ export default {
   },
   mounted() {
     this.isOpened = this.isMenuOpen;
+    this.getUser();
   },
   computed: {
+    Clients() {
+      return this.$store.getters.Clients;
+    },
     cssVars() {
       return {
         "--bg-color": this.bgColor,
@@ -219,12 +223,18 @@ export default {
     },
   },
   methods: {
+      getUser() {
+      this.$store.dispatch("getUser");
+    },
     deriction(event) {
       this.$router.push(event);
     },
     logout() {
       localStorage.removeItem("user");
-      this.$router.go("/Login");
+      this.$router.push("/");
+      setTimeout(() => {
+        this.$router.go("/Login");
+      }, 1);
     },
   },
 };

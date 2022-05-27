@@ -21,7 +21,6 @@
         {
             $con = $this->connection;
             $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
-            var_dump($data);
             $stm = $con->prepare($requi);
             $result = $stm->execute($data);
             return $result;

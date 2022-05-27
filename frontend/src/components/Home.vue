@@ -49,45 +49,45 @@
         </div>
 
 
-        <div class="bg-white w-full p-8 relative">
+        <div class="bg-white w-full p-8 relative ">
             <h2 class="font-bold text-green-500 text-3xl my-5 text-center ">Services</h2>
 
-            <div class="flex flex-col mt-8 items-center">
-                <div class="flex-1 flex gap-8 md:flex-row sm:flex-col">
-                    <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl w-72 ">
+            <div class=" services grid lg:grid-cols-3 md:grid-cols-2  mt-8  justify-center items-center gap-8 ">
+                <!-- <div class="flex-1 flex gap-8 md:flex-row sm:flex-col"> -->
+                    <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl  ">
                         <img class="border-b-0.5 border-white pb-2 m-2 h-12 " src="../assets/img/construct.svg"
                             aria-hidden="true">
                         <span class="font-medium">Construction</span>
                     </div>
-                    <div class="py-9 px-16 bg-black text-white  shadow-xl w-72">
+                    <div class="py-9 px-16 bg-black text-white  shadow-xl ">
                         <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/renovation.svg"
                             aria-hidden="true">
                         <span class="font-medium">Renovation</span>
                     </div>
-                    <div class="py-9 px-16 bg-green-400 text-black shadow-xl w-72">
+                    <div class="py-9 px-16 bg-green-400 text-black shadow-xl ">
                         <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/consultation.svg"
                             aria-hidden="true">
                         <span class="font-medium">Consultation</span>
                     </div>
 
-                </div>
-                <div class="flex-1 flex gap-8 mt-8 md:flex-row sm:flex-col  ">
-                    <div class="py-9 px-16 bg-black text-white  w-72">
+                <!-- </div>
+                <div class="flex-1 flex gap-8 mt-8 md:flex-row sm:flex-col  "> -->
+                    <div class="py-9 px-16 bg-black text-white  ">
                         <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/reservices.svg"
                             aria-hidden="true">
                         <span class="font-medium">Repaire Services</span>
                     </div>
-                    <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl  w-72">
+                    <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl  ">
                         <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/architech.svg"
                             aria-hidden="true">
                         <span class="text-secondary font-medium">Architecture</span>
                     </div>
-                    <div class="py-9 px-16 bg-black text-white shadow-xl w-72">
+                    <div class="py-9 px-16 bg-black text-white shadow-xl ">
                         <img class="border-b-4 border-gray-200 pb-2 m-2 h-12 " src="../assets/img/electric.svg"
                             aria-hidden="true">
                         <span class="font-medium">Electric</span>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
 
@@ -192,6 +192,10 @@ export default {
 </script>
 
 <style lang="scss">
+.services{
+    margin-left: 8%;
+    margin-right: 8%;
+}
 #feedback {
     padding: 3px;
     border-radius: 10px;

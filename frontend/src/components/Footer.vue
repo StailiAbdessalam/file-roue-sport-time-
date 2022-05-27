@@ -1,8 +1,8 @@
 <template>
     <div class="mt-10  footer">
-        <div class="p-0 m-0 flex justify-between items-center h-16 md:px-20 sm:px-6 mt-4">
-            <img class="w-36" src="../assets/img/LOGO.png" alt="">
-            <div class="h-full flex items-center justify-between w-37  ">
+        <div id="non" class=" p-0 m-0 flex justify-between items-center h-16 md:px-20 sm:px-6  mt-4 ">
+            <img class="w-36 sm:flex-none" src="../assets/img/LOGO.png" alt="">
+            <div class="h-full flex items-center justify-between w-37   ">
                 <ul class="flex">
                     <span class="iconify" v-for="(iteams, index) in menuItem" :key="index">
                         <li class="w-10">
@@ -15,7 +15,7 @@
         <div class="w-full h-0 border-solid border border-amber-200  flex justify-center items-center">
         </div>
         <div class="flex justify-center items-center h-10">
-            <p class="h-full text-center">© 2021 Flex. All rights reserved.</p>
+            <p class="h-full text-center">© 2021 Flex. All By abdessalam.</p>
         </div>
     </div>
 </template>
@@ -65,8 +65,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
 
+@media (max-width: 390px) {
+    #non {
+        display: none;
+    }
 }
 
 </style>

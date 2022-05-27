@@ -1,6 +1,7 @@
 <template>
-  <div class="flex justify-center items-center">
-    <div class="modal__container m-24">
+  <div class="flex justify-center items-center gap-12">
+    <div class="modal__container m-24" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom" data-aos-duration="500" data-aos-delay="500">
       <div class="modal__content">
         <form>
           <ul class="form-list">
@@ -41,10 +42,10 @@
               <div>
                 <label>
                   CVC
-
                   <a
-                    href="#cvv-modal"
+                    href="https://www.cvvnumber.com/#:~:text=The%20CVV%20Number%20(%22Card%20Verification,branded%20credit%20and%20debit%20cards."
                     class="button--transparent modal-open button--info"
+                    target="_blank"
                   >
                     <svg
                       class="nc-icon glyph"
@@ -91,27 +92,14 @@
       </div>
       <!-- END: .modal__content -->
       <div class="modal__featured">
-        <button type="button" class="button--transparent button--close">
-          <svg
-            class="nc-icon glyph"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            width="32px"
-            height="32px"
-            viewBox="0 0 32 32"
-          >
-            <g>
-              <path
-                fill="#ffffff"
-                d="M1.293,15.293L11,5.586L12.414,7l-8,8H31v2H4.414l8,8L11,26.414l-9.707-9.707 C0.902,16.316,0.902,15.684,1.293,15.293z"
-              ></path>
-            </g>
-          </svg>
-          <span class="visuallyhidden">Return to Product Page</span>
-        </button>
-        <div class="modal__circle"></div>
+       
+
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1500"
+          data-aos-delay="500"
+          class="modal__circle"
+        ></div>
         <img src="../../assets/img/Hakimi.png" class="modal__product" />
       </div>
     </div>
@@ -155,6 +143,7 @@ h5 {
 }
 
 .button--transparent {
+  margin-top: 5px;
   background: transparent;
   border: 0;
   outline: 0;
@@ -218,6 +207,9 @@ input:focus {
 .form-list {
   padding-left: 0;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .form-list__row {
   margin-bottom: 25px;
@@ -278,7 +270,6 @@ input:focus {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
 
 .modal__container {
   display: flex;

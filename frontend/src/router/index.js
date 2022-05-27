@@ -77,14 +77,6 @@ const routes = [
       import(/* webpackChunkName: "home" */ "../Pages/Admin/Archieve.vue"),
   },
   {
-    path: "/AllReservation",
-    name: "AllReservation",
-    component: () =>
-      import(
-        /* webpackChunkName: "home" */ "../Pages/Organisateur/AllReservation.vue"
-      ),
-  },
-  {
     path: "/AllStade",
     name: "AllStade",
     component: () =>
@@ -111,7 +103,7 @@ router.beforeEach((to, from, next) => {
     if (localStorage.getItem("id")) {
       next();
     } else {
-      next("/Login");
+      next("/");
     }
   }
 });

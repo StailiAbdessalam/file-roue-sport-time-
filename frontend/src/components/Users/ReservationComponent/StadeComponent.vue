@@ -45,6 +45,13 @@
               />
             </svg>
           </div>
+          <div
+            v-if="Reservation.Time"
+            @click="addreservation(stad)"
+            class="btn btn-info text-center"
+          >
+            RESERVER
+          </div>
         </div>
 
         <h3 class="font-black text-gray-800 md:text-3xl text-xl">
@@ -58,25 +65,57 @@
           <span class="font-normal text-gray-600 text-base">/Hour</span>
         </p>
 
-        <div class="flex">
+        <div class="flex-row md:flex">
           <input
-           
+            @change="Changedate(stad.id)"
             v-model="Reservation.Date"
             class="w-56 p-6 content-around h-2 border-2"
             type="date"
             placeholder="datetime"
-           
           />
           <div class="box">
             <select
               v-if="Reservation.Date"
+              v-model="TypeJour"
+              class="bg-white border-2"
+              name=""
+              id=""
+            >
+              <option>AM</option>
+              <option>PM</option>
+            </select>
+          </div>
+
+          <div class="box">
+            <select
+              v-if="TypeJour == 'PM'"
               v-model="Reservation.Time"
               class="bg-white border-2"
               name=""
               id=""
             >
               <option
-                v-for="H in HOO"
+                v-for="H in PM"
+                :key="H"
+                :class="{
+                  'bg-green-500': dataerour.indexOf(H) == -1,
+                  'bg-red-400': dataerour.indexOf(H) != -1,
+                }"
+              >
+                {{ H }}
+              </option>
+            </select>
+          </div>
+          <div class="box">
+            <select
+              v-if="TypeJour == 'AM'"
+              v-model="Reservation.Time"
+              class="bg-white border-2"
+              name=""
+              id=""
+            >
+              <option
+                v-for="H in AM"
                 :class="{
                   'bg-green-500': dataerour.indexOf(H) == -1,
                   'bg-red-400': dataerour.indexOf(H) != -1,
@@ -87,13 +126,6 @@
               </option>
             </select>
           </div>
-          <div
-            v-if="Reservation.Time"
-            @click="addreservation(stad)"
-            class="btn btn-info text-center"
-          >
-            RESERVER
-          </div>
         </div>
       </div>
     </div>
@@ -101,12 +133,16 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Stade-Component",
   data() {
     return {
+      TypeJour: "",
       dataerour: [],
       HOO: [],
+      PM: [],
+      AM: [],
       stad: this.stade,
       Reservation: {
         idStadieum: "",
@@ -120,13 +156,52 @@ export default {
   methods: {
     selectHour() {
       this.HOO = [];
-      for (let i = 1; i < 24; i++) {
+      for (let i = 5; i < 20; i++) {
         this.HOO.push(i + " PM");
       }
     },
+    AMM() {
+      for (let i = 5; i < 12; i++) {
+        this.AM.push(i + " AM");
+      }
+      console.log(this.AM);
+    },
+    PMM() {
+      for (let i = 12; i < 20; i++) {
+        this.PM.push(i + " PM");
+      }
+      console.log(this.PM);
+    },
+    addreservation(data) {
+      this.Reservation.idStadieum = data.id;
+      this.Reservation.idLocal = data.idLocal;
+      axios
+        .post(`${this.$apiUrl}/Reservation/addReservation`, {
+          Reservation: this.Reservation,
+        })
+        .then(() => {});
+      this.$router.push("/paiyment");
+    },
+
+    Changedate(data) {
+      console.log(this.TypeJour);
+      this.dataerour = [];
+      axios
+        .post(`${this.$apiUrl}/Stade/getAllTime`, {
+          date: this.Reservation.Date,
+          id: data,
+        })
+        .then((res) => {
+          res.data.forEach((element) => {
+            this.dataerour.push(element.Time);
+          });
+        });
+    },
   },
-  mounted (){
+  mounted() {
     this.selectHour();
+    this.AMM();
+    this.PMM();
   },
   props: ["stade"],
 };
@@ -136,8 +211,6 @@ export default {
 .box select {
   padding: 4px;
   width: 100px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
   height: 49px;
   font-size: 20px;
   outline: none;

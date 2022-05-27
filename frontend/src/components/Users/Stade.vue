@@ -127,17 +127,8 @@ export default {
   name: "Rese-rvation",
   data() {
     return {
-      dataerour: [],
-      HOO: [],
       local: "",
       stade: "",
-      Reservation: {
-        idStadieum: "",
-        idClient: localStorage.getItem("id"),
-        idLocal: "",
-        Time: "",
-        Date: "",
-      },
     };
   },
   components: {
@@ -147,15 +138,8 @@ export default {
   mounted() {
     this.getlocal();
     this.getAllStade();
-    this.selectHour();
   },
   methods: {
-    selectHour() {
-      this.HOO = [];
-      for (let i = 1; i < 24; i++) {
-        this.HOO.push(i + " PM");
-      }
-    },
     getlocal() {
       axios
         .post(`${this.$apiUrl}/Organisateur/selectOneLocal`, {
@@ -174,29 +158,8 @@ export default {
           this.stade = res.data;
         });
     },
-    Changedate(data) {
-      this.dataerour = [];
-      axios
-        .post(`${this.$apiUrl}/Stade/getAllTime`, {
-          date: this.Reservation.Date,
-          id: data,
-        })
-        .then((res) => {
-          res.data.forEach((element) => {
-            this.dataerour.push(element.Time);
-          });
-        });
-    },
-    addreservation(data) {
-      this.Reservation.idStadieum = data.id;
-      this.Reservation.idLocal = data.idLocal;
-      axios
-        .post(`${this.$apiUrl}/Reservation/addReservation`, {
-          Reservation: this.Reservation,
-        })
-        .then(() => {});
-      this.$router.push("/paiyment");
-    },
+   
+
   },
 };
 </script>

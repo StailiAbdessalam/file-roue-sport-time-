@@ -62,8 +62,9 @@
           data-aos-anchor="#example-anchor"
           data-aos-delay="500"
           data-aos-offset="500"
+          class="login"
         >
-          <img src="../assets/img/login.gif" alt="" />
+          <img src="../assets/img/login.gif"  alt="" />
         </div>
         <!--alert invalide-->
       </div>
@@ -103,7 +104,7 @@ export default {
                 button: "Validate",
               });
               this.$router.push("/Validation");
-              localStorage.setItem("Id", response.data.data.id);
+              localStorage.setItem("id", response.data.data.id);
             } else if (response.data.data.suspended == -1) {
               this.$router.push("/");
               swal({
@@ -167,11 +168,26 @@ export default {
   padding-left: 10px;
   margin-bottom: 1rem;
 }
-
+@media (max-width: 768px) {
+  .form_Login_formData select,
+  .form_Login_formData input {
+    width: 396px;
+  }
+}@media (max-width: 417px) {
+  .form_Login_formData select,
+  .form_Login_formData input {
+    width: 326px;
+  }
+}
 #submit {
   height: 3rem;
   margin-top: 10px;
   background-color: rgba(34, 197, 94, 1);
   color: #fff;
+}
+@media (max-width: 916px) {
+  .login {
+   display: none;
+  }
 }
 </style>

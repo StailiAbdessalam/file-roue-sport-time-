@@ -1,15 +1,15 @@
 <template>
-    <section class="py-20 px-4 lg:px-16 overflow-hidden relative z-10" data-aos="fade-up" id="contact">
-        <div class="container">
+    <section class="py-20 px-4 lg:px-16 overflow-hidden relative z-10 flex justify-center items-center w-full " data-aos="fade-up" id="contact">
+        <div class="container flex-col justify-center items-center ">
             <div class="mb-5 flex items-center max-w-md">
                 <h2 class="text-slate-900 text-yellow-400 dark:text-gray-200 text-3xl font-bold"> Contact Me</h2>
             </div>
             <div
                 class="flex flex-col lg:flex-row lg:items-center text-slate-900 dark:text-gray-200 lg:justify-between -mx-4">
                 <div class="w-full lg:w-1/2 xl:w-6/12 px-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="max-w-[570px] mb-12 lg:mb-0">
+                    <div class=" mb-12 lg:mb-0">
                         <p
-                            class="text-base text-4xl font-extrabold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
+                            class="text-base md:text-2xl sm:text-sm font-extrabold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
                             Lorem ipsum dolor. Nulla porttitor accumsan tincidunt. Lorem ipsum dolor. Nulla porttitor
                             accumsan tincidunt. Lorem ipsum dolor. Nulla porttitor accumsan tincidunt.
                         </p>

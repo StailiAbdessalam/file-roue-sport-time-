@@ -21,7 +21,7 @@
     >
       <div id="my-scroll" style="margin: 6px 14px 0 14px">
         <ul class="nav-list" style="overflow: visible">
-          <li  v-if="isSearch" @click="isOpened = true">
+          <li v-if="isSearch" @click="isOpened = true">
             <i class="bx bx-search" />
             <input
               type="text"
@@ -48,8 +48,10 @@
         <div class="profile-details">
           <img src="../../assets/img/photo.jpg" alt="profileImg" />
           <div class="name_job">
-            <div class="name">{{ Clients.LastName }}   {{ Clients.FirstName }}</div>
-            <div class="job">{{role}}</div>
+            <div class="name">
+              {{ Clients.LastName }} {{ Clients.FirstName }}
+            </div>
+            <div class="job">{{ role }}</div>
           </div>
         </div>
         <i
@@ -217,13 +219,13 @@ export default {
   watch: {
     isOpened() {
       window.document.body.style.paddingLeft =
-        this.isOpened && this.isPaddingLeft
+        this.isOpened && this.isPaddingLeft && window.innerWidth > 1010
           ? this.menuOpenedPaddingLeftBody
           : this.menuClosedPaddingLeftBody;
     },
   },
   methods: {
-      getUser() {
+    getUser() {
       this.$store.dispatch("getUser");
     },
     deriction(event) {
@@ -231,6 +233,7 @@ export default {
     },
     logout() {
       localStorage.removeItem("user");
+      localStorage.removeItem("id");
       this.$router.push("/");
       setTimeout(() => {
         this.$router.go("/Login");
@@ -274,7 +277,7 @@ body {
   background: var(--bg-color);
   /* padding: 6px 14px 0 14px; */
   z-index: 99;
-  transition: all 0.5s ease;
+  /* transition: all 0.5s ease; */
 }
 
 .sidebar.open {

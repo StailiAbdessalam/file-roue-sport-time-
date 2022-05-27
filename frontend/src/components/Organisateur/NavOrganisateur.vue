@@ -124,12 +124,12 @@ export default {
         //     icon: 'bx-user',
         // },
 
-        {
-          link: "/AllReservation",
-          name: "Tous Reservation",
-          tooltip: "Reservation",
-          icon: "bx-cart-alt",
-        },
+        // {
+        //   link: "/AllReservation",
+        //   name: "Tous Reservation",
+        //   tooltip: "Reservation",
+        //   icon: "bx-cart-alt",
+        // },
         {
           link: "/Profil",
           name: "Profil",

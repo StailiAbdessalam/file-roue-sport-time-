@@ -1,7 +1,12 @@
 <template>
   <div class="flex justify-center items-center gap-12">
-    <div class="modal__container m-24" data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom" data-aos-duration="500" data-aos-delay="500">
+    <div
+      class="modal__container m-24"
+      data-aos="fade-up"
+      data-aos-anchor-placement="bottom-bottom"
+      data-aos-duration="500"
+      data-aos-delay="500"
+    >
       <div class="modal__content">
         <form>
           <ul class="form-list">
@@ -92,8 +97,6 @@
       </div>
       <!-- END: .modal__content -->
       <div class="modal__featured">
-       
-
         <div
           data-aos="fade-left"
           data-aos-duration="1500"

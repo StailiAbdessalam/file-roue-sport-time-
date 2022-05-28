@@ -22,7 +22,6 @@
             {{ local.About }}
           </p>
           <router-link class="text-white hover:cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center" :to="{ name: 'Stade', params: { id: local.id }}">read more</router-link>
-          
         </div>
       </div>
     </div>

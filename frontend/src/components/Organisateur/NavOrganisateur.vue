@@ -51,7 +51,7 @@
             alt="profileImg"
           />
           <div class="name_job">
-            <div class="name">{{ user.LastName }}   {{ user.FirstName }}</div>
+            <div class="name">{{ user.LastName }} {{ user.FirstName }}</div>
             <div class="job">{{ role }}</div>
           </div>
         </div>
@@ -244,7 +244,7 @@ export default {
   watch: {
     isOpened() {
       window.document.body.style.paddingLeft =
-        this.isOpened && this.isPaddingLeft
+        this.isOpened && this.isPaddingLeft && window.innerWidth > 1010
           ? this.menuOpenedPaddingLeftBody
           : this.menuClosedPaddingLeftBody;
     },
@@ -259,7 +259,10 @@ export default {
     logout() {
       localStorage.removeItem("user");
       this.setRole(" ");
-      this.$router.push("/Login");
+      this.$router.push("/");
+      setTimeout(() => {
+        this.$router.go("/Login");
+      }, 1);
     },
 
     // getOrganisateur() {

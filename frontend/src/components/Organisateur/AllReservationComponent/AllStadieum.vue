@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center gap-10 mt-4 mb-4">
+  <div class="flex flex-col justify-center gap-10 mt-20 mb-4">
     <div
       class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white"
     >
@@ -45,32 +45,6 @@
               />
             </svg>
           </div>
-          <div
-            v-if="Reservation.Time && load==false"
-            @click="addreservation(stad)"
-            class="btn btn-info text-center"
-          >
-            RESERVER
-          </div>
-
-
-
-<!-- <div class="flex h-screen w-screen items-center justify-center"> -->
-  <button v-if="load"  type="button" class="flex items-center  bg-green-700 px-2  text-white" disabled>
-    <svg class="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-    </svg>
-    <span class="font-medium"> Processing... </span>
-  </button>
-<!-- </div> -->
-
-
-
-
-
-
-
         </div>
 
         <h3 class="font-black text-gray-800 md:text-3xl text-xl">
@@ -84,70 +58,43 @@
           <span class="font-normal text-gray-600 text-base">/Hour</span>
         </p>
 
-        <div class="flex-row md:flex">
+        <div class="flex-row md:flex justify-between">
           <input
             @change="Changedate(stad.id)"
-            v-model="Reservation.Date"
+            v-model="date"
             class="w-56 p-6 content-around h-2 border-2"
-            :min="new Date().toISOString().substr(0, 10)"
             type="date"
             placeholder="datetime"
           />
-          <div class="box">
-            <select
-              v-if="Reservation.Date"
-              v-model="TypeJour"
-              class="bg-white border-2"
-              name=""
-              id=""
-            >
-              <option>AM</option>
-              <option>PM</option>
-            </select>
-          </div>
-
-          <div class="box">
-            <select
-              v-if="TypeJour == 'PM'"
-              v-model="Reservation.Time"
-              class="bg-white border-2"
-              name=""
-              id=""
-            >
-              <option
-                v-for="H in PM"
-                :key="H"
-                :class="{
-                  'bg-green-500': dataerour.indexOf(H) == -1,
-                  'bg-red-400 ': dataerour.indexOf(H) != -1,
-                }"
-              >
-                {{ H }}
-              </option>
-            </select>
-          </div>
-          <div class="box">
-            <select
-              v-if="TypeJour == 'AM'"
-              v-model="Reservation.Time"
-              class="bg-white border-2"
-              name=""
-              id=""
-            >
-              <option
-                v-for="H in AM"
-                :class="{
-                  'bg-green-500': dataerour.indexOf(H) == -1,
-                  'bg-red-400': dataerour.indexOf(H) != -1,
-                }"
-                :key="H"
-              >
-                {{ H }}
-              </option>
-            </select>
+          <div
+            v-if="date"
+            @click="showReservation = true"
+            class="centri md:w-1/3 h-10 rounded-lg btn-info w-2/3 hover:cursor-pointer"
+          >
+            All Reservation
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div
+    v-if="showReservation"
+    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white"
+  >
+    <tr class="flex relative " v-for="REs in Reservation"
+        :key="REs">
+      <!-- the data reserver  -->
+      <td
+        class="bg-green-400 text-white flex gap-4 w-12 h-full justify-center items-center  h-5"
+      >
+        {{ REs.Time }}
+      </td>
+    </tr>
+    <div
+      @click="showReservation = false"
+      class="rounded-r-lg ... bg-red-500 absolute top-0 right-0 w-20 h-full flex justify-center items-center hover:cursor-pointer text-white font-bold"
+    >
+      Close
     </div>
   </div>
 </template>
@@ -158,82 +105,36 @@ export default {
   name: "Stade-Component",
   data() {
     return {
-      load: false,
-      TypeJour: "",
-      dataerour: [],
-      HOO: [],
-      PM: [],
-      AM: [],
+      showReservation: false,
       stad: this.stade,
-      Reservation: {
-        idStadieum: "",
-        idClient: localStorage.getItem("id"),
-        idLocal: "",
-        Time: "",
-        Date: "",
-      },
+      date: "",
+      Reservation: [],
     };
   },
   methods: {
-    selectHour() {
-      this.HOO = [];
-      for (let i = 5; i < 20; i++) {
-        this.HOO.push(i + " PM");
-      }
-    },
-    AMM() {
-      for (let i = 5; i < 12; i++) {
-        this.AM.push(i + " AM");
-      }
-      console.log(this.AM);
-    },
-    PMM() {
-      for (let i = 12; i < 20; i++) {
-        this.PM.push(i + " PM");
-      }
-      console.log(this.PM);
-    },
-    addreservation(data) {
-      this.Reservation.idStadieum = data.id;
-      this.Reservation.idLocal = data.idLocal;
+    Changedate() {
       axios
-        .post(`${this.$apiUrl}/Reservation/addReservation`, {
-          Reservation: this.Reservation,
-        })
-        .then(() => {});
-        this.load=true;
-        setTimeout(() => {
-          // this.load=false;
-      this.$router.push("/paiyment");
-        }, 1000);
-
-    },
-
-    Changedate(data) {
-      console.log(this.TypeJour);
-      this.dataerour = [];
-      axios
-        .post(`${this.$apiUrl}/Stade/getAllTime`, {
-          date: this.Reservation.Date,
-          id: data,
+        .post(`${this.$apiUrl}/Stade/getallReservation`, {
+          id: this.stad.id,
+          date: this.date,
         })
         .then((res) => {
-          res.data.forEach((element) => {
-            this.dataerour.push(element.Time);
-          });
+          this.Reservation = res.data;
+          console.log(this.Reservation);
         });
     },
   },
-  mounted() {
-    this.selectHour();
-    this.AMM();
-    this.PMM();
-  },
-  props: ["stade"],
+  props: ["stade", "id"],
 };
 </script>
 
 <style lang="scss" scoped>
+.centri {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #20bd3d;
+}
 .box select {
   padding: 4px;
   width: 100px;

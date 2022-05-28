@@ -7,11 +7,10 @@
         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
       </div> -->
       </div>
-
       <div
         data-aos="fade-down"
         v-if="added"
-        class="flex bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700 absolute top-32 left-2/5 w-1/2"
+        class="flex bg-green-300 rounded-lg p-4 mb-4 text-sm text-green-700 absolute top-32 left-2/5 w-1/2"
         role="alert"
       >
         <svg
@@ -144,17 +143,38 @@
       </div>
 
       <div class="flex items-center justify-center md:gap-8 gap-4 pt-5 pb-5">
-        <button
-          class="w-auto bg-orange-500 hover:bg-orange-700 rounded-lg shadow-xl font-medium text-white px-4 py-2"
-        >
-          cancel
-        </button>
-        <button
-          @click="ADDStade"
-          class="w-auto bg-green-500 hover:bg-green -700 rounded-lg shadow-xl font-medium text-white px-4 py-2"
-        >
-          Create
-        </button>
+        <div>
+          <div @click="stadeAllRegarder" class="flex rounded border-b-2 border-grey-300 overflow-hidden">
+            <button
+              class="block text-white text-sm shadow-border bg-orange-500 hover:bg-orange-700 text-sm py-3 px-4 font-sans tracking-wide uppercase font-bold"
+            >
+              schedule a demo
+            </button>
+            <div class="bg-orange-300 shadow-border p-3">
+              <div class="w-4 h-4">
+                <svg
+                  class="fill-current text-white"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1024 544v448q0 14-9 23t-23 9h-320q-14 0-23-9t-9-23v-64q0-14 9-23t23-9h224v-352q0-14 9-23t23-9h64q14 0 23 9t9 23zm416 352q0-148-73-273t-198-198-273-73-273 73-198 198-73 273 73 273 198 198 273 73 273-73 198-198 73-273zm224 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex rounded border-b-2 border-grey-300 overflow-hidden" @click="ADDStade">
+            <button
+              class="block text-white text-sm shadow-border bg-green-500 hover:bg-green-700 text-sm py-3 px-4 font-sans tracking-wide uppercase font-bold"
+            >
+              Ajouter
+            </button>
+             
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -186,6 +206,9 @@ export default {
     this.localid();
   },
   methods: {
+    stadeAllRegarder(){
+      this.$router.push("/AllStade");
+    },
     changeImage(e) {
       this.images = e.target.files[0];
       console.log(this.images);

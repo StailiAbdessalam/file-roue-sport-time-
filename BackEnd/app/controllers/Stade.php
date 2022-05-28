@@ -47,5 +47,15 @@ class Stade extends Controller
       $local = (array)$local;
       echo json_encode($local);
     }
+  }  
+  public function getallReservation(){
+    $Model= $this->model('StadeModel');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $local = $Model->getallReservation($data);
+      $local = (array)$local;
+      echo json_encode($local);
+    }
   }
 }

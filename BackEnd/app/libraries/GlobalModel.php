@@ -163,8 +163,15 @@
             $stm->execute(["daate" => $dat->date, "id" => $dat->id]);
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
-
-           
+        }
+        public function selectAllResrbydate($dat)
+        {
+            $conn = $this->connection;
+            $requi = "SELECT * FROM `$this->Table`  WHERE Date=:daate && idStadieum = :id";
+            $stm = $conn->prepare($requi);
+            $stm->execute(["daate" => $dat->date, "id" => $dat->id]);
+            $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
         }
 
 

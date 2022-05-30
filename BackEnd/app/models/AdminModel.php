@@ -5,31 +5,31 @@ class AdminModel
 {
     public function selectAll()
     {
-        $ModelClients = new GlobalModel("Admin");
+        $ModelClients = new GlobalModel("admin");
         $CLIENT = $ModelClients->selectAll();
         return json_encode($CLIENT);
     }
     public function SelectOne($id)
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("clients");
         $CLIENT = $ModelClients->SelectOne($id);
          json_encode($CLIENT);
     }
     public function remove($id)
     {
-        $ModelClients = new GlobalModel("Clients");
+        $ModelClients = new GlobalModel("clients");
         $CLIENTS = $ModelClients->remove($id);
         return $CLIENTS;
     }
     public function insert($data)
     {
-        $ModelClients = new GlobalModel("Admin");
+        $ModelClients = new GlobalModel("admin");
         $CLIENT = $ModelClients->insert($data);
         json_encode($CLIENT);
     }
     public function fetchByRef($Ref)
     {
-        $ModelClients = new GlobalModel("Admin");
+        $ModelClients = new GlobalModel("admin");
         $CLIENT = $ModelClients->fetchByRef($Ref);
         return $CLIENT;
     }
@@ -54,6 +54,7 @@ class AdminModel
         return $query->execute($params);
     }
 }
+
 
 
 

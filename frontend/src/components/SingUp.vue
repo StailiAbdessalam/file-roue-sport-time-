@@ -18,7 +18,7 @@
           data-aos-duration="1500"
           data-aos-delay="1000"
           data-aos-offset="500"
-          class="relative h-full flex flex-col gap-3"
+          class="relative flex flex-col gap-3"
         >
           <div class="flex flex-col justify-center items-center">
             <h1 class="form_singup_title">Sig Up in a new account</h1>
@@ -169,8 +169,9 @@ export default {
     ADDClient() {
       this.load = true;
       axios
-        .post(`${this.$apiUrl}/Clientsr/register`, this.dataClient)
+        .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
         .then((res) => {
+          
           this.Valide = true;
           setTimeout(() => {
             console.log(res.data);

@@ -27,7 +27,7 @@ export default createStore({
   actions: {
     getOrganisateur({ commit }) {
       axios
-        .post("http://localhost/FILEROUGE/Organisateur/getOne", {
+        .post("http://sportime.bouchikhi.com/Organisateur/getOne", {
           id: localStorage.getItem("id"),
         })
         .then((res) => {
@@ -37,7 +37,7 @@ export default createStore({
     },
      getUser({ commit }) {
       axios
-        .post("http://localhost/FILEROUGE/Clients/getOne", {
+        .post("http://sportime.bouchikhi.com/Clients/getOne", {
           id: localStorage.getItem("id"),
         })
         .then((res) => {

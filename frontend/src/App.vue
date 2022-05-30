@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col justify-between h-screen">
     <NavAdmin v-if="Role == 'Admin'" />
     <!-- <Home/> -->
     <NavBar />

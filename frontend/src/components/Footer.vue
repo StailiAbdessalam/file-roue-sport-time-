@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-10  footer">
+    <div class="footer">
         <div id="non" class=" p-0 m-0 flex justify-between items-center h-16 md:px-20 sm:px-6  mt-4 ">
             <img class="w-36 sm:flex-none" src="../assets/img/LOGO.png" alt="">
             <div class="h-full flex items-center justify-between w-37   ">

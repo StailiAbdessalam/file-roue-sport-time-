@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SingUp class="h-screen" />
+    <SingUp  />
   </div>
 </template>
 

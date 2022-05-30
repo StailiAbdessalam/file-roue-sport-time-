@@ -7,7 +7,7 @@
           data-aos-anchor="#example-anchor"
           data-aos-duration="1500"
           data-aos-delay="1000"
-          class="relative h-full flex flex-col gap-3"
+          class="relative flex flex-col gap-3"
         >
           <div class="flex flex-col justify-center items-center">
             <h1 class="form_Login_title">Sig in </h1>
@@ -91,10 +91,11 @@ export default {
   methods: {
     login() {
       axios
-        .post(`http://localhost/FILEROUGE/${this.personne}/index`, {
+        .post(`${this.$apiUrl}/${this.personne}/index`, {
           ID: this.ID,
         })
         .then((response) => {
+          console.log(response.data);
           if (response.data.status == "information correct") {
             if (response.data.data.suspended == 0) {
               swal({

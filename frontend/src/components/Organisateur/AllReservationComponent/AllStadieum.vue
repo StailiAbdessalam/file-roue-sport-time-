@@ -79,7 +79,7 @@
   </div>
   <div
     v-if="showReservation"
-    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white"
+    class="relative flex flex-col h-11 md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white"
   >
     <tr class="flex relative " v-for="REs in Reservation"
         :key="REs">
@@ -92,7 +92,7 @@
     </tr>
     <div
       @click="showReservation = false"
-      class="rounded-r-lg ... bg-red-500 absolute top-0 right-0 w-20 h-full flex justify-center items-center hover:cursor-pointer text-white font-bold"
+      class="rounded-r-lg ... bg-red-500 absolute top-0 right-0 w-20 h-11 flex justify-center items-center hover:cursor-pointer text-white font-bold"
     >
       Close
     </div>

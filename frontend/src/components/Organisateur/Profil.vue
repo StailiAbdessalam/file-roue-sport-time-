@@ -4,7 +4,6 @@
     <div
       class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
       style="
-        min-height: 600px;
         background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa88ujR9_66Y02EVUbKeOIh3GFog7q5vCX3Q&usqp=CAU);
         background-size: cover;
         background-position: center top;

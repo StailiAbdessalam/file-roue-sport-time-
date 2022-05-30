@@ -46,7 +46,7 @@
       </div>
       <div class="profile">
         <div class="profile-details">
-          <img src="../../assets/img/photo.jpg" alt="profileImg" />
+          <img src="../../assets/img/progil.jpg" alt="profileImg" />
           <div class="name_job">
             <div class="name">
               {{ Clients.LastName }} {{ Clients.FirstName }}
@@ -101,17 +101,12 @@ export default {
           tooltip: "Home",
           icon: "bx-home",
         },
-        // {
-        //   link: "/Reservation",
-        //   name: "Reservation",
-        //   tooltip: "Reservation",
-        //   icon: "bx-cart-alt",
-        // },
         {
           link: "/local",
           name: "local",
           tooltip: "local",
-          icon: "bx-cart-alt",
+          icon: "bx-store",
+
         },
         {
           link: "/Contact",
@@ -120,10 +115,17 @@ export default {
           icon: "bx-user",
         },
         // {
-        //     link: '#',
-        //     name: 'Saved',
-        //     tooltip: 'Saved',
-        //     icon: 'bx-heart',
+        //   link: "/Myreservation",
+        //   name: "My Reservation",
+        //   tooltip: "My Reservation",
+        //   icon: "bx-cart-alt",
+
+        // },
+        // {
+        //   link: "/Feed",
+        //   name: "Feedback",
+        //   tooltip: "Feed",
+        //   icon: "bx-heart",
         // },
         {
           link: "/setting",

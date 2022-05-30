@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-black opacity-60 z-10 absolute top-0 left-0 w-full h-screen flex justify-center items-center">
+    <div class="bg-black opacity-60 z-10 abdo flex justify-center items-center">
         <div class="lds-roller">
             <div></div>
             <div></div>
@@ -20,6 +20,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.abdo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 .lds-roller {
     z-index: -1234678;
     display: inline-block;

@@ -2,9 +2,11 @@
 class Connection
 {
 	private $host = "localhost";
-	private $user = "root";
-	private $pass = "";
-	private $dbname = "SportTime";
+	// private $user = "root";
+	private $user = "u834220418_sport";
+	private $pass = "sportime1";
+	// private $dbname = "SportTime";
+	private $dbname = "u834220418_sport";
 	public $db;
 	public function __construct()
 	{

@@ -106,14 +106,14 @@
     </div>
 
     <div
-      class="serve bg-white w-full p-4 relative flex-col justify-center items-center"
+      class="serve bg-white w-full p-4 relative flex-col justify-center items-center "
     >
-      <h2 class="font-bold text-green-500 text-3xl my-5 text-center">
+      <h2 class="font-bold text-green-500 text-3xl text-center">
         Services
       </h2>
 
       <div
-        class="services grid lg:grid-cols-3 md:grid-cols-2 mt-8 items-center gap-8"
+        class="services grid lg:grid-cols-3 md:grid-cols-2  items-center gap-8 mt-3 "
       >
         <!-- <div class="flex-1 flex gap-8 md:flex-row sm:flex-col"> -->
         <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
@@ -149,7 +149,7 @@
             src="../assets/img/reservices.svg"
             aria-hidden="true"
           />
-          <span class="font-medium">Repaire Services</span>
+          <span class="font-medium">Services</span>
         </div>
         <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
           <img
@@ -327,8 +327,8 @@ export default {
   .services {
     margin-left: 0px;
     margin-right: 0px;
-     
-     
+    padding-left: 11px;
+    padding-right: 11px;
     width: 100%;
     overflow-y: scroll;
     display: flex;

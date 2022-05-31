@@ -95,7 +95,6 @@ export default {
           ID: this.ID,
         })
         .then((response) => {
-          console.log(response.data);
           if (response.data.status == "information correct") {
             if (response.data.data.suspended == 0) {
               swal({

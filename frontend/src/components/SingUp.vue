@@ -4,7 +4,7 @@
     <div class="flex justify-center items-center w-full">
       <div class="flex justify-center items-center gap-20 w-full form_singup">
         <div
-        class="sigup"
+          class="sigup"
           data-aos="fade-right"
           data-aos-anchor="#example-anchor"
           data-aos-delay="500"
@@ -23,6 +23,7 @@
           <div class="flex flex-col justify-center items-center">
             <h1 class="form_singup_title">Sig Up in a new account</h1>
           </div>
+          <label for="role">Role</label>
           <select v-model="role" name="" id="">
             <option disabled selected>choisi votre role</option>
             <option value="Organisateur">organisateur</option>
@@ -171,7 +172,6 @@ export default {
       axios
         .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
         .then((res) => {
-          
           this.Valide = true;
           setTimeout(() => {
             console.log(res.data);
@@ -185,7 +185,7 @@ export default {
         });
     },
     FaitDemmande() {
-console.log(this.dataOrganisateur);
+      console.log(this.dataOrganisateur);
       this.load = true;
       axios
         .post(`${this.$apiUrl}/Organisateur/register`, this.dataOrganisateur)
@@ -269,7 +269,7 @@ Select,
 }
 @media (max-width: 916px) {
   .sigup {
-   display: none;
+    display: none;
   }
 }
 </style>

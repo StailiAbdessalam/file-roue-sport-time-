@@ -327,6 +327,8 @@ export default {
   .services {
     margin-left: 0px;
     margin-right: 0px;
+     
+     
     width: 100%;
     overflow-y: scroll;
     display: flex;

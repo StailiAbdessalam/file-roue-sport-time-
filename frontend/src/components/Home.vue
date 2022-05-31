@@ -58,7 +58,7 @@
           alt=""
         />
       </div>
-      <div id="Res_motivation" class="flex flex-col w-1/4 gap-6">
+      <div id="Res_motivation" class="Res_motivation flex flex-col w-1/4 gap-6">
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
@@ -105,13 +105,15 @@
       <button class="text-white w-full py-2 rounded bg-orange-400">Send</button>
     </div>
 
-    <div class="serve bg-white w-full p-4 relative">
+    <div
+      class="serve bg-white w-full p-4 relative flex-col justify-center items-center"
+    >
       <h2 class="font-bold text-green-500 text-3xl my-5 text-center">
         Services
       </h2>
 
       <div
-        class="services grid lg:grid-cols-3 md:grid-cols-2 mt-8 justify-center items-center gap-8"
+        class="services grid lg:grid-cols-3 md:grid-cols-2 mt-8 items-center gap-8"
       >
         <!-- <div class="flex-1 flex gap-8 md:flex-row sm:flex-col"> -->
         <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
@@ -182,7 +184,7 @@
         />
       </div>
       <div
-      id="description"
+        id="description"
         class="absolute top-24 bg-green-500 sm:bg-opacity-50 sm:left-2/2 md:left-1/2 md:bg-opacity-100 md:w-2/5 sm:w-4/5 odd:h-3/5 text-white p-14 py-18 grid place-items-start gap-3"
       >
         <h2 class="font-bold text-white text-3xl text-center">About us</h2>
@@ -311,19 +313,31 @@ export default {
   }
   .serve {
     padding: 0%;
+    overflow-y: scroll;
   }
-  #abou{
-      margin-top: 0px;
-      margin-bottom: 0px;
+  #abou {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
-  #description{
-          width: 87%;
+  #description {
+    width: 87%;
   }
 }
-
-.services {
-  margin-left: 8%;
-  margin-right: 8%;
+@media (max-width: 766px) {
+  .services {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+  }
+}
+@media (min-width: 767px) {
+  .services {
+    justify-content: center;
+    margin-left: 8%;
+    margin-right: 8%;
+  }
 }
 #feedback {
   padding: 3px;
@@ -378,6 +392,9 @@ export default {
 }
 
 @media (max-width: 1083px) {
+  .Res_motivation {
+    display: none;
+  }
   #Res_section1 {
     flex-direction: column;
     justify-content: center;

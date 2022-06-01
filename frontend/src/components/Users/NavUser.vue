@@ -312,9 +312,9 @@ body {
 
 .sidebar .logo-details #btn {
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: 0%;
-
+border-radius: 15px;
   transform: translateY(-50%);
   font-size: 22px;
   transition: all 0.4s ease;
@@ -329,7 +329,7 @@ body {
   }
   .sidebar .logo-details #btn {
     position: absolute;
-    top: 40%;
+    top: 60%;
     right: -29px;
     background: var(--bg-color);
   }

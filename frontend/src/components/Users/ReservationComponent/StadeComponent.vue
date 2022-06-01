@@ -46,31 +46,43 @@
             </svg>
           </div>
           <div
-            v-if="Reservation.Time && load==false"
+            v-if="Reservation.Time && load == false"
             @click="addreservation(stad)"
             class="btn btn-info text-center"
           >
             RESERVER
           </div>
 
-
-
-<!-- <div class="flex h-screen w-screen items-center justify-center"> -->
-  <button v-if="load"  type="button" class="flex items-center  bg-green-700 px-2  text-white" disabled>
-    <svg class="mr-3 h-5 w-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-    </svg>
-    <span class="font-medium"> Processing... </span>
-  </button>
-<!-- </div> -->
-
-
-
-
-
-
-
+          <!-- <div class="flex h-screen w-screen items-center justify-center"> -->
+          <button
+            v-if="load"
+            type="button"
+            class="flex items-center bg-green-700 px-2 text-white"
+            disabled
+          >
+            <svg
+              class="mr-3 h-5 w-5 animate-spin text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+            <span class="font-medium"> Processing... </span>
+          </button>
+          <!-- </div> -->
         </div>
 
         <h3 class="font-black text-gray-800 md:text-3xl text-xl">
@@ -95,6 +107,7 @@
           />
           <div class="box">
             <select
+              @change="check(TypeJour)"
               v-if="Reservation.Date"
               v-model="TypeJour"
               class="bg-white border-2"
@@ -119,7 +132,7 @@
                 :key="H"
                 :class="{
                   'bg-green-500': dataerour.indexOf(H) == -1,
-                  'bg-red-400 ': dataerour.indexOf(H) != -1,
+                  'bg-red-400 hidden ': dataerour.indexOf(H) != -1,
                 }"
               >
                 {{ H }}
@@ -138,7 +151,7 @@
                 v-for="H in AM"
                 :class="{
                   'bg-green-500': dataerour.indexOf(H) == -1,
-                  'bg-red-400': dataerour.indexOf(H) != -1,
+                  'bg-red-400 hidden': dataerour.indexOf(H) != -1,
                 }"
                 :key="H"
               >
@@ -153,11 +166,13 @@
 </template>
 
 <script>
+import swal from "sweetalert";
 import axios from "axios";
 export default {
   name: "Stade-Component",
   data() {
     return {
+      test: [],
       load: false,
       TypeJour: "",
       dataerour: [],
@@ -175,6 +190,44 @@ export default {
     };
   },
   methods: {
+    check(tset) {
+      if (tset == "PM") {
+        this.PM.forEach((element) => {
+          if (this.dataerour.indexOf(element) == -1) {
+            this.test.push(element);
+          }
+        });
+        if (this.test.length == 0) {
+          swal(
+            "Oops!",
+            "tous le reservation de ce stade est complet",
+            "warning"
+          );
+        this.TypeJour = "";
+        this.Reservation.Date = "";
+        this.Reservation.Time = "";
+        }
+        
+      }
+      if (tset == "AM") {
+        this.AM.forEach((element) => {
+          if (this.dataerour.indexOf(element) == -1) {
+            this.test.push(element);
+          }
+        });
+        if (this.test.length == 0) {
+          swal(
+            "Oops!",
+            "tous le reservation de ce stade est complet",
+            "warning"
+          );
+        this.TypeJour = "";
+        this.Reservation.Date = "";
+        this.Reservation.Time = "";
+        }
+      }
+        this.test = [];
+    },
     selectHour() {
       this.HOO = [];
       for (let i = 5; i < 20; i++) {
@@ -201,12 +254,11 @@ export default {
           Reservation: this.Reservation,
         })
         .then(() => {});
-        this.load=true;
-        setTimeout(() => {
-          // this.load=false;
-      this.$router.push("/paiyment");
-        }, 1000);
-
+      this.load = true;
+      setTimeout(() => {
+        // this.load=false;
+        this.$router.push("/paiyment");
+      }, 1000);
     },
 
     Changedate(data) {

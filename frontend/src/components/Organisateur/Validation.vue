@@ -1,6 +1,6 @@
 <template>
   <div class="justify-center items-center">
-    <div class="max-w-3xl h-[700px] mx-auto px-4 py-10 my-32">
+    <div class="max-w-3xl h-[563px] mx-auto">
       <Transition>
         <div v-if="step === 'complete'">
           <div

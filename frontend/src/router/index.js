@@ -84,12 +84,6 @@ const routes = [
         /* webpackChunkName: "home" */ "../Pages/Organisateur/AllStade.vue"
       ),
   },
-  {
-    path: "/paiyment",
-    name: "paiyment",
-    component: () =>
-      import(/* webpackChunkName: "home" */ "../Pages/Users/paiyment.vue"),
-  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

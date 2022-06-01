@@ -115,12 +115,14 @@
         </div>
       </div>
     </div>
+    <Payment class="w-full h-screen fixed "/>
     <!-- <Tiquer class="absolute top-0 left-0" /> -->
   </div>
 </template>
 
 <script>
 // import Tiquer from "./Tiquer.vue";
+import Payment from "./paiyment.vue";
 import ComponentStade from "./ReservationComponent/StadeComponent.vue";
 import axios from "axios";
 export default {
@@ -132,7 +134,7 @@ export default {
     };
   },
   components: {
-    // Tiquer,
+    Payment,
     ComponentStade,
   },
   mounted() {

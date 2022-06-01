@@ -31,12 +31,30 @@ class Clients extends Controller
       }
     }
   }
-  
+
   public function selectAll()
   {
     $CliensModel = $this->model('ClientsModel');
     $Cliens = $CliensModel->selectAll();
     echo json_encode($Cliens);
+  }
+  public function forgot()
+  {
+    $CliensModel = $this->model('ClientsModel');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $json = file_get_contents('php://input');
+      $data = json_decode($json);
+      $Cliens = $CliensModel->fetchByMail($data->email);
+      if ($Cliens['Email'] == $data->email) {
+        $data = [
+          "data" => $Cliens,
+          "status" => "information correct",
+        ];
+        echo json_encode($data);
+      } else {
+        echo json_encode("information incorrect");
+      }
+    }
   }
 
 
@@ -49,7 +67,7 @@ class Clients extends Controller
       $data = (array)$data;
       $data['IdUnique'] = 'CL-' . uniqid();
       $created = $CreateAcc->insert($data);
-        echo json_encode($data);
+      echo json_encode($data);
     }
   }
 

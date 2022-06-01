@@ -39,6 +39,15 @@
                 return false;
             }
         }
+        public function fetchByMail($email)
+        {
+                $conn = $this->connection;
+                $requi = 'SELECT * FROM ' . $this->Table . ' WHERE Email = :email';
+                $stm = $conn->prepare($requi);
+                $stm->execute(["email" => $email]);
+                $result = $stm->fetch(PDO::FETCH_ASSOC);
+                return $result;
+        }
 
         public function updatesuspended($data)
         {

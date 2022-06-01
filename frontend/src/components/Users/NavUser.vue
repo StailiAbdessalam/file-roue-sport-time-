@@ -88,7 +88,7 @@ export default {
     },
     menuClosedPaddingLeftBody: {
       type: String,
-      default:  (window.innerWidth>802)?"78px":"0px",
+      default: window.innerWidth > 802 ? "78px" : "0px",
     },
 
     //! Menu items
@@ -231,6 +231,9 @@ export default {
     },
     deriction(event) {
       this.$router.push(event);
+      if (window.innerWidth <= 802) {
+        this.isOpened = !this.isOpened;
+      }
     },
     logout() {
       localStorage.removeItem("user");
@@ -314,7 +317,7 @@ body {
   position: absolute;
   top: 60%;
   right: 0%;
-border-radius: 15px;
+  border-radius: 15px;
   transform: translateY(-50%);
   font-size: 22px;
   transition: all 0.4s ease;
@@ -534,9 +537,9 @@ border-radius: 15px;
   .sidebar.open .profile {
     opacity: 1;
   }
-   .sidebar.open .profile #log_out {
+  .sidebar.open .profile #log_out {
     opacity: 1;
-  }  
+  }
 }
 
 .sidebar.open .profile:hover #log_out {

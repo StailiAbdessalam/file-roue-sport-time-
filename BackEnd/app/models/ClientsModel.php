@@ -15,6 +15,12 @@ class ClientsModel
         $CLIENT = $ModelClients->selectClients($id);
         return $CLIENT;
     }
+    public function fetchByMail($email)
+    {
+        $ModelClients = new GlobalModel("clients");
+        $CLIENT = $ModelClients->fetchByMail($email);
+        return $CLIENT;
+    }
     public function remove($id)
     {
         $ModelClients = new GlobalModel("Clients");

@@ -329,7 +329,7 @@ body {
   }
   .sidebar .logo-details #btn {
     position: absolute;
-    top: 561px;
+    top: 300px;
     right: -29px;
     background: var(--bg-color);
   }

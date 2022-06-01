@@ -88,7 +88,7 @@ export default {
     },
     menuClosedPaddingLeftBody: {
       type: String,
-      default: "78px",
+      default: "0px",
     },
 
     //! Menu items
@@ -275,7 +275,7 @@ body {
   height: 100%;
   min-height: min-content;
   /* overflow-y: auto; */
-  width: 78px;
+  width: 0px;
   background: var(--bg-color);
   /* padding: 6px 14px 0 14px; */
   z-index: 99;
@@ -313,8 +313,9 @@ body {
 
 .sidebar .logo-details #btn {
   position: absolute;
-  top: 50%;
-  right: 0;
+  top: 561px;
+  right: -29px;
+  background: var(--bg-color);
   transform: translateY(-50%);
   font-size: 22px;
   transition: all 0.4s ease;
@@ -512,7 +513,7 @@ body {
 }
 
 .sidebar.open .profile #log_out {
-  width: 50px;
+  width: 10px;
   background: var(--secondary-color);
   opacity: 0;
 }

@@ -88,7 +88,7 @@ export default {
     },
     menuClosedPaddingLeftBody: {
       type: String,
-      default: "0px",
+      default: "10px",
     },
 
     //! Menu items
@@ -106,7 +106,6 @@ export default {
           name: "local",
           tooltip: "local",
           icon: "bx-store",
-
         },
         {
           link: "/Contact",
@@ -275,7 +274,7 @@ body {
   height: 100%;
   min-height: min-content;
   /* overflow-y: auto; */
-  width: 0px;
+  width: 78px;
   background: var(--bg-color);
   /* padding: 6px 14px 0 14px; */
   z-index: 99;
@@ -313,9 +312,9 @@ body {
 
 .sidebar .logo-details #btn {
   position: absolute;
-  top: 561px;
-  right: -29px;
-  background: var(--bg-color);
+  top: 50%;
+  right: 0%;
+
   transform: translateY(-50%);
   font-size: 22px;
   transition: all 0.4s ease;
@@ -323,6 +322,17 @@ body {
   text-align: center;
   cursor: pointer;
   transition: all 0.5s ease;
+}
+@media (max-width: 802px) {
+  .sidebar {
+    width: 0px;
+  }
+  .sidebar .logo-details #btn {
+    position: absolute;
+    top: 561px;
+    right: -29px;
+    background: var(--bg-color);
+  }
 }
 
 .sidebar.open .logo-details #btn {

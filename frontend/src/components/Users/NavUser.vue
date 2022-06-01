@@ -88,7 +88,7 @@ export default {
     },
     menuClosedPaddingLeftBody: {
       type: String,
-      default: "10px",
+      default:  (window.innerWidth>802)?"78px":"0px",
     },
 
     //! Menu items

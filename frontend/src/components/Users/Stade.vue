@@ -96,7 +96,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-8 order-xl-1 overflow-y-scroll max-h-screen">
+          <div id="scroll" class="col-xl-8 order-xl-1 ">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
@@ -115,14 +115,11 @@
         </div>
       </div>
     </div>
-    <Payment class="w-full h-screen fixed "/>
-    <!-- <Tiquer class="absolute top-0 left-0" /> -->
   </div>
 </template>
 
 <script>
 // import Tiquer from "./Tiquer.vue";
-import Payment from "./paiyment.vue";
 import ComponentStade from "./ReservationComponent/StadeComponent.vue";
 import axios from "axios";
 export default {
@@ -134,7 +131,6 @@ export default {
     };
   },
   components: {
-    Payment,
     ComponentStade,
   },
   mounted() {
@@ -201,6 +197,14 @@ export default {
   padding: 30px;
 }
 
+
+@media (min-width: 800px) {
+#scroll{
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+}
+
 :root {
   --blue: #5e72e4;
   --indigo: #5603ad;
@@ -256,6 +260,11 @@ main,
 nav,
 section {
   display: block;
+}
+@media (max-width: 800px) {
+  .header {
+    height: 260px;
+  }
 }
 
 [tabindex="-1"]:focus {

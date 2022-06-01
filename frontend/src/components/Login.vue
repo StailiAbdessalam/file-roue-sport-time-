@@ -10,7 +10,7 @@
           class="relative flex flex-col gap-3"
         >
           <div class="flex flex-col justify-center items-center">
-            <h1 class="form_Login_title">Sig in</h1>
+            <h1 class="form_Login_title">Sig in </h1>
           </div>
           <form class="form_Login_formData" action="" @submit.prevent="login()">
             <label for="role">Role</label>
@@ -46,6 +46,7 @@
                 ></path>
               </svg>
               <span class="text-red-800"> Your address ID is invalid. </span>
+
             </div>
             <input
               v-if="role"
@@ -56,12 +57,7 @@
               class="cursor-pointer"
             />
           </form>
-          <div
-            @click="alertDisplay"
-            class="text-xs text-gray-400 -mt-4 hover:cursor-pointer"
-          >
-            j'ai oublier mon mot de pass
-          </div>
+          <div @click="oublierMotPass" class="text-xs text-gray-400 -mt-4 hover:cursor-pointer">j'ai oublier mon mot de pass</div>
         </div>
         <div
           data-aos="fade-left"
@@ -70,7 +66,7 @@
           data-aos-offset="500"
           class="login"
         >
-          <img src="../assets/img/login.gif" alt="" />
+          <img src="../assets/img/login.gif"  alt="" />
         </div>
         <!--alert invalide-->
       </div>
@@ -121,9 +117,9 @@ export default {
               });
             } else {
               localStorage.setItem("user", this.personne);
-              localStorage.setItem("id", response.data.data.id);
+              localStorage.setItem("id",response.data.data.id); 
               this.setRole(this.personne);
-              this.$router.push("/");
+              this.$router.push("/")
             }
           } else {
             this.error = response.data.message;
@@ -134,7 +130,7 @@ export default {
           console.log(error);
         });
     },
-    alertDisplay() {
+    oublierMotPass() {
       swal({
         title: "Forgot your password?",
         text: "Enter your email address below to receive a password reset link.",
@@ -172,8 +168,6 @@ export default {
           });
       });
     },
-
-
   },
 };
 </script>
@@ -219,8 +213,7 @@ export default {
   .form_Login_formData input {
     width: 396px;
   }
-}
-@media (max-width: 417px) {
+}@media (max-width: 417px) {
   .form_Login_formData select,
   .form_Login_formData input {
     width: 326px;
@@ -234,7 +227,7 @@ export default {
 }
 @media (max-width: 916px) {
   .login {
-    display: none;
+   display: none;
   }
 }
 </style>

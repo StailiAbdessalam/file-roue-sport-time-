@@ -525,7 +525,18 @@ body {
 .sidebar.open .profile #log_out {
   width: 10px;
   background: var(--secondary-color);
-  opacity: 0;
+  opacity: 1;
+}
+@media (max-width: 802px) {
+  .sidebar .profile {
+    opacity: 0;
+  }
+  .sidebar.open .profile {
+    opacity: 1;
+  }
+   .sidebar.open .profile #log_out {
+    opacity: 1;
+  }  
 }
 
 .sidebar.open .profile:hover #log_out {

@@ -263,7 +263,7 @@ section {
 }
 @media (max-width: 800px) {
   .header {
-    height: 260px;
+    height: fit-content;
   }
 }
 

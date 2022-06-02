@@ -30,7 +30,7 @@
         {
             try {
                 $conn = $this->connection;
-                $requi = 'SELECT * FROM ' . $this->Table . ' WHERE IdUnique = :Ref';
+                $requi = 'SELECT * FROM ' . $this->Table . ' WHERE email = :Ref';
                 $stm = $conn->prepare($requi);
                 $stm->execute(["Ref" => $Ref]);
                 $result = $stm->fetch(PDO::FETCH_ASSOC);

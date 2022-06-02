@@ -65,7 +65,6 @@ class Clients extends Controller
       $json = file_get_contents('php://input');
       $data = json_decode($json);
       $data = (array)$data;
-      $data['IdUnique'] = 'CL-' . uniqid();
       $created = $CreateAcc->insert($data);
       echo json_encode($data);
     }

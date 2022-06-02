@@ -20,6 +20,16 @@
               <option>organisateur</option>
               <option>Admin</option>
             </select>
+
+            <label v-if="role" for="email">your Email</label>
+            <input
+              v-on:keyup="invalide = false"
+              v-model="Email"
+              v-if="role"
+              type="email"
+              placeholder="A.STZILI@gmail.com"
+              name="email"
+            /> 
             <label v-if="role" for="password">Your ID</label>
             <input
               v-on:keyup="invalide = false"
@@ -88,6 +98,7 @@ export default {
       role: false,
       Bar: localStorage.getItem("user"),
       ID: "",
+      Email:"",
     };
   },
   methods: {
@@ -95,6 +106,7 @@ export default {
       axios
         .post(`${this.$apiUrl}/${this.personne}/index`, {
           ID: this.ID,
+          Email :this.Email,
         })
         .then((response) => {
           if (response.data.status == "information correct") {

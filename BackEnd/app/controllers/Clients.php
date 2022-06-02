@@ -19,8 +19,10 @@ class Clients extends Controller
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
-      $Cliens = $CliensModel->fetchByRef($data->ID);
-      if ($Cliens['IdUnique'] == $data->ID) {
+      $Cliens = $CliensModel->fetchByRef($data->Email);
+      $pass = $data->ID;
+      $hash = $Cliens['IdUnique'];
+      if (password_verify($pass, $hash)) {
         $data = [
           "data" => $Cliens,
           "status" => "information correct",
@@ -64,6 +66,7 @@ class Clients extends Controller
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $json = file_get_contents('php://input');
       $data = json_decode($json);
+      $data->IdUnique = password_hash(($data->IdUnique), PASSWORD_BCRYPT);
       $data = (array)$data;
       $created = $CreateAcc->insert($data);
       echo json_encode($data);

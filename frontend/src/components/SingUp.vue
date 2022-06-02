@@ -438,6 +438,11 @@ export default {
         });
     },
   },
+  watch: {
+    password() {
+      this.changerole();
+    },
+  },
 };
 </script>
 

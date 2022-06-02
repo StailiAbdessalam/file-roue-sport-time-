@@ -87,10 +87,10 @@
       id="feedback"
       class="flex flex-col gap-4 justify-center items-center bg-green-400 fixed right-4 bottom-5 bg-base-100 shadow-xl"
     >
-      <Feedback class="relative" />
+      <Feedback class="relative zindx" />
       <Icon
-        @click="Stars = false"
-        class="absolute top-1 right-2 cursor-pointer text text-3xl z-10"
+        @click="Stars=false"
+        class="absolute top-1 right-2 cursor-pointer text text-3xl fermer"
         color="white"
         icon="bi:x-lg"
       />
@@ -307,6 +307,9 @@ export default {
 </script>
 
 <style lang="scss">
+.zindx{
+  z-index: 100;
+}
 @media (max-width: 420px) {
   .vidiouraduieus {
     border-radius: 0%;
@@ -342,9 +345,13 @@ export default {
   }
 }
 #feedback {
+  z-index: 100;
   padding: 3px;
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+.fermer{
+  z-index: 200;
 }
 
 @keyframes tipsy {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="">
         <div class="">
             <div class="feedback">
                 <div class="rating">

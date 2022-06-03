@@ -92,7 +92,7 @@ export default {
     },
     menuClosedPaddingLeftBody: {
       type: String,
-      default: "78px",
+      default: window.innerWidth > 802 ? "78px" : "0px",
     },
 
     //! Menu items
@@ -148,12 +148,12 @@ export default {
           tooltip: "Stadieum",
           icon: "bx-basketball",
         },
-        {
-          link: "/setting",
-          name: "Setting",
-          tooltip: "Setting",
-          icon: "bx-cog",
-        },
+        // {
+        //   link: "/setting",
+        //   name: "Setting",
+        //   tooltip: "Setting",
+        //   icon: "bx-cog",
+        // },
       ],
     },
 

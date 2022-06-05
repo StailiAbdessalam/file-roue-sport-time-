@@ -132,7 +132,7 @@
                 :key="H"
                 :class="{
                   'bg-green-500': dataerour.indexOf(H) == -1,
-                  'bg-red-400 hidden ': dataerour.indexOf(H) != -1,
+                  'bg-red-400  ': dataerour.indexOf(H) != -1,
                 }"
               >
                 {{ H }}
@@ -151,7 +151,7 @@
                 v-for="H in AM"
                 :class="{
                   'bg-green-500': dataerour.indexOf(H) == -1,
-                  'bg-red-400 hidden': dataerour.indexOf(H) != -1,
+                  'bg-red-400 ': dataerour.indexOf(H) != -1,
                 }"
                 :key="H"
               >

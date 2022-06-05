@@ -2,12 +2,12 @@
   <div class="flex flex-col justify-center items-center gap-4 md:gap-20">
     <div class="flex flex-col items-center justify-center w-full mt-9 gap-5">
       <h1 class="font-bold md:text-5xl sm:text-xl text-center">
-        A small business is only as good as <br />
-        its tools.
+        SPort time c'est une site pour reserver <br />
+        les stades de sport a distance .
       </h1>
       <p class="text-center sm:text-lg">
-        Welcome to the Sport Time website. Now is the time to book a time to
-        play in the nearest stadium.
+        Bienvenue sur le site de Sport Time. C'est le moment de réserver une
+        heure pour jouer dans le stade le plus proche.
       </p>
       <div id="div_video" class="lg:w-[70%] relative">
         <!-- <img id="Res_video" class="w-full h-full -z-30" src="../assets/img/Group37.png" alt=""> -->
@@ -68,9 +68,11 @@
           class="Res_image"
         />
         <p class="text-center">
-          Location de terrain, abonnement, <br />
-          championnat, Club House, <br />
-          événement d'entreprise <br />...
+          « Sport Time » Ce site est permit à l'utilisateur <br />
+          de réserver le sol d'un stade pour divertir ça <br />
+          dur journée avec ses amis et sa famille, on plus ce site web il
+          organise les calculs financiers et administratifs en relation avec les
+          stades de proximité et les clients.
         </p>
       </div>
     </div>
@@ -89,7 +91,7 @@
     >
       <Feedback class="relative zindx" />
       <Icon
-        @click="Stars=false"
+        @click="Stars = false"
         class="absolute top-1 right-2 cursor-pointer text text-3xl fermer"
         color="white"
         icon="bi:x-lg"
@@ -106,14 +108,12 @@
     </div>
 
     <div
-      class="serve bg-white w-full p-4 relative flex-col justify-center items-center "
+      class="serve bg-white w-full p-4 relative flex-col justify-center items-center"
     >
-      <h2 class="font-bold text-green-500 text-3xl text-center">
-        Services
-      </h2>
+      <h2 class="font-bold text-green-500 text-3xl text-center">Services</h2>
 
       <div
-        class="services grid lg:grid-cols-3 md:grid-cols-2  items-center gap-8 mt-3 "
+        class="services grid lg:grid-cols-3 md:grid-cols-2 items-center gap-8 mt-3"
       >
         <!-- <div class="flex-1 flex gap-8 md:flex-row sm:flex-col"> -->
         <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
@@ -122,7 +122,7 @@
             src="../assets/img/construct.svg"
             aria-hidden="true"
           />
-          <span class="font-medium">Construction</span>
+          <span class="font-medium">Bon Stade</span>
         </div>
         <div class="py-9 px-16 bg-black text-white shadow-xl">
           <img
@@ -149,7 +149,7 @@
             src="../assets/img/reservices.svg"
             aria-hidden="true"
           />
-          <span class="font-medium">Services</span>
+          <span class="font-medium">Reservation</span>
         </div>
         <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
           <img
@@ -165,7 +165,7 @@
             src="../assets/img/electric.svg"
             aria-hidden="true"
           />
-          <span class="font-medium">Electric</span>
+          <span class="font-medium">Flexibiliter</span>
         </div>
         <!-- </div> -->
       </div>
@@ -189,10 +189,11 @@
       >
         <h2 class="font-bold text-white text-3xl text-center">About us</h2>
         <p class="text-left">
-          For more than 30 years we have been delivering world-class
-          construction and we’ve built many lasting relationships along the way.
-          We’ve matured into an industry leader and trusted resource for those
-          seeking quality, innovation and reliability when building in the U.S.
+          En tant que jeune sportif qui aime pratiquer tous les sports, moi et
+          beaucoup de mes amis avons eu du mal à trouver un terrain de proximité
+          disponible aux mêmes heures déterminantes pour pratiquer tous les
+          sports que nous voulons, j'ai donc décidé de créer cette plateforme
+          qui s'appelle sport time .
         </p>
         <button
           type="button"
@@ -209,7 +210,7 @@
     <div id="section2">
       <!-- <loading  /> -->
       <h1 class="text-center text-4xl">
-        All kinds of sports are available in your nearest stadium
+        Toutes sortes de sports sont disponibles dans votre stade le plus proche
       </h1>
       <div class="flex w-full justify-around items-center">
         <div id="Res1" class="w-1/4">
@@ -307,7 +308,7 @@ export default {
 </script>
 
 <style lang="scss">
-.zindx{
+.zindx {
   z-index: 100;
 }
 @media (max-width: 420px) {
@@ -350,7 +351,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
-.fermer{
+.fermer {
   z-index: 200;
 }
 

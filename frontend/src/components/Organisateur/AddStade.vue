@@ -148,7 +148,7 @@
             <button
               class="block text-white text-sm shadow-border bg-orange-500 hover:bg-orange-700 text-sm py-3 px-4 font-sans tracking-wide uppercase font-bold"
             >
-              schedule a demo
+             voir mon stade
             </button>
             <div class="bg-orange-300 shadow-border p-3">
               <div class="w-4 h-4">

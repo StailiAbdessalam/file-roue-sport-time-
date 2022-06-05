@@ -1,6 +1,10 @@
 <template>
-  <div class="irtifa3 flex-col overflow-y-scroll">
+  <div class="irtifa3  overflow-y-scroll flex justify-center items-center flex-col">
     <AllStade v-for="stad in stade" :key="stad"  :stade="stad" />
+
+    <div v-if="stade[0]==null" class="bg-gray-400 h-72 w-1/2 flex justify-center items-center rounded-lg">
+      <h1 class="text-2xl text-white">tu es auccun stade d'abord </h1>
+    </div>
   </div>
 </template>
 

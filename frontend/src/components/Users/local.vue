@@ -9,6 +9,7 @@
             class="rounded-t-lg h-64 w-full object-cover"
             :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${local.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`"
             alt=""
+            loading="lazy"
           />
         </a>
         <div class="p-5">

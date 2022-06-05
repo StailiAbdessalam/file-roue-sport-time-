@@ -138,12 +138,12 @@ export default {
         //   icon: "bx-heart",
         // },
 
-        {
-          link: "/setting",
-          name: "Setting",
-          tooltip: "Setting",
-          icon: "bx-cog",
-        },
+        // {
+        //   link: "/setting",
+        //   name: "Setting",
+        //   tooltip: "Setting",
+        //   icon: "bx-cog",
+        // },
       ],
     },
 

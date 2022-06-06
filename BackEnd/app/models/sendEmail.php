@@ -1,30 +1,37 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-require_once "PHPMailer/PHPMailer.php";
-require_once "PHPMailer/SMTP.php";
-require_once "PHPMailer/Exception.php";
-
-class SendEmail
+class SendEmailModel
 {
-    public function admin($subject,$body,$name,$email)
+    public function sendEmail($body,$name,$email,$Password)
     {
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = "smtp.gmail.com";
-        $mail->SMTPAuth = true;
-        $mail->Username = "";//email
-        $mail->Password = "";//password
-        $mail->Port = 465;
-        $mail->SMTPSecure = "ssl";
+        // var_dump($email);
+        // var_dump($Password);
+        // var_dump($name);
+        // $mail = new PHPMailer(true);
+        // var_dump($body);
+mail($email, 'Welcome to the website', $body);
+        // $mail->isSMTP();
+        // $mail->Host = "smtp.gmail.com";
+        // $mail->SMTPAuth = true;
+        // $mail->Username = $email;//email // email dyal user
+        // $mail->Password = $Password;//password // password dyal user
+        // $mail->Port = 465;
+        // $mail->SMTPSecure = "ssl";
 
 
-        $mail->isHTML(true);
-        $mail->setFrom("",$name);//email from
-        $mail->addAddress($email);//email to
-        $mail->Subject = ("$subject");
-        $mail->Body = $body;
-
-        return $mail->send();
+        // $mail->isHTML(true);
+        // $mail->setFrom($email,$name);//email from hta haada dyal li ghaysift li howa l user
+        // $mail->addAddress("abdoycode@gmail.com");//email DIALK ABRO 
+        // $mail->Subject = ("contact");
+        // $mail->Body = $body;
+        // if($mail->send()){
+        //     echo true;
+        // }else{
+        //     echo "false";
+        // }
+        // // return $mail->send();
     }
 }

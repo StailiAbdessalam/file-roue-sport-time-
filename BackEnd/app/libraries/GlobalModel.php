@@ -19,11 +19,16 @@
 
         public function insert($data)
         {
-            $con = $this->connection;
-            $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
-            $stm = $con->prepare($requi);
-            $result = $stm->execute($data);
-            return $result;
+            try {
+                $con = $this->connection;
+                $requi = "INSERT INTO " . $this->Table . "(" . $this->getval($data) . ") VALUES (" . $this->getPlaceholders($data) . ") ";
+                $stm = $con->prepare($requi);
+                $result = $stm->execute($data);
+                return $result;
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+                return $e;
+            }
         }
 
         public function fetchByRef($Ref)
@@ -182,6 +187,7 @@
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+
 
 
 

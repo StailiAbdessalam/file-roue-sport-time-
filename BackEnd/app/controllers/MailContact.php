@@ -20,7 +20,7 @@ class SendMAIL extends Controller
             $json = file_get_contents('php://input');
             $data = json_decode($json);
             var_dump($data);
-            // $CreateAcc->admin($data);
+            $CreateAcc->admin($data);
         }
     }
 }

@@ -155,6 +155,35 @@ class Organisateur extends Controller
   }
 
 
+public function sendEmailValidate()
+{
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
+    echo "hezuofhouzhfuoze";
+    $to = $data->Email;
+    $subject = "Validation de votre compte";
+    $message = "
+    <html>
+    <head>
+    <title>Validation de votre compte</title>
+    </head>
+    <body>
+    <p>Bonjour,</p>
+    <p>Merci de cliquer sur le lien ci-dessous pour valider votre compte.</p>
+    <p><a href='http://localhost/projet/public/index.php?action=validate&id=12'>Valider mon compte</a></p>
+    <p>Cordialement,</p>
+    <p>L'équipe</p>
+    </body>
+    </html>
+    ";
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From:Sportimegoo@gmail.Com';
+    mail($to, $subject, $message, $headers);
+    echo json_encode("true");
+  }
+}
 
 
 

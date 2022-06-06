@@ -408,8 +408,9 @@ export default {
       this.load = true;
       axios
         .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
-        .then(() => {
+        .then((res) => {
           this.Valide = true;
+          console.log(res);
           setTimeout(() => {
             this.$router.push("Login");
             swal(

@@ -6,14 +6,12 @@
   >
     <div class="container flex-col justify-center items-center">
       <div class="mb-5 flex items-center max-w-md">
-        <h2
-          class="text-slate-900 text-yellow-400  text-3xl font-bold"
-        >
+        <h2 class="text-slate-900 text-yellow-400 text-3xl font-bold">
           Contact Me
         </h2>
       </div>
       <div
-        class="flex flex-col lg:flex-row lg:items-center text-slate-900  lg:justify-between -mx-4"
+        class="flex flex-col lg:flex-row lg:items-center text-slate-900 lg:justify-between -mx-4"
       >
         <div
           class="w-full lg:w-1/2 xl:w-6/12 px-4"
@@ -36,16 +34,14 @@
           data-aos-delay="500"
           data-aos-duration="2000"
         >
-          <div
-            class="bg-gray-100  relative rounded-lg p-8 sm:p-12 shadow-lg"
-          >
+          <div class="bg-gray-100 relative rounded-lg p-8 sm:p-12 shadow-lg">
             <form @submit.prevent>
               <div class="mb-6">
                 <input
                   type="text"
                   placeholder="Your Name"
                   v-model="form.name"
-                  class="w-full rounded p-3 text-gray-800   border-gray-500  outline-none focus-visible:shadow-none focus:border-primary"
+                  class="w-full rounded p-3 text-gray-800 border-gray-500 outline-none focus-visible:shadow-none focus:border-primary"
                   name="full_name"
                   id="full_name"
                 />
@@ -55,27 +51,18 @@
                   type="email"
                   v-model="form.email"
                   placeholder="Your Email"
-                  class="w-full rounded p-3 text-gray-800   border-gray-500  outline-none focus-visible:shadow-none focus:border-primary"
+                  class="w-full rounded p-3 text-gray-800 border-gray-500 outline-none focus-visible:shadow-none focus:border-primary"
                   name="email"
                   id="email"
                 />
               </div>
-              <div class="mb-6">
-                <input
-                  inputMode="numeric"
-                  v-model="form.Password"
-                  placeholder="Your Password email"
-                  class="w-full rounded p-3 text-gray-800  border-gray-500  outline-none focus-visible:shadow-none focus:border-primary"
-                  name="phone_number"
-                  id="phone_number"
-                />
-              </div>
+
               <div class="mb-6">
                 <textarea
                   rows="6"
                   v-model="form.sujet"
                   placeholder="Your Message"
-                  class="w-full rounded p-3 text-gray-800  border-gray-500  outline-none focus-visible:shadow-none focus:border-primary"
+                  class="w-full rounded p-3 text-gray-800 border-gray-500 outline-none focus-visible:shadow-none focus:border-primary"
                   name="message"
                   id="message"
                 ></textarea>
@@ -84,7 +71,7 @@
                 <button
                   type="submit"
                   @click="sendMessage"
-                  class="w-full text-gray-100 hover:text-gray-700 bg-yellow-400 rounded border border-primary  p-3 transition ease-in-out duration-500 hover:bg-yellow-300"
+                  class="w-full text-gray-100 hover:text-gray-700 bg-yellow-400 rounded border border-primary p-3 transition ease-in-out duration-500 hover:bg-yellow-300"
                 >
                   Send Message
                 </button>
@@ -117,7 +104,7 @@
 
 <script>
 import axios from "axios";
-
+import swal from "sweetalert";
 export default {
   name: "contact-y",
   data() {
@@ -126,14 +113,27 @@ export default {
         name: "",
         email: "",
         sujet: "",
-        Password: "",
       },
     };
   },
   methods: {
     sendMessage() {
-      axios.post(`${this.$apiUrl}/MailContact/sendEmail`, this.form);
       console.log(this.form);
+      axios
+        .post(`${this.$apiUrl}/MailContact/SendEmail`, this.form)
+        .then(() => {
+        swal({
+          title: "Success",
+          text: "Your message has been sent",
+          icon: "success",
+          button: "OK",
+        });
+        this.form = {
+          name: "",
+          email: "",
+          sujet: "",
+        };
+        });
     },
   },
 };

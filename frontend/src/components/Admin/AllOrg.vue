@@ -1,6 +1,6 @@
 <template>
       <div class="w-full h-screen flex justify-center items-start overflow-scroll">
-    <div class="table w-full p-4 mt-20">
+    <div class="w-full p-4 mt-20">
       <table class="w-full border">
         <thead>
           <tr class="bg-orange-50 border-b">

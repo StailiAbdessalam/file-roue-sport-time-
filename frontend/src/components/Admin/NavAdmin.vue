@@ -87,7 +87,7 @@ export default {
     },
     menuClosedPaddingLeftBody: {
       type: String,
-      default: "78px",
+      default: window.innerWidth > 802 ? "78px" : "0px",
     },
 
     //! Menu items
@@ -106,7 +106,7 @@ export default {
           tooltip: "Demandes",
           icon: "bx-grid-alt",
         },
-       
+
         // {
         //   link: "/AllORG",
         //   name: "All Organisateur",
@@ -126,10 +126,10 @@ export default {
           icon: "bx-user",
         },
         {
-            link: '/Archieve',
-            name: 'Archieve',
-            tooltip: 'Archieve',
-            icon: 'bx-block',
+          link: "/Archieve",
+          name: "Archieve",
+          tooltip: "Archieve",
+          icon: "bx-block",
         },
         // {
         //   link: "/abonnement",
@@ -227,7 +227,7 @@ export default {
   watch: {
     isOpened() {
       window.document.body.style.paddingLeft =
-        this.isOpened && this.isPaddingLeft
+        this.isOpened && this.isPaddingLeft && window.innerWidth > 1010
           ? this.menuOpenedPaddingLeftBody
           : this.menuClosedPaddingLeftBody;
     },
@@ -235,6 +235,9 @@ export default {
   methods: {
     deriction(event) {
       this.$router.push(event);
+      if (window.innerWidth <= 802) {
+        this.isOpened = !this.isOpened;
+      }
     },
     logout() {
       localStorage.removeItem("user");

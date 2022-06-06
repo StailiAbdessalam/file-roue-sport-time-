@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-center items-center gap-4 md:gap-20">
     <div class="flex flex-col items-center justify-center w-full mt-9 gap-5">
       <h1 class="font-bold md:text-5xl sm:text-xl text-center">
-        SPort time c'est une site pour reserver <br />
+        Sport time c'est une site pour reserver <br />
         les stades de sport a distance .
       </h1>
       <p class="text-center sm:text-lg">

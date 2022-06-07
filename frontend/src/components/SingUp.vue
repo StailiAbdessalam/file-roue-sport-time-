@@ -13,11 +13,6 @@
           <img src="../assets/img/SignUp.gif" alt="" />
         </div>
         <div
-          data-aos="flip-left"
-          data-aos-anchor="#example-anchor"
-          data-aos-duration="1500"
-          data-aos-delay="1000"
-          data-aos-offset="500"
           class="relative flex flex-col gap-3"
         >
           <div class="flex flex-col justify-center items-center">

@@ -3,10 +3,6 @@
     <div class="flex justify-center items-center w-full">
       <div class="flex justify-center items-center gap-20 w-full form_Login">
         <div
-          data-aos="flip-left"
-          data-aos-anchor="#example-anchor"
-          data-aos-duration="1500"
-          data-aos-delay="1000"
           class="relative flex flex-col gap-3"
         >
           <div class="flex flex-col justify-center items-center">

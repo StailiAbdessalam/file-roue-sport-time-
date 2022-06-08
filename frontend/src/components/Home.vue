@@ -32,7 +32,7 @@
           <span class="text-amber-600">SOCCER!</span>
         </div>
         <img
-          class="Res_image"
+          class="Res_image h-2/3"
           data-aos="zoom-in-down"
           data-aos-duration="2000"
           data-aos-once="true"
@@ -45,14 +45,14 @@
           data-aos="zoom-in-down"
           data-aos-once="true"
           data-aos-duration="2000"
-          class="Res_image"
+          class="Res_image h-1/3"
           src="../assets/img/amine.jpg"
         />
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
           data-aos-duration="2000"
-          class="Res_image"
+          class="Res_image h-1/3"
           src="../assets/img/equipe.jpg"
           alt=""
         /> 
@@ -60,7 +60,7 @@
           data-aos="zoom-in-down"
           data-aos-once="true"
           data-aos-duration="2000"
-          class="Res_image"
+          class="Res_image h-1/3"
           src="../assets/img/drari.jpg"
           alt=""
         />
@@ -74,13 +74,13 @@
           alt=""
           class="Res_image"
         />
-        <!-- <p class="text-center">
+        <p class="text-center text-xl">
           « Sport Time » Ce site est permit à l'utilisateur <br />
           de réserver le sol d'un stade pour divertir ça <br />
           dur journée avec ses amis et sa famille, on plus ce site web il
           organise les calculs financiers et administratifs en relation avec les
           stades de proximité et les clients.
-        </p> -->
+        </p>
       </div>
     </div>
     <div
@@ -424,7 +424,6 @@ export default {
 
   .Res_image {
     width: 100%;
-    height:33%;
   }
 
   #Res_video {

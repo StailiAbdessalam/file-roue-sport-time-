@@ -397,22 +397,33 @@ export default {
         this.dataOrganisateur.IdUnique = this.password;
       }
     },
+    
     ADDClient() {
       if (this.passwordStrengthText == "Strong password") {
         this.load = true;
         axios
           .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
           .then((res) => {
-            this.Valide = true;
-            console.log(res);
-            setTimeout(() => {
-              this.$router.push("Login");
-              swal(
-                "Good job!",
-                "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time",
-                "success"
-              );
-            }, 1500);
+            console.log(res.data.keys);
+            if(res.data.keys){
+              this.load = false;
+              swal({
+                title: "warning",
+                text: `Ce ${res.data.keys} existe déjà`,
+                icon: "warning",
+                button: "OK",
+              });
+            }else{
+              this.Valide = true;
+              setTimeout(() => {
+                this.$router.push("Login");
+                swal(
+                  "Good job!",
+                  "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time",
+                  "success"
+                );
+              }, 1500);
+            }
           });
       } else {
         swal("Oops...", "Votre mot de passe n'est pas assez sécurisé", "error");
@@ -444,6 +455,9 @@ export default {
     password() {
       this.changerole();
     },
+  },
+  mounted() {
+   console.log("gsdugfuidsgfuigquifguidsgufiguisd");
   },
 };
 </script>

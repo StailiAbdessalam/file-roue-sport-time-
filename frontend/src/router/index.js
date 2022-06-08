@@ -84,6 +84,22 @@ const routes = [
         /* webpackChunkName: "home" */ "../Pages/Organisateur/AllStade.vue"
       ),
   },
+   {
+    path: "/ResetPassword",
+    name: "ResetPassword",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Users/ResetPassword/ResetPassword.vue"
+      ),
+  }, 
+  {
+    path: "/paiyment",
+    name: "paiyment",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Users/paiyment"
+      ),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -91,7 +107,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name == "SingUp" || to.name == "Singin" || to.name == "Home") {
+  if (to.name == "SingUp" || to.name == "Singin" || to.name == "Home" || to.name == "ResetPassword") {
     next();
   } else {
     if (localStorage.getItem("id")) {

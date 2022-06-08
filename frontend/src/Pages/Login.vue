@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <Login />
-    </div>
+        <Login  />
 </template>
 
 
@@ -15,3 +13,10 @@ export default {
     }
 }
 </script>
+
+
+<style lang="scss" scoped>
+.hei{
+    height:80%;
+}
+</style>

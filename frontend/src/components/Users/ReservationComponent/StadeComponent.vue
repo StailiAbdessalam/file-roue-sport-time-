@@ -256,11 +256,9 @@ export default {
         .then(() => {});
       this.load = true;
       setTimeout(() => {
-        // this.load=false;
         this.$router.push("/paiyment");
       }, 1000);
     },
-
     Changedate(data) {
       console.log(this.TypeJour);
       this.dataerour = [];

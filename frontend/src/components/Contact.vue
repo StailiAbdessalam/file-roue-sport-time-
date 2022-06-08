@@ -120,19 +120,23 @@ export default {
     sendMessage() {
       console.log(this.form);
       axios
-        .post(`${this.$apiUrl}/MailContact/SendEmail`, this.form)
+        .post(`${this.$apiUrl}/MailContact/sendEmail`,{
+          name: this.form.name,
+          email: this.form.email,
+          sujet: this.form.sujet,
+        })
         .then(() => {
-        swal({
-          title: "Success",
-          text: "Your message has been sent",
-          icon: "success",
-          button: "OK",
-        });
-        this.form = {
-          name: "",
-          email: "",
-          sujet: "",
-        };
+          swal({
+            title: "Success",
+            text: "Your message has been sent",
+            icon: "success",
+            button: "OK",
+          });
+          this.form = {
+            name: "",
+            email: "",
+            sujet: "",
+          };
         });
     },
   },

@@ -1,330 +1,171 @@
 <template>
-  <div class="flex justify-center items-center gap-12">
+    <!-- component -->
+<div class="px-4 py-2 text-gray-800">
+  <div class="hidden xl:flex flex-row justify-between shadow-md border rounded-md">
     <div
-      class="modal__container m-24"
-      data-aos="fade-up"
-      data-aos-anchor-placement="bottom-bottom"
-      data-aos-duration="500"
-      data-aos-delay="500"
+      class="flex flex-col items-center justify-between w-1/4 px-4 py-2 bg-white border-r-2 border-gray-500 border-dashed rounded-l-md"
     >
-      <div class="modal__content">
-        <form>
-          <ul class="form-list">
-            <li class="form-list__row">
-              <label>Name</label>
-              <input type="text" name="" required="" />
-            </li>
-            <li class="form-list__row">
-              <label>Card Number</label>
-              <div id="input--cc" class="creditcard-icon">
-                <input type="text" name="cc_number" required="" />
-              </div>
-            </li>
-            <li class="form-list__row form-list__row--inline">
-              <div>
-                <label>Expiration Date</label>
-                <div class="form-list__input-inline">
-                  <input
-                    type="text"
-                    name="cc_month"
-                    placeholder="MM"
-                    pattern="\\d*"
-                    minlength="2"
-                    maxlength="2"
-                    required=""
-                  />
-                  <input
-                    type="text"
-                    name="cc_year"
-                    placeholder="YY"
-                    pattern="\\d*"
-                    minlength="2"
-                    maxlength="2"
-                    required=""
-                  />
-                </div>
-              </div>
-              <div>
-                <label>
-                  CVC
-                  <a
-                    href="https://www.cvvnumber.com/#:~:text=The%20CVV%20Number%20(%22Card%20Verification,branded%20credit%20and%20debit%20cards."
-                    class="button--transparent modal-open button--info"
-                    target="_blank"
-                  >
-                    <svg
-                      class="nc-icon glyph"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      x="0px"
-                      y="0px"
-                      width="16px"
-                      height="16px"
-                      viewBox="0 0 16 16"
-                    >
-                      <g>
-                        <path
-                          fill="#35a4fb"
-                          d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M8,13c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1s1,0.4,1,1 C9,12.6,8.6,13,8,13z M9.5,8.4C9,8.7,9,8.8,9,9v1H7V9c0-1.3,0.8-1.9,1.4-2.3C8.9,6.4,9,6.3,9,6c0-0.6-0.4-1-1-1 C7.6,5,7.3,5.2,7.1,5.5L6.6,6.4l-1.7-1l0.5-0.9C5.9,3.6,6.9,3,8,3c1.7,0,3,1.3,3,3C11,7.4,10.1,8,9.5,8.4z"
-                        ></path>
-                      </g>
-                    </svg>
-                    <span class="visuallyhidden">What is CVV?</span>
-                  </a>
-                </label>
-                <input
-                  type="text"
-                  name="cc_cvc"
-                  placeholder="123"
-                  pattern="\\d*"
-                  minlength="3"
-                  maxlength="4"
-                  required=""
-                />
-              </div>
-            </li>
-            <!-- <li class="form-list__row form-list__row--agree">
-              <label>
-                <input type="checkbox" name="save_cc" checked="checked">
-                Save my card for future purchases
-              </label>
-            </li> -->
-            <li class="mt-24">
-              <button type="submit" class="button">Pay Now</button>
-            </li>
-          </ul>
-        </form>
+      <div class="flex-col">
+        <img
+          src="https://store-images.s-microsoft.com/image/apps.33967.13510798887182917.246b0a3d-c3cc-46fc-9cea-021069d15c09.392bf5f5-ade4-4b36-aa63-bb15d5c3817a"
+        />
+        <p class="my-2 text-xs italic font-light text-gray-500">
+          Scan here to check in!
+        </p>
+        <div class="text-xs mb-2 text-gray-600">
+          <span class="text-gray-500">Valid until :</span>
+          <br />
+          Monday, 28 September 2020 18:30:23
+        </div>
       </div>
-      <!-- END: .modal__content -->
-      <div class="modal__featured">
-        <div
-          data-aos="fade-left"
-          data-aos-duration="1500"
-          data-aos-delay="500"
-          class="modal__circle"
-        ></div>
-        <img src="../../assets/img/Hakimi.png" class="modal__product" />
+      <div class="text-left">
+        <p class="pb-2 text-xs italic">Powered By</p>
+        <img
+          src="https://ad-venture.org.uk/wp-content/uploads/2017/05/logo-placeholder.png"
+        />
       </div>
     </div>
-    <!-- END: .modal__container -->
+    <div class="relative flex flex-col w-3/4">
+      <img
+        src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png"
+      />
+      <div class="absolute p-1 bottom-24">
+        <div
+          class="flex flex-row px-4 py-2 text-xs font-bold text-red-800 bg-white rounded-md "
+        >
+          <span class="mr-2 font-normal text-gray-500">Organizer :</span>
+          <p class="font-semibold text-red-800">Banua Coder</p>
+        </div>
+      </div>
+      <div class="absolute self-end mr-1 mt-1">
+        <p
+          class="px-4 py-2 text-xs font-bold text-red-800 bg-white rounded-md "
+        >
+          <span class="font-normal text-gray-500">Ticket Number :</span>
+          12
+        </p>
+      </div>
+      <div class="absolute bottom-0 flex flex-col w-full h-24">
+        <div class="w-full h-full bg-white opacity-75 rounded-br-md"></div>
+        <div class="absolute flex flex-row p-2 text-gray-800 opacity-100">
+          <div class="flex flex-col">
+            <div class="flex flex-col">
+              <p class="mb-1 text-xs text-gray-500">Start Date :</p>
+              <p class="text-xs font-semibold text-red-800">
+                Monday, 28 September 2020 09:00
+              </p>
+            </div>
+            <div class="hidden md:flex flex-col mt-1">
+              <p class="mb-1 text-xs text-gray-500">End Date :</p>
+              <p class="text-xs font-semibold text-red-800">
+                Monday, 28 September 2020 19:00
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col ml-4">
+            <div class="hidden md:flex flex-col">
+              <p class="mb-1 text-xs text-gray-500">Type of event :</p>
+              <p class="text-xs font-semibold text-red-800">Seminar</p>
+            </div>
+            <div class="flex flex-col mt-1">
+              <p class="mb-1 text-xs text-gray-500">Location :</p>
+              <p class="text-xs font-semibold text-red-800">
+                Banua Coder Coworking Space, Palu Timur, Kota Palu, Sulawesi
+                Tengah
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col ml-4">
+            <div class="flex flex-col">
+              <p class="mb-1 text-xs text-gray-500">Ticket Owner :</p>
+              <p class="text-xs font-semibold text-red-800">
+                Fajrian Aidil Pratama
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="xl:hidden flex flex-col bg-white border rounded-md shadow-md">
+   <div class="py-2 px-4 flex-col flex text-center">
+      <img class="mx-auto"
+          src="https://store-images.s-microsoft.com/image/apps.33967.13510798887182917.246b0a3d-c3cc-46fc-9cea-021069d15c09.392bf5f5-ade4-4b36-aa63-bb15d5c3817a"
+        />
+        <p class="font-bold text-lg md:text-3xl">Scan here to check in!</p>
+   </div>
+   <hr class="border-dashed border-2 border-gray-400"/>
+    <img
+        src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png"
+      />
+   <div class="py-2 px-4 flex flex-col text-sm md:text-2xl">
+     <p class="self-start font-bold text-gray-500">Mulai</p>
+     <div class="flex text-sm justify-between my-2 md:text-xl">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+       <p class="font-bold text-red-800">Senin, 29 September 2020</p>
+     </div>
+     <div class="flex text-sm justify-between my-2 md:text-xl">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+       <p class="font-bold text-red-800">10:30</p>
+     </div>
+   </div>
+   <div class="py-2 px-4 flex flex-col text-sm md:text-2xl">
+     <p class="self-start font-bold text-gray-500">Selesai</p>
+     <div class="flex text-sm md:text-xl justify-between my-2">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+       <p class="font-bold text-red-800">Senin, 29 September 2020</p>
+     </div>
+     <div class="flex text-sm md:text-xl justify-between my-2">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+       <p class="font-bold text-red-800">15:30</p>
+     </div>
+   </div>
+   <div class="py-2 px-4 flex flex-col text-sm md:text-2xl">
+     <p class="self-start font-bold text-gray-500">Lokasi</p>
+     <div class="flex text-sm md:text-xl justify-between my-2">
+       <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+       <p class="font-bold text-red-800">Banua Coder Coworking Space, Palu, Sulawesi Tengah, Indonesia</p>
+     </div>
+   </div>
+   <hr class="border-gray-400"/>
+   <div class="py-2 px-4 flex flex-col text-sm md:text-2xl">
+     <p class="self-start font-bold text-gray-500">Powered By</p>
+     <img
+     class="mx-auto my-2"
+          src="https://ad-venture.org.uk/wp-content/uploads/2017/05/logo-placeholder.png"
+        />
+   </div>
+  </div>
+</div>
 </template>
 
 <script>
-export default {
-  name: "Paym-ent",
-};
+import swal from "sweetalert";
+    export default {
+        name: 'payment-t',
+        mounted() {
+            this.getData();
+        },
+        methods:{
+                getData(){
+                    swal({
+                       name :"ticket",
+                          title: "Pilih tiket",
+                            text: "Pilih tiket yang ingin anda beli",
+                            buttons: [
+                                "Batal",
+                                "Pilih"
+                            ],
+                            
+                            input: "select",
+                            
+                    });
+                }
+            
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin: 0;
-  font-weight: 600;
-}
 
-.button {
-  color: #ffffff;
-  background-color: #24cf5f;
-  padding: 12px 25px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-radius: 7px;
-  outline: 0;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-}
-.button:hover,
-.button:active,
-.button:focus {
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.button--transparent {
-  margin-top: 5px;
-  background: transparent;
-  border: 0;
-  outline: 0;
-}
-
-.button--close {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  color: #ffffff;
-  border-radius: 50%;
-  transition: all 0.25s;
-  z-index: 10;
-}
-.button--close svg {
-  width: 20px;
-  height: 20px;
-}
-.button--close svg * {
-  fill: currentColor;
-}
-.button--close:hover,
-.button--close:active,
-.button--close:focus {
-  color: #fbcf34;
-  background-color: #ffffff;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
-}
-
-.button--info {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-input {
-  width: 70%;
-  min-height: 30px;
-  padding-left: 5px;
-  padding-right: 5px;
-  letter-spacing: 0.5px;
-  border: 0;
-  border-bottom: 2px solid #f0f0f0;
-}
-input:valid {
-  border-color: #24cf5f;
-}
-input:focus {
-  outline: none;
-  border-color: #fbcf34;
-}
-
-.form-list {
-  padding-left: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.form-list__row {
-  margin-bottom: 25px;
-}
-.form-list__row label {
-  position: relative;
-  display: block;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  color: #939393;
-}
-.form-list__row--inline {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-.form-list__row--inline > :first-child {
-  -ms-flex: 2;
-  flex: 2;
-  padding-right: 20px;
-}
-.form-list__row--inline > :nth-child(2n) {
-  -ms-flex: 1;
-  flex: 1;
-}
-.form-list__input-inline {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-.form-list__input-inline > * {
-  width: calc(50% - 10px - 10px);
-}
-
-#input--cc {
-  position: relative;
-  padding-top: 6px;
-}
-#input--cc input {
-  padding-left: 46px;
-  width: calc(100% - 46px);
-}
-#input--cc:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 36px;
-  height: 45px;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg%20class%3D%22nc-icon%20glyph%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2248px%22%20height%3D%2248px%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cg%3E%20%3Cpath%20data-color%3D%22color-2%22%20fill%3D%22%238c8c8c%22%20d%3D%22M47%2C16V9c0-1.105-0.895-2-2-2H3C1.895%2C7%2C1%2C7.895%2C1%2C9v7H47z%22%3E%3C/path%3E%20%3Cpath%20fill%3D%22%238c8c8c%22%20d%3D%22M1%2C22v17c0%2C1.105%2C0.895%2C2%2C2%2C2h42c1.105%2C0%2C2-0.895%2C2-2V22H1z%20M18%2C33H8c-0.552%2C0-1-0.448-1-1s0.448-1%2C1-1h10%20c0.552%2C0%2C1%2C0.448%2C1%2C1S18.552%2C33%2C18%2C33z%20M40%2C33h-5c-0.552%2C0-1-0.448-1-1s0.448-1%2C1-1h5c0.552%2C0%2C1%2C0.448%2C1%2C1S40.552%2C33%2C40%2C33z%22%3E%3C/path%3E%20%3C/g%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 36px;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.modal__container {
-  display: flex;
-  height: 58vh;
-  width: 65vw;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
-}
-.modal__featured {
-  position: relative;
-  -ms-flex: 1;
-  flex: 1;
-  min-width: 230px;
-  padding: 20px;
-  overflow: hidden;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.modal__circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 200%;
-  width: 200%;
-  background-color: #fbcf34;
-  border-radius: 50%;
-  // -ms-transform: translateX(-50%) translateY(-25%);
-  //     transform: translateX(-50%) translateY(-25%);
-}
-.modal__product {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -ms-transform: translateX(calc(-50% - 10px));
-  transform: translateX(calc(-50% - 10px));
-  max-width: 200%;
-}
-.modal__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  -ms-flex: 3;
-  flex: 3;
-  padding: 40px 30px;
-}
-
-@media (max-width: 768px) {
-  .modal__featured {
-    display: none;
-  }
-}
 </style>

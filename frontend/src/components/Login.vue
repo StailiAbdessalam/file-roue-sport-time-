@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-center items-center w-full">
     <div class="flex justify-center items-center w-full">
-      <div class="flex justify-center items-center gap-20 w-full form_Login">
+      <div class="flex justify-between items-center  w-full form_Login">
         <div
-          class="relative flex flex-col gap-3"
+          class="relative flex flex-col justify-center items-center gap-3"
         >
           <div class="flex flex-col justify-center items-center">
             <h1 class="form_Login_title">Sig in </h1>
@@ -70,9 +70,10 @@
           data-aos-anchor="#example-anchor"
           data-aos-delay="500"
           data-aos-offset="500"
-          class="login"
+          class="login w-1/2 h-screen flex justify-end items-center"
         >
-          <img src="../assets/img/login.gif"  alt="" />
+          <!-- <img src="../assets/img/login.gif"  alt="" /> -->
+          <img class="h-full w-full" src="../assets/img/imad.jpg"  alt="" />
         </div>
         <!--alert invalide-->
       </div>

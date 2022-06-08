@@ -12,9 +12,7 @@
         >
           <img src="../assets/img/SignUp.gif" alt="" />
         </div>
-        <div
-          class="relative flex flex-col gap-3"
-        >
+        <div class="relative flex flex-col gap-3">
           <div class="flex flex-col justify-center items-center">
             <h1 class="form_singup_title">Sig Up in a new account</h1>
           </div>
@@ -400,23 +398,28 @@ export default {
       }
     },
     ADDClient() {
-      this.load = true;
-      axios
-        .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
-        .then((res) => {
-          this.Valide = true;
-          console.log(res);
-          setTimeout(() => {
-            this.$router.push("Login");
-            swal(
-              "Good job!",
-              "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time",
-              "success"
-            );
-          }, 1500);
-        });
+      if (this.passwordStrengthText == "Strong password") {
+        this.load = true;
+        axios
+          .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
+          .then((res) => {
+            this.Valide = true;
+            console.log(res);
+            setTimeout(() => {
+              this.$router.push("Login");
+              swal(
+                "Good job!",
+                "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time",
+                "success"
+              );
+            }, 1500);
+          });
+      } else {
+        swal("Oops...", "Votre mot de passe n'est pas assez sécurisé", "error");
+      }
     },
     FaitDemmande() {
+     if (this.passwordStrengthText == "Strong password") {
       this.load = true;
       axios
         .post(`${this.$apiUrl}/Organisateur/register`, this.dataOrganisateur)
@@ -432,6 +435,9 @@ export default {
             );
           }, 1500);
         });
+     } else {
+      swal("Oops...", "Votre mot de passe n'est pas assez sécurisé", "error");
+     }
     },
   },
   watch: {

@@ -36,25 +36,32 @@
           data-aos="zoom-in-down"
           data-aos-duration="2000"
           data-aos-once="true"
-          src="../assets/img/Slide2.jpg"
+          src="../assets/img/aminterrain.jpg"
           alt=""
         />
       </div>
-      <div id="Res_motivation" class="flex flex-col w-1/4 gap-6">
+      <div id="Res_motivation" class="flex flex-col justify-around w-1/4 gap-6">
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
           data-aos-duration="2000"
           class="Res_image"
-          src="../assets/img/slider1.jpg"
-          alt=""
+          src="../assets/img/amine.jpg"
         />
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
           data-aos-duration="2000"
           class="Res_image"
-          src="../assets/img/slider1.jpg"
+          src="../assets/img/equipe.jpg"
+          alt=""
+        /> 
+        <img
+          data-aos="zoom-in-down"
+          data-aos-once="true"
+          data-aos-duration="2000"
+          class="Res_image"
+          src="../assets/img/drari.jpg"
           alt=""
         />
       </div>
@@ -63,17 +70,17 @@
           data-aos="zoom-in-down"
           data-aos-once="true"
           data-aos-duration="2000"
-          src="../assets/img/slider1.jpg"
+          src="../assets/img/imad.jpg"
           alt=""
           class="Res_image"
         />
-        <p class="text-center">
+        <!-- <p class="text-center">
           « Sport Time » Ce site est permit à l'utilisateur <br />
           de réserver le sol d'un stade pour divertir ça <br />
           dur journée avec ses amis et sa famille, on plus ce site web il
           organise les calculs financiers et administratifs en relation avec les
           stades de proximité et les clients.
-        </p>
+        </p> -->
       </div>
     </div>
     <div
@@ -417,6 +424,7 @@ export default {
 
   .Res_image {
     width: 100%;
+    height:33%;
   }
 
   #Res_video {

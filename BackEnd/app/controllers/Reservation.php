@@ -32,4 +32,11 @@ class Reservation extends Controller
             echo json_encode($data);
         }
     }
+    public function selectOneReservation(){
+        $ReservationModel = $this->model('ReservationModel');
+         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $data = $ReservationModel->selectOneReservation();
+            echo json_encode($data);
+        }
+    }
 }

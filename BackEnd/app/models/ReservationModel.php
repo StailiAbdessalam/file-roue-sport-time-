@@ -16,4 +16,10 @@ class ReservationModel
         $CLIENT = $ModelClients->selectAll();
         return $CLIENT;
     }
+    public function selectOneReservation(){
+        $ModelReservation = new GlobalModel("reservation");
+        $Reservation = $ModelReservation->selectOneReservation();
+        return $Reservation;
+    }
+    
 }

@@ -187,6 +187,14 @@
             $result = $stm->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
+        public function selectOneReservation(){
+            $conn = $this->connection;
+            $requi = "SELECT * FROM `$this->Table` ORDER BY id DESC LIMIT 1";
+            $stm = $conn->prepare($requi);
+            $stm->execute();
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
 
 
 

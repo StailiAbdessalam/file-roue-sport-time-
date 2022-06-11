@@ -144,11 +144,14 @@
 
       <div class="flex items-center justify-center md:gap-8 gap-4 pt-5 pb-5">
         <div>
-          <div @click="stadeAllRegarder" class="flex rounded border-b-2 border-grey-300 overflow-hidden">
+          <div
+            @click="stadeAllRegarder"
+            class="flex rounded border-b-2 border-grey-300 overflow-hidden"
+          >
             <button
               class="block text-white text-sm shadow-border bg-orange-500 hover:bg-orange-700 text-sm py-3 px-4 font-sans tracking-wide uppercase font-bold"
             >
-             voir mon stade
+              voir mon stade
             </button>
             <div class="bg-orange-300 shadow-border p-3">
               <div class="w-4 h-4">
@@ -166,13 +169,15 @@
           </div>
         </div>
         <div>
-          <div class="flex rounded border-b-2 border-grey-300 overflow-hidden" @click="ADDStade">
+          <div
+            class="flex rounded border-b-2 border-grey-300 overflow-hidden"
+            @click="ADDStade"
+          >
             <button
               class="block text-white text-sm shadow-border bg-green-500 hover:bg-green-700 text-sm py-3 px-4 font-sans tracking-wide uppercase font-bold"
             >
               Ajouter
             </button>
-             
           </div>
         </div>
       </div>
@@ -184,7 +189,8 @@
 import white from "../../components/chose/whit.vue";
 import store from "../../store/index";
 import axios from "axios";
-import * as fireStorage from "firebase/storage";
+import { toFormData } from "../../utils/helpers";
+import { cloudinaryConfig } from "../../utils/constants";
 export default {
   name: "Add-Stade",
   data() {
@@ -203,35 +209,40 @@ export default {
     };
   },
   mounted() {
+    this.fetchSignature();
     this.localid();
   },
   methods: {
-    stadeAllRegarder(){
+    stadeAllRegarder() {
       this.$router.push("/AllStade");
     },
     changeImage(e) {
       this.images = e.target.files[0];
       console.log(this.images);
     },
+    async fetchSignature() {
+      const res = await axios.get(`${this.$apiUrl}/Cloudinary/getSignature`);
+      this.uploadAuth = res.data;
+    },
     async ADDStade() {
       this.load = true;
       try {
-        let file = this.images;
-        let newname =
-          Math.random().toString(36).slice(2) +
-          new Date().getTime().toString(36);
-        let storageRef = fireStorage.ref(
-          fireStorage.getStorage(),
-          "Stade/" + newname + ".png"
-        );
         const Stade = this.Stade;
-        console.log(this.Stade);
-        await fireStorage.uploadBytes(storageRef, file).then(function () {
-          console.log("uploaded");
-        });
+        let cloudinaryData = {
+          timestamp: this.uploadAuth.timestamp,
+          signature: this.uploadAuth.signature,
+          api_key: cloudinaryConfig.apiKey,
+          file: this.images,
+          folder: cloudinaryConfig.folder,
+        };
+        const formData = toFormData(cloudinaryData);
+        const url = `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/image/upload`;
+        const imageData = await axios
+          .post(url, formData)
+          .then((res) => res.data);
         await axios.post(`${this.$apiUrl}/Stade/AddStade`, {
           ...Stade,
-          images: newname,
+          images: imageData.public_id,
         });
         this.added = true;
         this.load = false;

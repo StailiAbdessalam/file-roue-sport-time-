@@ -251,7 +251,6 @@
         </div>
       </div>
     </div>
-
     <div id="slide" class="w3-content w3-section" style="max-width: 500px">
       <h1 class="text-center text-4xl">
         All kinds of sports are available in your nearest stadium

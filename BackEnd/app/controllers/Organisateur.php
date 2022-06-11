@@ -16,9 +16,8 @@ class Organisateur extends Controller
   public function index()
   {
     $CliensModel = $this->model('OrganisateurModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $Cliens = $CliensModel->fetchByRef($data->Email);
       $pass = $data->ID;
       $hash = $Cliens['IdUnique'];
@@ -27,7 +26,7 @@ class Organisateur extends Controller
           "data" => $Cliens,
           "status" => "information correct",
         ];
-        echo json_encode($data);
+        $this->json($data);
       } else {
         echo json_encode("information incorrect");
       }
@@ -37,25 +36,23 @@ class Organisateur extends Controller
   public function register()
   {
     $CreateAcc = $this->model('OrganisateurModel');
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $data->IdUnique = password_hash(($data->IdUnique), PASSWORD_BCRYPT);
       $data = (array)$data;
       $created = $CreateAcc->insert($data);
-      echo json_encode($data);
+      $this->json($data);
     }
   }
 
   public function insertLocal()
   {
     $CreateAcc = $this->model('OrganisateurModel');
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $data = (array)$data;
       $created = $CreateAcc->insertLocal($data);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
 
@@ -63,9 +60,8 @@ class Organisateur extends Controller
   public function updatesuspended()
   {
     $CliensModel = $this->model('OrganisateurModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $CliensModel->updatesuspended($data);
       echo json_encode("true");
     }
@@ -75,15 +71,14 @@ class Organisateur extends Controller
   {
     $CliensModel = $this->model('OrganisateurModel');
     $Cliens = $CliensModel->selectDemandeOrg();
-    echo json_encode($Cliens);
+    $this->json($Cliens);
   }
 
   public function DeleteDemande()
   {
     $CliensModel = $this->model('OrganisateurModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $CliensModel->DeleteDemande($data);
       echo json_encode("true");
     }
@@ -93,32 +88,30 @@ class Organisateur extends Controller
   {
     $CliensModel = $this->model('OrganisateurModel');
     $Cliens = $CliensModel->selectOrg();
-    echo json_encode($Cliens);
+    $this->json($Cliens);
   }
 
   public function selectArchive()
   {
     $CliensModel = $this->model('OrganisateurModel');
     $Cliens = $CliensModel->selectArchive();
-    echo json_encode($Cliens);
+    $this->json($Cliens);
   }
   public function getOne()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $CliensModel = $this->model('OrganisateurModel');
       $Cliens = $CliensModel->getOne($data->id);
-      echo json_encode($Cliens);
+      $this->json($Cliens);
     }
   }
 
   public function updareprofile()
   {
     $CliensModel = $this->model('OrganisateurModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $Org = [
         "FirstName" => $data->FirstName,
         "LastName" => $data->LastName,
@@ -140,26 +133,24 @@ class Organisateur extends Controller
   {
     $CliensModel = $this->model('OrganisateurModel');
     $Cliens = $CliensModel->selectAllLocal();
-    echo json_encode($Cliens);
+    $this->json($Cliens);
   }
 
   public function selectOneLocal()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $CliensModel = $this->model('OrganisateurModel');
       $Cliens = $CliensModel->selectOneLocal($data->id);
-      echo json_encode($Cliens);
+      $this->json($Cliens);
     }
   }
 
 
 public function sendEmailValidate()
 {
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $json = file_get_contents('php://input');
-    $data = json_decode($json);
+  if ($this->isPostRequest()) {
+    $data = $this->getBody();
     echo "hezuofhouzhfuoze";
     $to = $data->Email;
     $subject = "Validation de votre compte";
@@ -224,7 +215,7 @@ public function sendEmailValidate()
   {
     $CliensModel = $this->model('ClientsModel');
     $Cliens = $CliensModel->selectAll();
-    echo json_encode($Cliens);
+    $this->json($Cliens);
   }
 
   public function getAllRDV()
@@ -232,18 +223,17 @@ public function sendEmailValidate()
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
       $RDV = $this->model('RDVModel');
       $RDVs = $RDV->selectAll($_GET['id']);
-      echo json_encode($RDVs);
+      $this->json($RDVs);
     }
   }
   public function addAppointment()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($this->isPostRequest()) {
       $addApp = $this->model('RDVModel');
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+      $data = $this->getBody();
       $data = array_values((array)$data);
       $created = $addApp->insertRDV($data);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
   public function remove()
@@ -257,12 +247,11 @@ public function sendEmailValidate()
   {
     if ($_SERVER["REQUEST_METHOD"] === "PUT") {
       $updateRDV = $this->model('RDVModel');
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+      $data = $this->getBody();
       $data = array_values((array)$data);
 
       $created = $updateRDV->updateRDV($data, $_GET['id']);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
   public function selectInDate()
@@ -294,7 +283,7 @@ public function sendEmailValidate()
           unset($date[4]);
         }
       }
-      echo json_encode($date);
+      $this->json($date);
     }
   }
 }

@@ -20,3 +20,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 require_once '../app/bootstrap.php';
 // Init Core Library
 $init = new Core;
+

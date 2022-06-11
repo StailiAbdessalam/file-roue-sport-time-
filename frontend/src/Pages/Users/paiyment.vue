@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="test">
 <paiyment/>
     </div>
 </template>
@@ -16,5 +16,15 @@ import paiyment from "../../components/Users/paiyment.vue"
 </script>
 
 <style lang="scss" scoped>
+.test{
+    width: 60%;
+    margin: 0 auto;
+    @media (max-width: 668px) {
+        width: 100%;
+    }
+    @media (max-width: 998px) {
+        width: 80%;
+    }
 
+}
 </style>

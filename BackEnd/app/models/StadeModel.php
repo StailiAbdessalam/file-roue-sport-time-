@@ -2,8 +2,6 @@
 
 class StadeModel
 {
-
-
     public function insert($data)
     {
         $ModelClients = new GlobalModel("stadium");
@@ -13,7 +11,6 @@ class StadeModel
     public function getAllStadebyId($data)
     {
         $ModelClients = new GlobalModel("stadium");
-        // var_dump($data);
         $CLIENT = $ModelClients->select($data["id"]);
         return $CLIENT;
     }

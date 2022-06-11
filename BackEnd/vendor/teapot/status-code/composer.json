@@ -1,0 +1,39 @@
+{
+  "name": "teapot/status-code",
+  "type": "library",
+  "description": "PHP HTTP Response Status code library",
+  "keywords": [
+    "http"
+  ],
+  "homepage": "http://shrikeh.github.com/teapot",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Barney Hanlon",
+      "email": "barney@shrikeh.net"
+    }
+  ],
+  "require": {
+    "php": "^5.4 || ^7.0 || ^8.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5.8"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "5.4.45"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Teapot\\StatusCode\\": "src"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "/*, !/src"
+    ]
+  }
+}

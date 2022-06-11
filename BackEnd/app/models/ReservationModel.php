@@ -10,16 +10,16 @@ class ReservationModel
         $CLIENT = $ModelClients->insert($data);
         return $CLIENT;
     }
-     public function getAllRESERVATION()
+    public function getAllRESERVATION()
     {
         $ModelClients = new GlobalModel("reservation");
         $CLIENT = $ModelClients->selectAll();
         return $CLIENT;
     }
-    public function selectOneReservation(){
+    public function selectOneReservation()
+    {
         $ModelReservation = new GlobalModel("reservation");
         $Reservation = $ModelReservation->selectOneReservation();
         return $Reservation;
     }
-    
 }

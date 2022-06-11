@@ -16,9 +16,8 @@ class Clients extends Controller
   public function index()
   {
     $CliensModel = $this->model('ClientsModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $Cliens = $CliensModel->fetchByRef($data->Email);
       $pass = $data->ID;
       $hash = $Cliens['IdUnique'];
@@ -27,7 +26,7 @@ class Clients extends Controller
           "data" => $Cliens,
           "status" => "information correct",
         ];
-        echo json_encode($data);
+        $this->json($data);
       } else {
         echo json_encode("information incorrect");
       }
@@ -38,21 +37,20 @@ class Clients extends Controller
   {
     $CliensModel = $this->model('ClientsModel');
     $Cliens = $CliensModel->selectAll();
-    echo json_encode($Cliens);
+    $this->json($Cliens);
   }
   public function forgot()
   {
     $CliensModel = $this->model('ClientsModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $Cliens = $CliensModel->fetchByMail($data->email);
       if ($Cliens['Email'] == $data->email) {
         $data = [
           "data" => $Cliens,
           "status" => "information correct",
         ];
-        echo json_encode($data);
+        $this->json($data);
       } else {
         echo json_encode("information incorrect");
       }
@@ -63,13 +61,12 @@ class Clients extends Controller
   public function register()
   {
     $CreateAcc = $this->model('ClientsModel');
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $data->IdUnique = password_hash(($data->IdUnique), PASSWORD_BCRYPT);
       $data = (array)$data;
       $created = $CreateAcc->insert($data);
-      echo json_encode($data);
+      $this->json($data);
     }
   }
 
@@ -86,28 +83,26 @@ class Clients extends Controller
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
       $RDV = $this->model('RDVModel');
       $RDVs = $RDV->selectAll($_GET['id']);
-      echo json_encode($RDVs);
+      $this->json($RDVs);
     }
   }
   public function getOne()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $CliensModel = $this->model('ClientsModel');
       $Cliens = $CliensModel->SelectOne($data->id);
-      echo json_encode($Cliens);
+      $this->json($Cliens);
     }
   }
   public function addAppointment()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($this->isPostRequest()) {
       $addApp = $this->model('RDVModel');
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+      $data = $this->getBody();
       $data = array_values((array)$data);
       $created = $addApp->insertRDV($data);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
   public function remove()
@@ -121,12 +116,11 @@ class Clients extends Controller
   {
     if ($_SERVER["REQUEST_METHOD"] === "PUT") {
       $updateRDV = $this->model('RDVModel');
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+      $data = $this->getBody();
       $data = array_values((array)$data);
 
       $created = $updateRDV->updateRDV($data, $_GET['id']);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
   public function selectInDate()
@@ -158,7 +152,7 @@ class Clients extends Controller
           unset($date[4]);
         }
       }
-      echo json_encode($date);
+      $this->json($date);
     }
   }
 }

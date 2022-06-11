@@ -16,51 +16,37 @@ class Admin extends Controller
   public function index()
   {
     $CliensModel = $this->model('AdminModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $Cliens = $CliensModel->fetchByRef($data->ID);
       if ($Cliens['IdUnique'] == $data->ID) {
         $data = [
           "data" => $Cliens,
           "status" => "information correct",
         ];
-        echo json_encode($data);
+        $this->json($data);
       } else {
         echo json_encode("information incorrect");
       }
     }
   }
-
-
-
   public function register()
   {
     $CreateAcc = $this->model('AdminModel');
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $data = (array)$data;
       $data['IdUnique'] = 'CL-' . uniqid();
       $created = $CreateAcc->insert($data);
-        echo json_encode($data);
+      $this->json($data);
     }
   }
-
-
-
-
-
-
-
-
-
   public function getAllRDV()
   {
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
       $RDV = $this->model('RDVModel');
       $RDVs = $RDV->selectAll($_GET['id']);
-      echo json_encode($RDVs);
+      $this->json($RDVs);
     }
   }
   public function getOne()
@@ -68,18 +54,17 @@ class Admin extends Controller
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
       $select = $this->model('UserModel');
       $selected = $select->select($_GET['id']);
-      echo json_encode($selected);
+      $this->json($selected);
     }
   }
   public function addAppointment()
   {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($this->isPostRequest()) {
       $addApp = $this->model('RDVModel');
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+      $data = $this->getBody();
       $data = array_values((array)$data);
       $created = $addApp->insertRDV($data);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
   public function remove()
@@ -93,12 +78,11 @@ class Admin extends Controller
   {
     if ($_SERVER["REQUEST_METHOD"] === "PUT") {
       $updateRDV = $this->model('RDVModel');
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+      $data = $this->getBody();
       $data = array_values((array)$data);
 
       $created = $updateRDV->updateRDV($data, $_GET['id']);
-      echo json_encode($created);
+      $this->json($created);
     }
   }
   public function selectInDate()
@@ -130,7 +114,7 @@ class Admin extends Controller
           unset($date[4]);
         }
       }
-      echo json_encode($date);
+      $this->json($date);
     }
   }
 }

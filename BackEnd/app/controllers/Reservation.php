@@ -15,13 +15,12 @@ class Reservation extends Controller
     public function AddReservation()
     {
         $ReservationModel = $this->model('ReservationModel');
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $json = file_get_contents('php://input');
-            $data = json_decode($json);
+        if ($this->isPostRequest()) {
+            $data = $this->getBody();
             $data = $data->Reservation;
             $data = (array)$data;
             $created = $ReservationModel->insert($data);
-            echo json_encode($created);
+            $this->json($created);
         }
     }
     public function GetReservation()
@@ -29,14 +28,14 @@ class Reservation extends Controller
         $ReservationModel = $this->model('ReservationModel');
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $data = $ReservationModel->getAllRESERVATION();
-            echo json_encode($data);
+            $this->json($data);
         }
     }
     public function selectOneReservation(){
         $ReservationModel = $this->model('ReservationModel');
          if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $data = $ReservationModel->selectOneReservation();
-            echo json_encode($data);
+            $this->json($data);
         }
     }
 }

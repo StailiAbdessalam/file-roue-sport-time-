@@ -17,9 +17,8 @@ class Stade extends Controller
   public function AddStade()
   {
     $CliensModel = $this->model('StadeModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $data = (array)$data;
       $CliensModel->insert($data);
       echo json_encode("true");
@@ -29,33 +28,30 @@ class Stade extends Controller
   public function getAllStadebyId()
   {
     $CliensModel = $this->model('StadeModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $data = (array)$data;
       $local = $CliensModel->getAllStadebyId($data);
-      echo json_encode($local);
+      $this->json($local);
     }
   }
   public function getAllTime(){
     $Model= $this->model('StadeModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
 
       $local = $Model->getAllTime($data);
       $local = (array)$local;
-      echo json_encode($local);
+      $this->json($local);
     }
   }  
   public function getallReservation(){
     $Model= $this->model('StadeModel');
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $json = file_get_contents('php://input');
-      $data = json_decode($json);
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
       $local = $Model->getallReservation($data);
       $local = (array)$local;
-      echo json_encode($local);
+      $this->json($local);
     }
   }
 }

@@ -37,7 +37,7 @@
                     <a href="#">
                       <img
                         class="rounded-circle"
-                        :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${local.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`"
+                        :src="`https://res.cloudinary.com/dqeb5aris/image/upload/v1654943245/${local.Photo}.jpg`"
                         alt="profileImg"
                       />
                     </a>

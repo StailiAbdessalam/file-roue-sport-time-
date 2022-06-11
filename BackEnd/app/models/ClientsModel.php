@@ -1,6 +1,4 @@
 <?php
-// require_once "../libraries/GlobalModel.php";
-// get_include_path("../libraries/GlobalModel.php");
 class ClientsModel
 {
     public function selectAll()
@@ -49,13 +47,6 @@ class ClientsModel
                                 `Job`=?,
                                 `CIN`=?
                                 WHERE id=?");
-        // var_dump($data);
-        // $query->bindParam(':id', $id);
-        // $query->bindParam(':Nom', $data[4]);
-        // $query->bindParam(':Prenom', $data["Prenom"]);
-        // $query->bindParam(':Age', $data["Age"]);
-        // $query->bindParam(':Job', $data["Job"]);
-        // $query->bindParam(':CIN', $data["CIN"]);
         $params = array($data["Nom"], $data["Prenom"], $data["Age"], $data["Job"], $data["CIN"], $data["id"]);
         return $query->execute($params);
     }

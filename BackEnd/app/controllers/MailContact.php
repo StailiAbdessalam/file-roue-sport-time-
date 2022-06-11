@@ -16,9 +16,8 @@ class MailContact extends Controller
     }
     public function sendEmail()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $json = file_get_contents('php://input');
-            $data = json_decode($json);
+        if ($this->isPostRequest()) {
+            $data = $this->getBody();
             $to  = 'abdoycode@gmail.com';
             $subject = 'Contact Client';
             $headers[] = 'MIME-Version: 1.0';
@@ -26,11 +25,6 @@ class MailContact extends Controller
             $headers[] = "To: Sport Time <abdoycode@gmail.com>";
             $headers[] = "From: $data->email";
             mail($to, $subject, $data->sujet, implode("\r\n", $headers));
-            var_dump(mail($to, $subject, $data->sujet, implode("\r\n", $headers)));
-            if(mail){
-                echo "goo";
-            }
-          
         }
     }
 }

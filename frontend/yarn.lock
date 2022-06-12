@@ -6488,6 +6488,13 @@ vue-eslint-parser@^8.0.1:
     lodash "^4.17.21"
     semver "^7.3.5"
 
+vue-heroicons@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/vue-heroicons/-/vue-heroicons-0.9.4.tgz#bc233ee35fbc8c41855a9848cde386c151a87c50"
+  integrity sha512-iylylWRrO2O5F9LC1yYF2h5TNo9+ijanJwBWaJIpuA8cVgisxrr5LJP9pzmEOqxikjgrTR+ZIrSmg+id1vWfDw==
+  dependencies:
+    vue "^2.6.10"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npmmirror.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
@@ -6540,7 +6547,7 @@ vue-the-mask@^0.11.1:
   resolved "https://registry.yarnpkg.com/vue-the-mask/-/vue-the-mask-0.11.1.tgz#91ee01008354ae57bccc79bb61b65f32d971d9d5"
   integrity sha512-UquSfnSWejD0zAfcD+3jJ1chUAkOAyoxya9Lxh9acCRtrlmGcAIvd0cQYraWqKenbuZJUdum+S174atv2AuEHQ==
 
-vue@^2.6.11:
+vue@^2.6.10, vue@^2.6.11:
   version "2.6.14"
   resolved "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==

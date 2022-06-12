@@ -60,13 +60,29 @@ class Clients extends Controller
 
   public function register()
   {
-    $CreateAcc = $this->model('ClientsModel');
-    if ($this->isPostRequest()) {
-      $data = $this->getBody();
-      $data->IdUnique = password_hash(($data->IdUnique), PASSWORD_BCRYPT);
-      $data = (array)$data;
-      $created = $CreateAcc->insert($data);
-      $this->json($data);
+    try {
+      //code...
+      $CreateAcc = $this->model('ClientsModel');
+      if ($this->isPostRequest()) {
+        $data = $this->getBody();
+        $data->IdUnique = password_hash(($data->IdUnique), PASSWORD_BCRYPT);
+        $data = (array)$data;
+        $created = $CreateAcc->insert($data);
+        $this->json($data);
+      }
+    } catch (\Throwable $e) {
+      //throw $th;
+      if ($e->errorInfo[1] == 1062) {
+        $duplicateKeys = array();
+        foreach ($e->errorInfo as $key => $value) {
+          if ($key > 1) {
+            preg_match("/key '(\w+)'/", $value, $matches);
+            $duplicateKeys[] = $matches[1];
+          }
+        }
+        echo json_encode(array("message" => "Product already exists", "keys" => $duplicateKeys, "status" => 400));
+        return;
+      }
     }
   }
 

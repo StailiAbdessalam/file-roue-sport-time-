@@ -230,7 +230,6 @@ export default {
             return iteam.idOrganisateur != data.idOrganisateur;
           });
         });
-
         axios
           .post(`${this.$apiUrl}/Organisateur/sendEmailValidate`, {
             Email:data.Email,

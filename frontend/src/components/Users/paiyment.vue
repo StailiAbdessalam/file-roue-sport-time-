@@ -28,7 +28,7 @@
       <div class="relative flex flex-col w-3/4">
         <img
           class="w-full h-[29rem] onject-cover"
-          :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${infolocal.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`"
+          :src="`https://res.cloudinary.com/dqeb5aris/image/upload/v1654943245/${infolocal.Photo}.jpg`"
         />
         <div class="absolute p-1 bottom-24">
           <div

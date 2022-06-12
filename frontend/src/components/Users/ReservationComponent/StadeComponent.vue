@@ -5,7 +5,7 @@
     >
       <div class="w-full md:w-1/3 bg-white grid place-items-center">
         <img
-          :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Stade%2F${stad.images}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`"
+          :src="`https://res.cloudinary.com/dqeb5aris/image/upload/v1654943245/${stad.images}.jpg`"
           alt="tailwind logo"
           class="rounded-xl h-48 w-96"
         />

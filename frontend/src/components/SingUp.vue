@@ -81,19 +81,8 @@
                     class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                     placeholder="Your strong password..."
                   />
-                  <div class="text-gray-600 mt-2 mb-4">
-                    Please create a secure password including the following
-                    criteria below.
-
-                    <ul class="list-disc text-sm ml-4 mt-2">
-                      <li>lowercase letters</li>
-                      <li>numbers</li>
-                      <li>capital letters</li>
-                      <li>special characters</li>
-                    </ul>
-                  </div>
                   <div
-                    class="absolute right-0 bottom-0 top-0 px-3 py-3 cursor-pointer"
+                    class="absolute right-9 top-2  cursor-pointer"
                     @click="togglePassword = !togglePassword"
                   >
                     <svg
@@ -126,6 +115,18 @@
                         d="M12,5c-7.633,0-9.927,6.617-9.948,6.684L1.946,12l0.105,0.316C2.073,12.383,4.367,19,12,19s9.927-6.617,9.948-6.684 L22.054,12l-0.105-0.316C21.927,11.617,19.633,5,12,5z M12,17c-5.351,0-7.424-3.846-7.926-5C4.578,10.842,6.652,7,12,7 c5.351,0,7.424,3.846,7.926,5C19.422,13.158,17.348,17,12,17z"
                       />
                     </svg>
+                  </div>
+
+                  <div class="text-gray-600 mt-2 mb-4">
+                    Please create a secure password including the following
+                    criteria below.
+
+                    <ul class="list-disc text-sm ml-4 mt-2">
+                      <li>lowercase letters</li>
+                      <li>numbers</li>
+                      <li>capital letters</li>
+                      <li>special characters</li>
+                    </ul>
                   </div>
                 </div>
 
@@ -229,19 +230,8 @@
                     class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                     placeholder="Your strong password..."
                   />
-                  <div class="text-gray-600 mt-2 mb-4">
-                    Please create a secure password including the following
-                    criteria below.
-
-                    <ul class="list-disc text-sm ml-4 mt-2">
-                      <li>lowercase letters</li>
-                      <li>numbers</li>
-                      <li>capital letters</li>
-                      <li>special characters</li>
-                    </ul>
-                  </div>
                   <div
-                    class="absolute right-0 bottom-0 top-0 px-3 py-3 cursor-pointer"
+                    class="absolute right-9  top-2 cursor-pointer"
                     @click="togglePassword = !togglePassword"
                   >
                     <svg
@@ -274,6 +264,17 @@
                         d="M12,5c-7.633,0-9.927,6.617-9.948,6.684L1.946,12l0.105,0.316C2.073,12.383,4.367,19,12,19s9.927-6.617,9.948-6.684 L22.054,12l-0.105-0.316C21.927,11.617,19.633,5,12,5z M12,17c-5.351,0-7.424-3.846-7.926-5C4.578,10.842,6.652,7,12,7 c5.351,0,7.424,3.846,7.926,5C19.422,13.158,17.348,17,12,17z"
                       />
                     </svg>
+                  </div>
+                  <div class="text-gray-600 mt-2 mb-4">
+                    Please create a secure password including the following
+                    criteria below.
+
+                    <ul class="list-disc text-sm ml-4 mt-2">
+                      <li>lowercase letters</li>
+                      <li>numbers</li>
+                      <li>capital letters</li>
+                      <li>special characters</li>
+                    </ul>
                   </div>
                 </div>
 
@@ -397,7 +398,7 @@ export default {
         this.dataOrganisateur.IdUnique = this.password;
       }
     },
-    
+
     ADDClient() {
       if (this.passwordStrengthText == "Strong password") {
         this.load = true;
@@ -405,7 +406,7 @@ export default {
           .post(`${this.$apiUrl}/Clients/register`, this.dataClient)
           .then((res) => {
             console.log(res.data.keys);
-            if(res.data.keys){
+            if (res.data.keys) {
               this.load = false;
               swal({
                 title: "warning",
@@ -413,7 +414,7 @@ export default {
                 icon: "warning",
                 button: "OK",
               });
-            }else{
+            } else {
               this.Valide = true;
               setTimeout(() => {
                 this.$router.push("Login");
@@ -430,25 +431,25 @@ export default {
       }
     },
     FaitDemmande() {
-     if (this.passwordStrengthText == "Strong password") {
-      this.load = true;
-      axios
-        .post(`${this.$apiUrl}/Organisateur/register`, this.dataOrganisateur)
-        .then((res) => {
-          console.log(res);
-          this.Valide = true;
-          setTimeout(() => {
-            this.$router.push("Login");
-            swal(
-              "Good job!",
-              "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time",
-              "success"
-            );
-          }, 1500);
-        });
-     } else {
-      swal("Oops...", "Votre mot de passe n'est pas assez sécurisé", "error");
-     }
+      if (this.passwordStrengthText == "Strong password") {
+        this.load = true;
+        axios
+          .post(`${this.$apiUrl}/Organisateur/register`, this.dataOrganisateur)
+          .then((res) => {
+            console.log(res);
+            this.Valide = true;
+            setTimeout(() => {
+              this.$router.push("Login");
+              swal(
+                "Good job!",
+                "Ceci est votre mot de passe pour vous connecter a votre compte  bienvenue a sport time",
+                "success"
+              );
+            }, 1500);
+          });
+      } else {
+        swal("Oops...", "Votre mot de passe n'est pas assez sécurisé", "error");
+      }
     },
   },
   watch: {
@@ -457,7 +458,7 @@ export default {
     },
   },
   mounted() {
-   console.log("gsdugfuidsgfuigquifguidsgufiguisd");
+    console.log("gsdugfuidsgfuigquifguidsgufiguisd");
   },
 };
 </script>

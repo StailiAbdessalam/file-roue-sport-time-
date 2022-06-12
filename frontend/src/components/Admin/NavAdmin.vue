@@ -54,7 +54,7 @@
         </div>
         <i
           v-if="isExitButton"
-          class="bx bx-log-out"
+          class="bx bx-log-out hover:cursor-pointer"
           id="log_out"
           @click="logout()"
         />
@@ -113,15 +113,10 @@ export default {
         //   tooltip: "Post Sport",
         //   icon: "bx-basketball",
         // },
-        // {
-        //     link: '/Mes REservations',
-        //     name: 'REservations',
-        //     tooltip: 'Reservation',
-        //     icon: 'bx-cart-alt',
-        // },
+       
         {
           link: "/AllORG",
-          name: "All Organisateur",
+          name: "Organisateur Active",
           tooltip: "All Organisateur",
           icon: "bx-user",
         },
@@ -144,6 +139,7 @@ export default {
         //   tooltip: "Setting",
         //   icon: "bx-cog",
         // },
+        
       ],
     },
 
@@ -241,9 +237,12 @@ export default {
     },
     logout() {
       localStorage.removeItem("user");
+      localStorage.removeItem("id");
       this.setRole(" ");
-      this.$router.push("/Login");
-      // this.$router.go();
+      this.$router.push("/");
+      setTimeout(() => {
+        this.$router.go("/Login");
+      }, 100);
     },
   },
 };

@@ -114,11 +114,10 @@ export default {
           icon: "bx-user",
         },
         // {
-        //   link: "/Myreservation",
-        //   name: "My Reservation",
-        //   tooltip: "My Reservation",
-        //   icon: "bx-cart-alt",
-
+        //   link: "/stadieum",
+        //   name: "stadieum",
+        //   tooltip: "stadieum",
+        //   icon: "bx-cart",
         // },
         // {
         //   link: "/Feed",

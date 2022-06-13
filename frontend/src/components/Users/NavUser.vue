@@ -125,12 +125,12 @@ export default {
         //   tooltip: "Feed",
         //   icon: "bx-heart",
         // },
-        // {
-        //   link: "/setting",
-        //   name: "Setting",
-        //   tooltip: "Setting",
-        //   icon: "bx-cog",
-        // },
+        {
+          link: "/FAQ",
+          name: "FAQuestions",
+          tooltip: "FrequentlyQuestions",
+          icon: "bx-circle",
+        },
       ],
     },
 

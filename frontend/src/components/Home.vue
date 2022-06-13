@@ -1,28 +1,117 @@
 <template>
   <div class="flex flex-col justify-center items-center gap-4 md:gap-20">
-    <div class="flex flex-col items-center justify-center w-full mt-9 gap-5">
-      <h1 class="font-bold md:text-5xl sm:text-xl text-center">
-        Sport time c'est une site pour reserver <br />
-        les stades de sport a distance .
-      </h1>
-      <p class="text-center sm:text-lg">
-        Bienvenue sur le site de Sport Time. C'est le moment de réserver une
-        heure pour jouer dans le stade le plus proche.
-      </p>
-      <div id="div_video" class="lg:w-[70%] relative">
-        <!-- <img id="Res_video" class="w-full h-full -z-30" src="../assets/img/Group37.png" alt=""> -->
-        <video
-          class="vidiouraduieus w-full rounded-2xl"
-          src="../assets/vidiou/soccer-players.mp4"
-          autoplay
-          muted
-          loop
-        ></video>
+    <!-- section to vidiou (heros) -->
+    <section class="bg-white w-screen bg-fixed">
+      <div
+        class="flex flex-col px-7 py-10 mx-auto w-full justify-center items-center space-y-6 h-screen lg:py-16 lg:flex-row lg:items-center"
+      >
+        <div class="w-full lg:w-1/2 flex flex-col justify-center items-center">
+          <div class="lg:max-w-lg">
+            <h1
+              class="text-3xl font-bold tracking-wide text-gray-800 lg:text-5xl"
+            >
+              bienvenue dans sport time
+            </h1>
+
+            <div class="mt-8 space-y-5">
+              <p class="flex items-center -mx-2 text-gray-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 mx-2 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+
+                <span class="mx-2"
+                  >reserver votre milleur stade a distance</span
+                >
+              </p>
+
+              <p class="flex items-center -mx-2 text-gray-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 mx-2 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+
+                <span class="mx-2">nous sommes disponible 24/7. </span>
+              </p>
+
+              <p class="flex items-center -mx-2 text-gray-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 mx-2 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+
+                <span class="mx-2"
+                  >tu choisi votre stade avec une simpliciter de reservation
+                </span>
+              </p>
+            </div>
+            <div
+              class="w-full mt-8 bg-transparent border rounded-md lg:max-w-sm focus-within:border-green-400 focus-within:ring focus-within:ring-green-300 dark:focus-within:border-green-400 focus-within:ring-opacity-40"
+            >
+              <form class="flex flex-col lg:flex-row">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0"
+                />
+
+                <button
+                  type="button"
+                  class="h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-green-500 rounded-md hover:bg-green-400 focus:outline-none focus:bg-green-400"
+                >
+                  Rejoignez-nous
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
+          <video
+            class="vidiouraduieus w-full rounded-2xl"
+            src="../assets/vidiou/soccer-players.mp4"
+            autoplay
+            muted
+            loop
+          ></video>
+        </div>
       </div>
-    </div>
+    </section>
+    <!-- line -->
     <div
       class="w-4/6 h-0 border-solid border border-amber-400 flex justify-center items-center"
     ></div>
+    <!-- its time to play -->
     <div id="Res_section1" class="flex justify-center gap-6 w-5/6">
       <div id="Res_motivation" class="flex flex-col w-1/3 gap-6 w-full">
         <div
@@ -34,7 +123,7 @@
         <img
           class="Res_image h-2/3"
           data-aos="zoom-in-down"
-          data-aos-duration="2000"
+          data-aos-duration="900"
           data-aos-once="true"
           src="../assets/img/aminterrain.jpg"
           alt=""
@@ -44,24 +133,24 @@
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
-          data-aos-duration="2000"
+          data-aos-duration="900"
           class="Res_image h-1/3"
-          src="../assets/img/amine.jpg"
+          src="https://images.unsplash.com/photo-1588957904067-068e32376edc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
         />
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
-          data-aos-duration="2000"
+          data-aos-duration="900"
           class="Res_image h-1/3"
-          src="../assets/img/equipe.jpg"
+          src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1607&q=80"
           alt=""
-        /> 
+        />
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
-          data-aos-duration="2000"
+          data-aos-duration="900"
           class="Res_image h-1/3"
-          src="../assets/img/drari.jpg"
+          src="https://images.unsplash.com/photo-1543678854-db854c02a894?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
           alt=""
         />
       </div>
@@ -69,7 +158,7 @@
         <img
           data-aos="zoom-in-down"
           data-aos-once="true"
-          data-aos-duration="2000"
+          data-aos-duration="900"
           src="../assets/img/imad.jpg"
           alt=""
           class="Res_image"
@@ -86,12 +175,12 @@
     <div
       class="w-4/6 h-0 border-solid border border-amber-400 flex justify-center items-center"
     ></div>
-
+    <!-- your feedback -->
     <div
       v-if="Stars"
       data-aos="fade-down"
       data-aos-easing="linear"
-      data-aos-duration="1000"
+      data-aos-duration="900"
       data-aos-delay="1000"
       id="feedback"
       class="flex flex-col gap-4 justify-center items-center bg-green-400 fixed right-4 bottom-5 bg-base-100 shadow-xl"
@@ -113,81 +202,13 @@
       ></textarea>
       <button class="text-white w-full py-2 rounded bg-orange-400">Send</button>
     </div>
-
-    <div
-      class="serve bg-white w-full p-4 relative flex-col justify-center items-center"
-    >
-      <h2 class="font-bold text-green-500 text-3xl text-center">Services</h2>
-
-      <div
-        class="services grid lg:grid-cols-3 md:grid-cols-2 items-center gap-8 mt-3"
-      >
-        <!-- <div class="flex-1 flex gap-8 md:flex-row sm:flex-col"> -->
-        <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
-          <img
-            class="border-b-0.5 border-white pb-2 m-2 h-12"
-            src="../assets/img/construct.svg"
-            aria-hidden="true"
-          />
-          <span class="font-medium">Bon Stade</span>
-        </div>
-        <div class="py-9 px-16 bg-black text-white shadow-xl">
-          <img
-            class="border-b-4 border-gray-200 pb-2 m-2 h-12"
-            src="../assets/img/renovation.svg"
-            aria-hidden="true"
-          />
-          <span class="font-medium">Renovation</span>
-        </div>
-        <div class="py-9 px-16 bg-green-400 text-black shadow-xl">
-          <img
-            class="border-b-4 border-gray-200 pb-2 m-2 h-12"
-            src="../assets/img/consultation.svg"
-            aria-hidden="true"
-          />
-          <span class="font-medium">Consultation</span>
-        </div>
-
-        <!-- </div>
-                <div class="flex-1 flex gap-8 mt-8 md:flex-row sm:flex-col  "> -->
-        <div class="py-9 px-16 bg-black text-white">
-          <img
-            class="border-b-4 border-gray-200 pb-2 m-2 h-12"
-            src="../assets/img/reservices.svg"
-            aria-hidden="true"
-          />
-          <span class="font-medium">Reservation</span>
-        </div>
-        <div class="py-9 px-16 bg-green-400 text-secondary shadow-xl">
-          <img
-            class="border-b-4 border-gray-200 pb-2 m-2 h-12"
-            src="../assets/img/architech.svg"
-            aria-hidden="true"
-          />
-          <span class="text-secondary font-medium">Architecture</span>
-        </div>
-        <div class="py-9 px-16 bg-black text-white shadow-xl">
-          <img
-            class="border-b-4 border-gray-200 pb-2 m-2 h-12"
-            src="../assets/img/electric.svg"
-            aria-hidden="true"
-          />
-          <span class="font-medium">Flexibiliter</span>
-        </div>
-        <!-- </div> -->
-      </div>
-    </div>
-
-    <div
-      class="w-4/6 h-0 border-solid border border-amber-400 flex justify-center items-center"
-    ></div>
-
+    <!-- about us -->
     <div id="about" class="relative">
       <div id="abou" class="md:w-3/5 sm:w-full my-14">
         <img
           style="width: 80rem; height: 40rem"
           class="object-cover"
-          src="../assets/img/AZERTY.jpg"
+          src="https://images.unsplash.com/photo-1591103877275-f62e20079e47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
         />
       </div>
       <div
@@ -210,12 +231,12 @@
         </button>
       </div>
     </div>
-
+    <!-- line -->
     <div
       class="w-4/6 h-0 border-solid border border-amber-400 flex justify-center items-center"
     ></div>
+    <!-- All kinds -->
     <div id="section2">
-      <!-- <loading  /> -->
       <h1 class="text-center text-4xl">
         Toutes sortes de sports sont disponibles dans votre stade le plus proche
       </h1>
@@ -251,6 +272,7 @@
         </div>
       </div>
     </div>
+    <!-- responsive de All kinds -->
     <div id="slide" class="w3-content w3-section" style="max-width: 500px">
       <h1 class="text-center text-4xl">
         All kinds of sports are available in your nearest stadium

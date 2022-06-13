@@ -16,10 +16,7 @@
               <option>organisateur</option>
               <option>Admin</option>
             </select>
-
             <label v-if="role" for="email">your Email</label>
-
-            
             <input
               v-on:keyup="invalide = false"
               v-model="Email"

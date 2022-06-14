@@ -108,6 +108,22 @@ const routes = [
         /* webpackChunkName: "home" */ "../Pages/FAQ.vue"
       ),
   },
+   {
+    path: "/MyReservation",
+    name: "MyReservation",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Users/MyReservation.vue"
+      ),
+  },
+  {
+    name:"NotFound",
+    path:"/:pathMatch(.*)",
+    component: () =>
+    import(
+      /* webpackChunkName: "home" */ "../Pages/404.vue"
+    ),
+}
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

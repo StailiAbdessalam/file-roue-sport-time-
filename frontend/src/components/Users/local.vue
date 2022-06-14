@@ -1,5 +1,6 @@
 <template>
   <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-24" data-aos="fade-up">
+<loading v-if="locals==null"/>
     <div v-for="local in locals" :key="local" class="mx-2 h-fit">
       <div
         class="bg-white shadow-md border border-gray-200 rounded-lg  mb-5 w-full"
@@ -31,11 +32,15 @@
 
 <script>
 import axios from "axios";
+import loading from "../../Animation/loading.vue";
 export default {
   name: "Local-e",
+  components: {
+    loading
+  },
   data() {
     return {
-      locals: "",
+      locals: null,
     };
   },
   methods: {

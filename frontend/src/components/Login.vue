@@ -37,8 +37,7 @@
             <div
               v-if="invalide"
               data-aos="zoom-in"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
+              
               class="flex mb-3"
             >
               <svg

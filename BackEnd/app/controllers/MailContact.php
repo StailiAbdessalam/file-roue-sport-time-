@@ -18,11 +18,11 @@ class MailContact extends Controller
     {
         if ($this->isPostRequest()) {
             $data = $this->getBody();
-            $to  = 'abdoycode@gmail.com';
+            $to  = 'sportimegoo@gmail.com';
             $subject = 'Contact Client';
             $headers[] = 'MIME-Version: 1.0';
             $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-            $headers[] = "To: Sport Time <abdoycode@gmail.com>";
+            $headers[] = "To: Sport Time <sportimegoo@gmail.com>";
             $headers[] = "From: $data->email";
             mail($to, $subject, $data->sujet, implode("\r\n", $headers));
         }

@@ -176,7 +176,7 @@
             class="form_singup_formData"
             @submit.prevent="FaitDemmande"
           >
-            <label for="fullName">full Name </label>
+            <label for="fullName">first Name </label>
             <input
               type="text"
               v-model="dataOrganisateur.FirstName"

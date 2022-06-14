@@ -154,11 +154,11 @@ export default {
         //   tooltip: "Setting",
         //   icon: "bx-cog",
         // },
-         {
-            link: '/Payment',
-            name: 'Payment',
-            tooltip: 'Payment',
-            icon: 'bx-credit-card',
+        {
+          link: "/Payment",
+          name: "Payment",
+          tooltip: "Payment",
+          icon: "bx-credit-card",
         },
       ],
     },
@@ -261,6 +261,9 @@ export default {
     },
     deriction(event) {
       this.$router.push(event);
+      if (window.innerWidth <= 802) {
+        this.isOpened = !this.isOpened;
+      }
     },
     logout() {
       localStorage.removeItem("user");

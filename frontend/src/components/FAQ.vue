@@ -14,6 +14,8 @@
             v-for="(qesti, index) in questio1"
             :key="index"
             class="relative px-6 py-2 overflow-hidden text-white bg-green-600 rounded-lg select-none"
+            data-aos="fade-up"
+            data-aos-duration="3000"
           >
             <h4
               @click="togglemessage(index, 1)"
@@ -52,6 +54,8 @@
             v-for="(quest, index) in questio2"
             :key="index"
             class="relative px-6 py-2 overflow-hidden text-white bg-green-600 rounded-lg select-none"
+            data-aos="fade-up"
+            data-aos-duration="3000"
           >
             <h4
               @click="togglemessage(index, 2)"

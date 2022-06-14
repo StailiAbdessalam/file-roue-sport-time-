@@ -75,7 +75,7 @@
                 </span>
               </p>
             </div>
-            <div
+            <!-- <div
               class="w-full mt-8 bg-transparent border rounded-md lg:max-w-sm focus-within:border-green-400 focus-within:ring focus-within:ring-green-300 dark:focus-within:border-green-400 focus-within:ring-opacity-40"
             >
               <form class="flex flex-col lg:flex-row">
@@ -84,7 +84,6 @@
                   placeholder="Enter your email address"
                   class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0"
                 />
-
                 <button
                   type="button"
                   class="h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-green-500 rounded-md hover:bg-green-400 focus:outline-none focus:bg-green-400"
@@ -92,7 +91,7 @@
                   Rejoignez-nous
                 </button>
               </form>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -121,34 +120,26 @@
           <span class="text-amber-600">SOCCER!</span>
         </div>
         <img
+        data-aos="zoom-out-down"
           class="Res_image h-2/3"
-          data-aos="zoom-in-down"
-          data-aos-duration="900"
-          data-aos-once="true"
           src="../assets/img/aminterrain.jpg"
           alt=""
         />
       </div>
       <div id="Res_motivation" class="flex flex-col justify-around w-1/4 gap-6">
         <img
-          data-aos="zoom-in-down"
-          data-aos-once="true"
-          data-aos-duration="900"
+          data-aos="zoom-out-down"
           class="Res_image h-1/3"
           src="https://images.unsplash.com/photo-1588957904067-068e32376edc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
         />
         <img
-          data-aos="zoom-in-down"
-          data-aos-once="true"
-          data-aos-duration="900"
+          data-aos="zoom-out-down"
           class="Res_image h-1/3"
           src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1607&q=80"
           alt=""
         />
         <img
-          data-aos="zoom-in-down"
-          data-aos-once="true"
-          data-aos-duration="900"
+          data-aos="zoom-out-down"
           class="Res_image h-1/3"
           src="https://images.unsplash.com/photo-1543678854-db854c02a894?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
           alt=""
@@ -156,9 +147,7 @@
       </div>
       <div id="Res_motivation" class="Res_motivation flex flex-col w-1/4 gap-6">
         <img
-          data-aos="zoom-in-down"
-          data-aos-once="true"
-          data-aos-duration="900"
+          data-aos="zoom-out-down"
           src="../assets/img/imad.jpg"
           alt=""
           class="Res_image"
@@ -206,17 +195,21 @@
     <div id="about" class="relative">
       <div id="abou" class="md:w-3/5 sm:w-full my-14">
         <img
+        data-aos="fade-right"
+        data-aos-duration="2000"
           style="width: 80rem; height: 40rem"
           class="object-cover"
           src="https://images.unsplash.com/photo-1591103877275-f62e20079e47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80"
         />
       </div>
       <div
+      data-aos="fade-left"
+      data-aos-duration="2000"
         id="description"
         class="absolute top-24 bg-green-500 sm:bg-opacity-50 sm:left-2/2 md:left-1/2 md:bg-opacity-100 md:w-2/5 sm:w-4/5 odd:h-3/5 text-white p-14 py-18 grid place-items-start gap-3"
       >
         <h2 class="font-bold text-white text-3xl text-center">About us</h2>
-        <p class="text-left">
+        <p  class="text-left">
           En tant que jeune sportif qui aime pratiquer tous les sports, moi et
           beaucoup de mes amis avons eu du mal à trouver un terrain de proximité
           disponible aux mêmes heures déterminantes pour pratiquer tous les

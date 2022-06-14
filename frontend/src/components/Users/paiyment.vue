@@ -1,6 +1,7 @@
 <template>
   <!-- component -->
   <div class="px-4 py-2 text-gray-800">
+    <p class="font-bold text-lg md:text-3xl">screen ton ticket</p>
     <div
       class="hidden xl:flex flex-row justify-between shadow-md border rounded-md"
     >
@@ -8,8 +9,10 @@
         class="flex flex-col items-center justify-between w-1/4 px-4 py-2 bg-white border-r-2 border-gray-500 border-dashed rounded-l-md"
       >
         <div class="flex-col">
-          <img
-            src="https://store-images.s-microsoft.com/image/apps.33967.13510798887182917.246b0a3d-c3cc-46fc-9cea-021069d15c09.392bf5f5-ade4-4b36-aa63-bb15d5c3817a"
+          <qrcode-vue
+            :value="reservation.Date + reservation.Time"
+            size="200"
+            level="H"
           />
           <p class="my-2 text-xs italic font-light text-gray-500">
             Scan here to check in!
@@ -88,16 +91,17 @@
       </div>
     </div>
     <div class="xl:hidden flex flex-col bg-white border rounded-md shadow-md">
-      <div class="py-2 px-4 flex-col flex text-center">
-        <img
-          class="mx-auto"
-          src="https://store-images.s-microsoft.com/image/apps.33967.13510798887182917.246b0a3d-c3cc-46fc-9cea-021069d15c09.392bf5f5-ade4-4b36-aa63-bb15d5c3817a"
-        />
+      <div class="py-2 px-4 flex-col flex text-center justify-center items-center">
+           <qrcode-vue
+            :value="reservation.Date + reservation.Time"
+            size="200"
+            level="H"
+          />
         <p class="font-bold text-lg md:text-3xl">Scan here to check in!</p>
       </div>
       <hr class="border-dashed border-2 border-gray-400" />
       <img
-        :src="`https://firebasestorage.googleapis.com/v0/b/sport-time-763e8.appspot.com/o/Profil%2F${infolocal.Photo}.png?alt=media&token=e6d58393-e912-48f7-801d-06e9fa624757`"
+       :src="`https://res.cloudinary.com/dqeb5aris/image/upload/v1654943245/${infolocal.Photo}.jpg`"
       />
       <div class="py-2 px-4 flex flex-col text-sm md:text-2xl">
         <p class="self-start font-bold text-gray-500">Start Date :</p>
@@ -211,10 +215,14 @@
 </template>
 
 <script>
+import QrcodeVue from "qrcode.vue";
 import axios from "axios";
 import swal from "sweetalert";
 export default {
   name: "payment-t",
+  components: {
+    QrcodeVue,
+  },
   data() {
     return {
       reservation: "",

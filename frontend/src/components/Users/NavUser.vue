@@ -129,10 +129,17 @@ export default {
           link: "/FAQ",
           name: "FAQuestions",
           tooltip: "FrequentlyQuestions",
-          icon: "bx-circle",
+          icon: "bx-info-circle",
         },
+        // {
+        //   link: "/MyReservation",
+        //   name: "My Reservation",
+        //   tooltip: "MyReservation",
+        //   icon: "bx-cart",
+        // },
       ],
     },
+
 
     //! Search
     isSearch: {

@@ -1,5 +1,4 @@
 <?php
-
 use Cloudinary\Api\ApiUtils;
 use Cloudinary\Configuration\Configuration;
 

@@ -1,6 +1,9 @@
 <template>
   <div class="flex justify-center items-center w-full">
-    <what v-if="load" />
+    <div class="bg-white w-screen h-screen absolute z-50 bg-opacity-70" v-if="load">
+      <loading class="z-60" />
+
+    </div>
     <div class="flex justify-center items-center w-full">
       <div class="flex justify-center items-center gap-20 w-full form_singup">
         <div
@@ -169,7 +172,7 @@
               </div>
             </div>
 
-            <input id="submit" type="submit" name="valid" value="Sing Up" />
+            <input class="cursor-pointer" id="submit" type="submit" name="valid" value="Sing Up" />
           </form>
           <form
             v-if="role == 'Organisateur'"
@@ -322,6 +325,7 @@
               type="submit"
               name="valid"
               value="send Demmande"
+              class="cursor-pointer"
             />
           </form>
         </div>
@@ -331,9 +335,9 @@
 </template>
 
 <script>
+import loading from "../Animation/loading.vue"
 import axios from "axios";
 import swal from "sweetalert";
-import what from "./chose/whit.vue";
 
 export default {
   name: "sin-gup",
@@ -365,7 +369,7 @@ export default {
     };
   },
   components: {
-    what,
+    loading,
   },
   methods: {
     changerole() {

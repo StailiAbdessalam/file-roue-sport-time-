@@ -1,5 +1,8 @@
 <template>
-  <div data-aos="fade-up">
+
+
+
+  <div v-if="local" data-aos="fade-up">
     <div class="main-content">
       <!-- Header -->
       <div
@@ -33,7 +36,7 @@
             <div class="card card-profile shadow">
               <div class="row justify-content-center">
                 <div class="col-lg-3 order-lg-2">
-                  <div class="card-profile-image">
+                  <div class="card-profile-image ">
                     <a href="#">
                       <img
                         class="rounded-circle"
@@ -96,7 +99,7 @@
               </div>
             </div>
           </div>
-          <div id="scroll" class="col-xl-8 order-xl-1 ">
+          <div id="scroll" class="col-xl-8 order-xl-1">
             <div class="card bg-secondary shadow">
               <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
@@ -109,17 +112,20 @@
                 </div>
               </div>
               <!-- edit your prophile -->
-              <ComponentStade v-for="stad in stade" :key="stad" :stade="stad"  />
+              <ComponentStade v-for="stad in stade" :key="stad" :stade="stad" />
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+<loading v-else/>
 </template>
 
 <script>
 // import Tiquer from "./Tiquer.vue";
+import loading from "../../Animation/loading.vue";
 import ComponentStade from "./ReservationComponent/StadeComponent.vue";
 import axios from "axios";
 export default {
@@ -132,6 +138,7 @@ export default {
   },
   components: {
     ComponentStade,
+    loading
   },
   mounted() {
     this.getlocal();
@@ -156,8 +163,6 @@ export default {
           this.stade = res.data;
         });
     },
-   
-
   },
 };
 </script>
@@ -197,12 +202,11 @@ export default {
   padding: 30px;
 }
 
-
 @media (min-width: 800px) {
-#scroll{
-  overflow-y: scroll;
-  max-height: 100vh;
-}
+  #scroll {
+    overflow-y: scroll;
+    max-height: 100vh;
+  }
 }
 
 :root {

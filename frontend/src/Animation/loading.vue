@@ -1,11 +1,13 @@
 <template>
-  <!-- about -->
-  <div class="content">
-    <div class="loading">
-      <p>loading</p>
-      <span></span>
+    <div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <div class="shadow"></div>
+        <span>Loading</span>
     </div>
-  </div>
 </template>
 
 <script>
@@ -15,139 +17,100 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-   margin: 0;
+
+.wrapper{
+    width:200px;
+    height:60px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+.circle{
+    width:20px;
+    height:20px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(99, 190, 128);
+    left:15%;
+    transform-origin: 50%;
+    animation: circle .5s alternate infinite ease;
 }
 
-$bg: #171f30;
-$c-01: #5389a6;
-$c-02: #a6dcee;
-
-$font-01: "Oxygen", sans-serif;
-
-.content {
-   width: 80vw;
-   height: 60vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
-   .loading {
-      width: 80px;
-      height: 50px;
-      position: relative;
-
-      p {
-         top: 0;
-         padding: 0;
-         margin: 0;
-         color: $c-01;
-         font-family: $font-01;
-         animation: text 3.5s ease both infinite;
-         font-size: 12px;
-         letter-spacing: 1px;
-
-         @keyframes text {
-            0% {
-               letter-spacing: 1px;
-               transform: translateX(0px);
-            }
-
-            40% {
-               letter-spacing: 2px;
-               transform: translateX(26px);
-            }
-
-            80% {
-               letter-spacing: 1px;
-               transform: translateX(32px);
-            }
-
-            90% {
-               letter-spacing: 2px;
-               transform: translateX(0px);
-            }
-
-            100% {
-               letter-spacing: 1px;
-               transform: translateX(0px);
-            }
-         }
-      }
-      span {
-         background-color: $c-01;
-         border-radius: 50px;
-         display: block;
-         height: 16px;
-         width: 16px;
-         bottom: 0;
-         position: absolute;
-         transform: translateX(64px);
-         animation: loading 3.5s ease both infinite;
-
-         &:before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-color: $c-02;
-            border-radius: inherit;
-            animation: loading2 3.5s ease both infinite;
-         }
-
-         @keyframes loading {
-            0% {
-               width: 16px;
-               transform: translateX(0px);
-            }
-
-            40% {
-               width: 100%;
-               transform: translateX(0px);
-            }
-
-            80% {
-               width: 16px;
-               transform: translateX(64px);
-            } 
-
-            90% {
-               width: 100%;
-               transform: translateX(0px);
-            }
-
-            100% {
-               width: 16px;
-               transform: translateX(0px);
-            }
-         }
-         @keyframes loading2 {
-            0% {
-               transform: translateX(0px);
-               width: 16px;
-            }
-
-            40% {
-               transform: translateX(0%);
-               width: 80%;
-            }
-
-           80% {
-               width: 100%;
-               transform: translateX(0px);
-            }
-
-            90% {
-               width: 80%;
-            transform: translateX(15px);
-            }
-            100% {
-               transform: translateX(0px);
-               width: 16px;
-            }
-         }
-      }
-   }
+@keyframes circle{
+    0%{
+        top:60px;
+        height:5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+    40%{
+        height:20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100%{
+        top:0%;
+    }
 }
+.circle:nth-child(2){
+    left:45%;
+    animation-delay: .2s;
+}
+.circle:nth-child(3){
+    left:auto;
+    right:15%;
+    animation-delay: .3s;
+}
+.shadow{
+    width:20px;
+    height:4px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top:62px;
+    transform-origin: 50%;
+    z-index: -1;
+    left:15%;
+    filter: blur(1px);
+    animation: shadow .5s alternate infinite ease;
+}
+
+@keyframes shadow{
+    0%{
+        transform: scaleX(1.5);
+    }
+    40%{
+        transform: scaleX(1);
+        opacity: .7;
+    }
+    100%{
+        transform: scaleX(.2);
+        opacity: .4;
+    }
+}
+.shadow:nth-child(4){
+    left: 45%;
+    animation-delay: .2s
+}
+.shadow:nth-child(5){
+    left:auto;
+    right:15%;
+    animation-delay: .3s;
+}
+.wrapper span{
+    position: absolute;
+    top:75px;
+    font-family: 'Lato';
+    font-size: 20px;
+    letter-spacing: 12px;
+    color: rgb(63, 177, 97);
+    left:15%;
+}
+
+
+
+
+
 
 </style>

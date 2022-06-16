@@ -9,13 +9,14 @@
           alt="tailwind logo"
           class="rounded-xl h-48 w-96"
         />
+        
       </div>
       <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
         <div class="flex justify-between">
           <p class="text-gray-500 font-medium hidden md:block">
             {{ stad.Type }}
           </p>
-          <div class="">
+          <div class="flex items-center justify-center gap-9">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5 text-pink-500"
@@ -28,6 +29,12 @@
                 clip-rule="evenodd"
               />
             </svg>
+            <button
+        @click="deleted(stad.id)"
+          class="border-2 rounded-xl border-red-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-red-600 transition duration-300"
+        >
+          DELETE
+        </button>
           </div>
         </div>
 
@@ -38,47 +45,16 @@
           {{ stad.Description }}
         </p>
         <p class="text-xl font-black text-gray-800">
-         {{ stad.priceH }} DH 
+          {{ stad.priceH }} DH
           <span class="font-normal text-gray-600 text-base">/Hour</span>
         </p>
-
-        <div class="flex-row md:flex justify-between">
-          <input
-            @change="Changedate(stad.id)"
-            v-model="date"
-            class="w-56 p-6 content-around h-2 border-2"
-            type="date"
-            placeholder="datetime"
-          />
-          <div
-            v-if="date"
-            @click="showReservation = true"
-            class="centri md:w-1/3 h-10 rounded-lg btn-info w-2/3 hover:cursor-pointer"
-          >
-            All Reservation
-          </div>
-        </div>
+        
+        <!-- <button
+          class="border-2 border-green-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-600 transition duration-300"
+        > -->
+          <!-- Update
+        </button> -->
       </div>
-    </div>
-  </div>
-  <div
-    v-if="showReservation"
-    class="relative flex flex-col h-11 md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white"
-  >
-    <tr class="flex relative " v-for="REs in Reservation"
-        :key="REs">
-      <!-- the data reserver  -->
-      <td
-        class="bg-green-400 text-white flex gap-4 w-12 h-full justify-center items-center  h-5"
-      >
-        {{ REs.Time }}
-      </td>
-    </tr>
-    <div
-      @click="showReservation = false"
-      class="rounded-r-lg ... bg-red-500 absolute top-0 right-0 w-20 h-11 flex justify-center items-center hover:cursor-pointer text-white font-bold"
-    >
-      Close
     </div>
   </div>
 </template>
@@ -89,24 +65,23 @@ export default {
   name: "Stade-Component",
   data() {
     return {
-      showReservation: false,
       stad: this.stade,
       date: "",
       Reservation: [],
     };
   },
   methods: {
-    Changedate() {
+    deleted(id){
       axios
-        .post(`${this.$apiUrl}/Stade/getallReservation`, {
-          id: this.stad.id,
-          date: this.date,
+        .post(`${this.$apiUrl}/Stade/delete`, {
+          id:id,
         })
-        .then((res) => {
-          this.Reservation = res.data;
-          console.log(this.Reservation);
+        .then(() => {
+          // this.$router.push("/admin/stade");
         });
-    },
+
+      
+    }
   },
   props: ["stade", "id"],
 };

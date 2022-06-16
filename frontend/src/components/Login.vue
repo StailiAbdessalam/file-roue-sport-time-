@@ -1,4 +1,8 @@
 <template>
+<div class="bg-white w-screen h-screen absolute z-50 bg-opacity-70" v-if="load">
+      <loading class="z-60" />
+
+    </div>
   <div class="flex justify-center items-center w-full">
     <div class="flex justify-center items-center w-full">
       <div class="flex justify-center items-center gap-20 w-full form_Login">
@@ -79,6 +83,7 @@
 </template>
 
 <script>
+import loading from "../Animation/loading.vue"
 import axios from "axios";
 import swal from "sweetalert";
 
@@ -87,6 +92,7 @@ export default {
   inject: ["setRole"],
   data() {
     return {
+      load: false,
       personne: "",
       invalide: false,
       role: false,
@@ -95,8 +101,12 @@ export default {
       Email:"",
     };
   },
+  components:{
+    loading,
+  },
   methods: {
     login() {
+       this.load = true;
       axios
         .post(`${this.$apiUrl}/${this.personne}/index`, {
           ID: this.ID,
@@ -130,6 +140,7 @@ export default {
           } else {
             this.error = response.data.message;
             this.invalide = true;
+             this.load = false;
           }
         })
         .catch((error) => {

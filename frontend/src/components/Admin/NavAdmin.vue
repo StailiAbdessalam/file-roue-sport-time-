@@ -134,7 +134,7 @@ export default {
         // },
 
         // {
-        //   link: "/setting",
+        //   link: "/Evenment",
         //   name: "Setting",
         //   tooltip: "Setting",
         //   icon: "bx-cog",

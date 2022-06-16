@@ -85,7 +85,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.irtifa3 {
-  height: 78vh;
-}
+
 </style>

@@ -162,7 +162,7 @@ public function sendEmailValidate()
     <body>
     <p>Bonjour,</p>
     <p>Merci de cliquer sur le lien ci-dessous pour valider votre compte.</p>
-    <p><a href='http://localhost/projet/public/index.php?action=validate&id=12'>Valider mon compte</a></p>
+    <p><a href='https://time-sport.vercel.app/Login'>Valider mon compte</a></p>
     <p>Cordialement,</p>
     <p>L'équipe</p>
     </body>

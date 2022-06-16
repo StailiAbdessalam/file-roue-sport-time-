@@ -2,10 +2,15 @@
   <div
     class="irtifa3 overflow-y-scroll flex justify-center items-center flex-col"
   >
-    <AllStade v-for="stad in stade" :key="stad" :stade="stad" />
+    <AllStade
+      v-for="stad in stade"
+      :key="stad"
+      :stade="stad"
+      :remove="removeStade"
+    />
     <div
       class="bg-white w-screen h-screen absolute z-50 bg-opacity-70"
-      v-if="load && stade[0] == null &&  !data0"
+      v-if="load && stade[0] == null && !data0"
     >
       <loading class="z-60" />
     </div>
@@ -52,6 +57,14 @@ export default {
     loading,
   },
   methods: {
+    removeStade(id) {
+      this.stade = this.stade.filter((s) => s.id !== id);
+      this.load = true;
+      setTimeout(() => {
+        this.load = false;
+        this.data0 = true;
+      }, 1000);
+    },
     getOrganisateur() {
       this.$store.dispatch("getOrganisateur");
     },
@@ -68,8 +81,9 @@ export default {
       setTimeout(() => {
         if (this.stade[0] == null) {
           this.data0 = true;
+          this.load = false;
         }
-      }, 500);
+      }, 1000);
     },
   },
   computed: {
@@ -80,10 +94,9 @@ export default {
   mounted() {
     this.getAllStade();
     this.getOrganisateur();
+    this.funsetdata();
   },
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

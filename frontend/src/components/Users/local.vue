@@ -4,6 +4,7 @@
     <div v-for="local in locals" :key="local" class="mx-2 h-fit">
       <div
         class="bg-white shadow-md border border-gray-200 rounded-lg  mb-5 w-full"
+        @click="selectLocal(local.id)"
       >
         <a href="#">
           <img
@@ -49,16 +50,14 @@ export default {
         .get(`${this.$apiUrl}/Organisateur/selectOrg`)
         .then((res) => {
           this.locals = res.data;
-          // console.log(this.locals);
         });
     },
-    // Profil(data) {
-    //   // this.$router.push(`/Stade`,{
-    //     params: {
-    //       id: data.id,
-    //     },
-    //   });
-    // },
+    selectLocal(id) {
+      this.$router.push({
+        name: "Stade",
+        params: { id: id },
+      });
+    },
   },
   mounted() {
     this.getAllLocal();

@@ -78,7 +78,7 @@
               </div>
               <div class="text-center">
                 <h3>
-                  {{ user.FirstName }}   {{ user.LastName
+                  {{ user.FirstName }} {{ user.LastName
                   }}<span class="font-weight-light">, 19</span>
                 </h3>
                 <div class="h5 font-weight-300">
@@ -112,7 +112,7 @@
             <!-- edit your prophile -->
 
             <div v-if="edit" class="card-body">
-              <form>
+              <form @submit.prevent>
                 <div class="flex justify-between">
                   <h6 class="heading-small text-muted mb-4">
                     User information
@@ -255,6 +255,7 @@
 <script>
 import store from "@/store";
 import axios from "axios";
+import swal from "sweetalert";
 export default {
   name: "Pro-fil",
   data() {
@@ -275,10 +276,33 @@ export default {
       this.$store.dispatch("getOrganisateur");
     },
     update() {
-      this.edit = false;
-      axios.post(`${this.$apiUrl}/Organisateur/updareprofile`, this.user).then((res) => {
-        this.$store.dispatch("getOrganisateur");
-        console.log(res);
+      swal({
+        title: "Are you sure?",
+        text: "You want to update your profile!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        this.edit = false;
+        if (willDelete) {
+          axios
+            .post(`${this.$apiUrl}/Organisateur/updareprofile`, this.user)
+            .then((res) => {
+              this.$store.dispatch("getOrganisateur");
+              console.log(res);
+            });
+          swal("Your profile has been updated!", {
+            icon: "success",
+          });
+        } else {
+          this.edit = false;
+          this.user = { ...this.userOld };
+          swal({
+            title: "Cancelled",
+            text: "Your imaginary file is safe :)",
+            icon: "error",
+          });
+        }
       });
     },
     annuler() {

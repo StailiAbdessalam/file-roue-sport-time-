@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col justify-center gap-10 mt-20 mb-4">
     <div
+      v-if="stad"
       class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white"
     >
       <div class="w-full md:w-1/3 bg-white grid place-items-center">
@@ -9,7 +10,6 @@
           alt="tailwind logo"
           class="rounded-xl h-48 w-96"
         />
-        
       </div>
       <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
         <div class="flex justify-between">
@@ -30,11 +30,11 @@
               />
             </svg>
             <button
-        @click="deleted(stad.id)"
-          class="border-2 rounded-xl border-red-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-red-600 transition duration-300"
-        >
-          DELETE
-        </button>
+              @click="deleted(stad.id)"
+              class="border-2 rounded-xl border-red-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-red-600 transition duration-300"
+            >
+              DELETE
+            </button>
           </div>
         </div>
 
@@ -48,11 +48,11 @@
           {{ stad.priceH }} DH
           <span class="font-normal text-gray-600 text-base">/Hour</span>
         </p>
-        
+
         <!-- <button
           class="border-2 border-green-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-600 transition duration-300"
         > -->
-          <!-- Update
+        <!-- Update
         </button> -->
       </div>
     </div>
@@ -61,6 +61,7 @@
 
 <script>
 import axios from "axios";
+import swal from "sweetalert";
 export default {
   name: "Stade-Component",
   data() {
@@ -71,19 +72,27 @@ export default {
     };
   },
   methods: {
-    deleted(id){
-      axios
-        .post(`${this.$apiUrl}/Stade/delete`, {
-          id:id,
-        })
-        .then(() => {
-          // this.$router.push("/admin/stade");
-        });
-
-      
-    }
+    deleted(id) {
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          axios
+            .post(`${this.$apiUrl}/Stade/deletestade`, {
+              id: id,
+            })
+            .then(() => {
+              this.remove(id);
+            });
+        }
+      });
+    },
   },
-  props: ["stade", "id"],
+  props: ["stade", "id", "remove"],
 };
 </script>
 

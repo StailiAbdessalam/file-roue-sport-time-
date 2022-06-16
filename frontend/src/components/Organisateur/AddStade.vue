@@ -1,6 +1,11 @@
 <template>
   <div class="flex h-screen bg-white items-center justify-center mt-32 mb-32">
-    <white v-if="load" />
+    <div
+      class="bg-white w-screen h-screen absolute z-50 bg-opacity-70"
+      v-if="load"
+    >
+      <loading class="z-60" />
+    </div>
     <div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
       <div class="flex justify-center py-4">
         <!-- <div class="flex bg-orange-200 rounded-full md:p-4 p-2 border-2 border-orange-300">
@@ -186,7 +191,7 @@
 </template>
 
 <script>
-import white from "../../components/chose/whit.vue";
+import loading from "../../Animation/loading.vue";
 import store from "../../store/index";
 import axios from "axios";
 import { toFormData } from "../../utils/helpers";
@@ -269,7 +274,7 @@ export default {
     },
   },
   components: {
-    white,
+    loading,
   },
 };
 </script>

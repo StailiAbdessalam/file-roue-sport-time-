@@ -92,10 +92,9 @@
           {{ stad.Description }}
         </p>
         <p class="text-xl font-black text-gray-800">
-          DH{{ stad.priceH }}
-          <span class="font-normal text-gray-600 text-base">/Hour</span>
+          {{ stad.priceH }} DH
+          <span class="font-normal text-gray-600 text-base">/Heure</span>
         </p>
-
         <div class="flex-row md:flex">
           <input
             @change="Changedate(stad.id)"
@@ -134,7 +133,7 @@
                   'bg-green-500': dataerour.indexOf(H) == -1,
                   'bg-red-400  ': dataerour.indexOf(H) != -1,
                 }"
-                :disabled=" dataerour.indexOf(H) != -1"
+                :disabled="dataerour.indexOf(H) != -1"
               >
                 {{ H }}
               </option>
@@ -154,8 +153,7 @@
                   'bg-green-500': dataerour.indexOf(H) == -1,
                   'bg-red-400 ': dataerour.indexOf(H) != -1,
                 }"
-                :disabled=" dataerour.indexOf(H) != -1"
-
+                :disabled="dataerour.indexOf(H) != -1"
                 :key="H"
               >
                 {{ H }}
@@ -206,11 +204,10 @@ export default {
             "tous le reservation de ce stade est complet",
             "warning"
           );
-        this.TypeJour = "";
-        this.Reservation.Date = "";
-        this.Reservation.Time = "";
+          this.TypeJour = "";
+          this.Reservation.Date = "";
+          this.Reservation.Time = "";
         }
-        
       }
       if (tset == "AM") {
         this.AM.forEach((element) => {
@@ -224,12 +221,12 @@ export default {
             "tous le reservation de ce stade est complet",
             "warning"
           );
-        this.TypeJour = "";
-        this.Reservation.Date = "";
-        this.Reservation.Time = "";
+          this.TypeJour = "";
+          this.Reservation.Date = "";
+          this.Reservation.Time = "";
         }
       }
-        this.test = [];
+      this.test = [];
     },
     selectHour() {
       this.HOO = [];
@@ -258,9 +255,21 @@ export default {
         })
         .then(() => {});
       this.load = true;
+        swal({
+          title: "Loading...",
+          text: "Please wait...",
+          buttons: false,
+          closeModal: false,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+          onOpen: () => {
+            swal.showLoading();
+          },
+        });
       setTimeout(() => {
         this.$router.push("/paiyment");
-      }, 1000);
+      },5000);
     },
     Changedate(data) {
       console.log(this.TypeJour);

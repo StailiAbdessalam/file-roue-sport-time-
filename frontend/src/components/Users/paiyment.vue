@@ -204,12 +204,7 @@
             {{ infolocal.Address }}
           </p>
         </div>
-      </div>
-      <hr class="border-gray-400" />
-      <div class="py-2 px-4 flex flex-col text-sm md:text-2xl">
-        <p class="self-start font-bold text-gray-500">Powered By</p>
-        <img class="mx-auto my-2" src="../../assets/img/LOGO.png" />
-      </div>
+      </div>     
     </div>
   </div>
 </template>
@@ -242,14 +237,14 @@ export default {
   },
   methods: {
     getData() {
-      swal({
-        name: "ticket",
-        title: "Pilih tiket",
-        text: "Pilih tiket yang ingin anda beli",
-        buttons: ["Batal", "Pilih"],
-        input: "select",
+     swal({
+       title:"reservation success",
+        text:"please scan qrcode",
+        icon:"success",
+        button:"ok",
       });
-    },
+
+     },
     getUser() {
       this.$store.dispatch("getUser");
     },

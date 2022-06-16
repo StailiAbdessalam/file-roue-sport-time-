@@ -154,12 +154,12 @@ export default {
         //   tooltip: "Setting",
         //   icon: "bx-cog",
         // },
-        {
-          link: "/Payment",
-          name: "Payment",
-          tooltip: "Payment",
-          icon: "bx-credit-card",
-        },
+        // {
+        //   link: "/Payment",
+        //   name: "Payment",
+        //   tooltip: "Payment",
+        //   icon: "bx-credit-card",
+        // },
       ],
     },
 

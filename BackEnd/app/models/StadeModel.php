@@ -16,16 +16,20 @@ class StadeModel
     }
     public function getAllTime($data)
     {
-        
         $ModelClients = new GlobalModel("reservation");
         $CLIENT = $ModelClients->selectAllTime($data);
         return $CLIENT;
-    }   
-     public function getallReservation($data)
+    }
+    public function getallReservation($data)
     {
-        
         $ModelClients = new GlobalModel("reservation");
         $CLIENT = $ModelClients->selectAllResrbydate($data);
+        return $CLIENT;
+    }
+    public function deletestade($id)
+    {
+        $ModelClients = new GlobalModel("stadium");
+        $CLIENT = $ModelClients->Delete($id);
         return $CLIENT;
     }
 }

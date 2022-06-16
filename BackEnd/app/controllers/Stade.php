@@ -35,8 +35,9 @@ class Stade extends Controller
       $this->json($local);
     }
   }
-  public function getAllTime(){
-    $Model= $this->model('StadeModel');
+  public function getAllTime()
+  {
+    $Model = $this->model('StadeModel');
     if ($this->isPostRequest()) {
       $data = $this->getBody();
 
@@ -44,12 +45,23 @@ class Stade extends Controller
       $local = (array)$local;
       $this->json($local);
     }
-  }  
-  public function getallReservation(){
-    $Model= $this->model('StadeModel');
+  }
+  public function getallReservation()
+  {
+    $Model = $this->model('StadeModel');
     if ($this->isPostRequest()) {
       $data = $this->getBody();
       $local = $Model->getallReservation($data);
+      $local = (array)$local;
+      $this->json($local);
+    }
+  }
+  public function deletestade()
+  {
+    $Model = $this->model('StadeModel');
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
+      $local = $Model->deletestade($data->id);
       $local = (array)$local;
       $this->json($local);
     }

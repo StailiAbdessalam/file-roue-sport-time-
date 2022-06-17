@@ -115,6 +115,14 @@ const routes = [
       import(
         /* webpackChunkName: "home" */ "../Pages/Users/MyReservation.vue"
       ),
+  }, 
+  {
+    path: "/calendrier",
+    name: "calendrier",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "../Pages/Organisateur/calendrier.vue"
+      ),
   },
   {
     name:"NotFound",

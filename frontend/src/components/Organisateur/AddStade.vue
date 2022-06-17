@@ -228,6 +228,7 @@ export default {
     async fetchSignature() {
       const res = await axios.get(`${this.$apiUrl}/Cloudinary/getSignature`);
       this.uploadAuth = res.data;
+      // console.log(this.uploadAuth);
     },
     async ADDStade() {
       this.load = true;

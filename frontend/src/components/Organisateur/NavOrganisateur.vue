@@ -154,12 +154,12 @@ export default {
         //   tooltip: "Setting",
         //   icon: "bx-cog",
         // },
-        // {
-        //   link: "/Payment",
-        //   name: "Payment",
-        //   tooltip: "Payment",
-        //   icon: "bx-credit-card",
-        // },
+        {
+          link: "/calendrier",
+          name: "calendrier",
+          tooltip: "calendrier",
+          icon: "bx-calendar",
+        },
       ],
     },
 
@@ -258,6 +258,7 @@ export default {
   methods: {
     getOrganisateur() {
       this.$store.dispatch("getOrganisateur");
+      
     },
     deriction(event) {
       this.$router.push(event);

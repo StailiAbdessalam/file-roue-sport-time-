@@ -96,9 +96,10 @@
         </div>
 
         <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
+          <!-- src="../assets/vidiou/soccer-players.mp4" -->
           <video
+          src="https://soussfoot.ma/assets/soussfoot.mp4"
             class="vidiouraduieus w-full rounded-2xl"
-            src="../assets/vidiou/soccer-players.mp4"
             autoplay
             muted
             loop

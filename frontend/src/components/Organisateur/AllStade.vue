@@ -2,12 +2,7 @@
   <div
     class="irtifa3 overflow-y-scroll flex justify-center items-center flex-col"
   >
-    <AllStade
-      v-for="stad in stade"
-      :key="stad"
-      :stade="stad"
-      :remove="removeStade"
-    />
+    <AllStade v-for="stad in stade" :key="stad" :stade="stad" :remove="removeStade" />
     <div
       class="bg-white w-screen h-screen absolute z-50 bg-opacity-70"
       v-if="load && stade[0] == null && !data0"

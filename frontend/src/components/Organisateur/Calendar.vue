@@ -196,10 +196,8 @@ import {
   isSameDay,
   isToday,
   parse,
-  //   parseISO,
   startOfToday,
 } from "date-fns";
-// import axios from "axios";
 import { computed, ref } from "vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { onMounted } from "vue";
@@ -208,15 +206,11 @@ import {
   CalendarIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-//   DotsHorizontalIcon,
   LocationMarkerIcon,
 } from "@heroicons/vue/solid";
 import axios from "axios";
 import { useRouter } from 'vue-router'
-// import store from "../../store/index";
-
 let meetings =ref([]);
-
 const today = startOfToday();
 const selectedDay = ref(today);
 const currentMonth = ref(format(today, "MMM-yyyy"));
@@ -263,11 +257,6 @@ function setSelectedDay(day) {
     meetings.value = response.data;
     });
 }
-
-// let selectedDayMeetings = meetings.filter((meeting) =>
-//   isSameDay(parseISO(meeting.startDatetime), selectedDay.value)
-// );
-
 const formattedToday = computed(() =>
   format(firstDayCurrentMonth.value, "MMMM yyyy")
 );

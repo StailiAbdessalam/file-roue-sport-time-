@@ -9,7 +9,6 @@
         <span>Loading</span>
     </div>
 </template>
-
 <script>
 export default {
     name: "load-ing",
@@ -17,7 +16,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .wrapper{
     width:200px;
     height:60px;
@@ -36,7 +34,6 @@ export default {
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
 }
-
 @keyframes circle{
     0%{
         top:60px;

@@ -242,7 +242,6 @@
 </template>
 
 <script>
-// import * as fireStorage from "firebase/storage";
 import { toFormData } from "../../utils/helpers";
 import { cloudinaryConfig } from "../../utils/constants";
 import axios from "axios";
@@ -308,7 +307,6 @@ export default {
     },
   },
   mounted() {
-    console.log("Add-Post mounted");
     this.fetchSignature();
   },
 };
@@ -318,17 +316,6 @@ export default {
 .pad {
   padding: 0 19px;
 }
-/* we will explain what these classes do next! */
-// .v-enter-active,
-// .v-leave-active {
-//   transition: opacity 0.5s ease;
-// }
-
-// .v-enter-from,
-// .v-leave-to {
-//   opacity: 0;
-// }
-
 [x-cloak] {
   display: none;
 }

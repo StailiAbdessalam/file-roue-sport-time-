@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar" :class="isOpened ? 'open' : ''" :style="cssVars">
     <div class="logo-details" style="margin: 6px 14px 0 14px">
-      <!-- <img src="../assets/img/LOGO.png" alt="menu-logo" class="menu-logo icon"> -->
+
       <div class="logo_name">Sport Time</div>
       <i
         class="bx"
@@ -111,49 +111,18 @@ export default {
           tooltip: "Add Stade",
           icon: "bx-plus",
         },
-        // {
-        //   link: "/Dashboard",
-        //   name: "Dashboard",
-        //   tooltip: "Dashboard",
-        //   icon: "bx-grid-alt",
-        // },
-        // {
-        //     link: '#',
-        //     name: 'User',
-        //     tooltip: 'User',
-        //     icon: 'bx-user',
-        // },
-
-        // {
-        //   link: "/AllReservation",
-        //   name: "Tous Reservation",
-        //   tooltip: "Reservation",
-        //   icon: "bx-cart-alt",
-        // },
         {
           link: "/Profil",
           name: "Profil",
           tooltip: "Contact",
           icon: "bx-user",
         },
-        // {
-        //     link: '#',
-        //     name: 'Saved',
-        //     tooltip: 'Saved',
-        //     icon: 'bx-heart',
-        // },
         {
           link: "/AllStade",
           name: "Stadieum",
           tooltip: "Stadieum",
           icon: "bx-basketball",
         },
-        // {
-        //   link: "/setting",
-        //   name: "Setting",
-        //   tooltip: "Setting",
-        //   icon: "bx-cog",
-        // },
         {
           link: "/calendrier",
           name: "calendrier",
@@ -274,16 +243,6 @@ export default {
         this.$router.go("/Login");
       }, 1);
     },
-
-    // getOrganisateur() {
-    //   axios
-    //     .post(`${this.$apiUrl}/Organisateur/getOne`, {
-    //       id: localStorage.getItem("id"),
-    //     })
-    //     .then((res) => {
-    //       this.User = res.data;
-    //     });
-    // },
   },
 };
 </script>

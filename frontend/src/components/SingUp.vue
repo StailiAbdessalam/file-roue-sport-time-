@@ -70,7 +70,6 @@
               placeholder="A.STAILI@gmail.com"
               name="email"
             />
-
             <div>
               <div class="mb-5">
                 <label for="password" class="font-bold mb-1 text-gray-700 block"

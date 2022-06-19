@@ -48,7 +48,6 @@
           {{ stad.priceH }} DH
           <span class="font-normal text-gray-600 text-base">/Hour</span>
         </p>
-
         <!-- <button
           class="border-2 border-green-600 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-green-600 transition duration-300"
         > -->

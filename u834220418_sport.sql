@@ -1,51 +1,15 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 15 juin 2022 à 15:54
--- Version du serveur : 10.5.13-MariaDB-cll-lve
--- Version de PHP : 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données : `u834220418_sport`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `admin`
---
-
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `UserName` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `IdUnique` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `admin`
---
-
 INSERT INTO `admin` (`id`, `UserName`, `Email`, `IdUnique`) VALUES
 (1, 'BENJY33x', 'sefaqezo@mailinator.com', '$2y$10$Ic3U.tr6tIEOxlJCNUdNfuBtuDxDC5Fyv1pHVrtMw9f0aa6V2ll7C');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `clients`
---
 
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
@@ -56,10 +20,6 @@ CREATE TABLE `clients` (
   `IdUnique` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `clients`
---
 
 INSERT INTO `clients` (`id`, `FirstName`, `LastName`, `UserName`, `Phone`, `IdUnique`, `Email`) VALUES
 (147, 'Emery', 'Trujillo', 'soloneb', '+1 (569) 963-3729', '$2y$10$47L9/7iPKUqkNFkAwButB.HgODan2S.v6b59e9mnGCeXRwVnaarNO', 'lohe@mailinator.com'),

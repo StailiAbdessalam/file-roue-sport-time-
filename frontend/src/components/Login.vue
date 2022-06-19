@@ -29,7 +29,7 @@
               placeholder="A.STZILI@gmail.com"
               name="email"
             /> 
-            <label v-if="role" for="password">Your ID</label>
+            <label v-if="role" for="password">Your Password</label>
             <input
               v-on:keyup="invalide = false"
               v-model="ID"

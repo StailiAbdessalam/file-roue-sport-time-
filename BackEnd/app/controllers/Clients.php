@@ -85,15 +85,6 @@ class Clients extends Controller
       }
     }
   }
-
-
-
-
-
-
-
-
-
   public function getAllRDV()
   {
     if ($_SERVER["REQUEST_METHOD"] === "GET") {

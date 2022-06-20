@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
-        <mxGraphModel dx="788" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="788" dy="624" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -59,12 +59,6 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-10" value="Entrer le service " style="verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;shadow=0;strokeWidth=1;" parent="1" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="175" y="198.00000000000023" as="sourcePoint"/>
-                        <mxPoint x="422" y="198.00000000000023" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="7sLoJE0EAJ2kepvAm0Uv-11" value="serveur" style="shape=umlLifeline;perimeter=lifelinePerimeter;container=1;collapsible=0;recursiveResize=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="654" y="110" width="100" height="770" as="geometry"/>
                 </mxCell>
@@ -83,14 +77,14 @@
                 <mxCell id="7sLoJE0EAJ2kepvAm0Uv-38" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" parent="7sLoJE0EAJ2kepvAm0Uv-11" vertex="1">
                     <mxGeometry x="45" y="500" width="10" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-13" value="demander les profiles" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="7sLoJE0EAJ2kepvAm0Uv-11" edge="1">
+                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-13" value="demander les locaux" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="7sLoJE0EAJ2kepvAm0Uv-11" edge="1">
                     <mxGeometry x="0.031" y="13" relative="1" as="geometry">
                         <mxPoint x="432" y="213" as="sourcePoint"/>
                         <mxPoint x="640" y="213" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-14" value="retourner les profiles qui il est demander" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" parent="1" source="7sLoJE0EAJ2kepvAm0Uv-11" edge="1">
+                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-14" value="retourner les locaux" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;" parent="1" source="7sLoJE0EAJ2kepvAm0Uv-11" edge="1">
                     <mxGeometry x="0.0166" y="-11" relative="1" as="geometry">
                         <mxPoint x="637" y="251" as="sourcePoint"/>
                         <mxPoint x="430" y="251" as="targetPoint"/>
@@ -113,7 +107,7 @@
                 <mxCell id="7sLoJE0EAJ2kepvAm0Uv-23" value="&lt;span style=&quot;font-size: 36px&quot;&gt;Chercher et reserver&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="220" y="40" width="385" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-27" value="Demander les info du&amp;nbsp;profile" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
+                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-27" value="Demander les info de local" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
                     <mxGeometry x="0.0166" y="9" relative="1" as="geometry">
                         <mxPoint x="432" y="358.5" as="sourcePoint"/>
                         <mxPoint x="703.5" y="358.5" as="targetPoint"/>
@@ -130,14 +124,14 @@
                 <mxCell id="7sLoJE0EAJ2kepvAm0Uv-24" value="" style="points=[];perimeter=orthogonalPerimeter;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
                     <mxGeometry x="422" y="323" width="10" height="117" as="geometry"/>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-25" value="Selectionner un profiles" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="7sLoJE0EAJ2kepvAm0Uv-24" edge="1">
+                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-25" value="Selectionner un local" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="7sLoJE0EAJ2kepvAm0Uv-24" edge="1">
                     <mxGeometry x="0.0246" y="8" relative="1" as="geometry">
                         <mxPoint x="175" y="342.75300000000004" as="sourcePoint"/>
                         <mxPoint x="419" y="342.75300000000004" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-28" value="Reponse avec les info du profile" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" parent="1" edge="1">
+                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-28" value="Reponse avec les info du local" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" parent="1" edge="1">
                     <mxGeometry x="0.0202" y="-9" relative="1" as="geometry">
                         <mxPoint x="699" y="399" as="sourcePoint"/>
                         <mxPoint x="430" y="399" as="targetPoint"/>
@@ -192,8 +186,8 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-43" value="si les info est incorrect" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBorderColor=default;" parent="1" vertex="1">
-                    <mxGeometry x="164" y="714" width="145" height="30" as="geometry"/>
+                <mxCell id="7sLoJE0EAJ2kepvAm0Uv-43" value="else les info est incorrect" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBorderColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="714" width="145" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="7sLoJE0EAJ2kepvAm0Uv-51" value="Retour pour entrer les information de la reservation autre fois" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBorderColor=none;rotation=90;" parent="1" vertex="1">
                     <mxGeometry x="690" y="610" width="208" height="30" as="geometry"/>

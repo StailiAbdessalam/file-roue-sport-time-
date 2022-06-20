@@ -33,10 +33,17 @@
 <script>
 export default {
   name: "nav-user",
+  inject: ["Role"],
   data() {
     return {
-      log: localStorage.getItem("user") ? true : false,
+     
     };
+  },
+  computed: {
+    log() {
+      console.log(this.Role.value);
+      return this.Role.value;
+    },
   },
   methods: {
     naviger(choi) {

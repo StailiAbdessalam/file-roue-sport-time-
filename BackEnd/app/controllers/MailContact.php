@@ -14,6 +14,7 @@ class MailContact extends Controller
     public function __construct()
     {
     }
+    // function to send email to admin 
     public function sendEmail()
     {
         if ($this->isPostRequest()) {

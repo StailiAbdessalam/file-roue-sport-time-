@@ -12,6 +12,7 @@ class Reservation extends Controller
     public function __construct()
     {
     }
+    // function to add reservation
     public function AddReservation()
     {
         $ReservationModel = $this->model('ReservationModel');
@@ -23,6 +24,7 @@ class Reservation extends Controller
             $this->json($created);
         }
     }
+    // function to get All reservation
     public function GetReservation()
     {
         $ReservationModel = $this->model('ReservationModel');
@@ -31,6 +33,7 @@ class Reservation extends Controller
             $this->json($data);
         }
     }
+    // function to get reservation by id
     public function selectOneReservation(){
         $ReservationModel = $this->model('ReservationModel');
          if ($_SERVER['REQUEST_METHOD'] == 'GET') {

@@ -13,6 +13,7 @@ class Organisateur extends Controller
   public function __construct()
   {
   }
+
   public function index()
   {
     $CliensModel = $this->model('OrganisateurModel');
@@ -32,7 +33,7 @@ class Organisateur extends Controller
       }
     }
   }
-
+  // function de lauthentification
   public function register()
   {
     $CreateAcc = $this->model('OrganisateurModel');
@@ -44,7 +45,7 @@ class Organisateur extends Controller
       $this->json($data);
     }
   }
-
+  // add local 
   public function insertLocal()
   {
     $CreateAcc = $this->model('OrganisateurModel');
@@ -56,7 +57,7 @@ class Organisateur extends Controller
     }
   }
 
-
+  // update type de organisation
   public function updatesuspended()
   {
     $CliensModel = $this->model('OrganisateurModel');
@@ -67,13 +68,14 @@ class Organisateur extends Controller
     }
   }
 
+  // function get all demande 
   public function SelectDemande()
   {
     $CliensModel = $this->model('OrganisateurModel');
     $Cliens = $CliensModel->selectDemandeOrg();
     $this->json($Cliens);
   }
-
+  // function to delete demande 
   public function DeleteDemande()
   {
     $CliensModel = $this->model('OrganisateurModel');
@@ -83,7 +85,7 @@ class Organisateur extends Controller
       echo json_encode("true");
     }
   }
-
+  // get all organisateur 
   public function selectOrg()
   {
     $CliensModel = $this->model('OrganisateurModel');
@@ -97,6 +99,7 @@ class Organisateur extends Controller
     $Cliens = $CliensModel->selectArchive();
     $this->json($Cliens);
   }
+  // select all organistauer archivier
   public function getOne()
   {
     if ($this->isPostRequest()) {
@@ -106,7 +109,7 @@ class Organisateur extends Controller
       $this->json($Cliens);
     }
   }
-
+  // update profile de l'organisateur
   public function updareprofile()
   {
     $CliensModel = $this->model('OrganisateurModel');
@@ -128,14 +131,14 @@ class Organisateur extends Controller
       echo json_encode("true");
     }
   }
-
+  // select all local 
   public function selectAllLocal()
   {
     $CliensModel = $this->model('OrganisateurModel');
     $Cliens = $CliensModel->selectAllLocal();
     $this->json($Cliens);
   }
-
+  // select one local by id
   public function selectOneLocal()
   {
     if ($this->isPostRequest()) {
@@ -146,15 +149,15 @@ class Organisateur extends Controller
     }
   }
 
-
-public function sendEmailValidate()
-{
-  if ($this->isPostRequest()) {
-    $data = $this->getBody();
-    echo "hezuofhouzhfuoze";
-    $to = $data->Email;
-    $subject = "Validation de votre compte";
-    $message = "
+  // send email de validation 
+  public function sendEmailValidate()
+  {
+    if ($this->isPostRequest()) {
+      $data = $this->getBody();
+      echo "hezuofhouzhfuoze";
+      $to = $data->Email;
+      $subject = "Validation de votre compte";
+      $message = "
     <html>
     <head>
     <title>Validation de votre compte</title>
@@ -168,122 +171,19 @@ public function sendEmailValidate()
     </body>
     </html>
     ";
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= 'From:Sportimegoo@gmail.Com';
-    mail($to, $subject, $message, $headers);
-    echo json_encode("true");
+      $headers = "MIME-Version: 1.0" . "\r\n";
+      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= 'From:Sportimegoo@gmail.Com';
+      mail($to, $subject, $message, $headers);
+      echo json_encode("true");
+    }
   }
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // select all client 
   public function selectAll()
   {
     $CliensModel = $this->model('ClientsModel');
     $Cliens = $CliensModel->selectAll();
     $this->json($Cliens);
-  }
-
-  public function getAllRDV()
-  {
-    if ($_SERVER["REQUEST_METHOD"] === "GET") {
-      $RDV = $this->model('RDVModel');
-      $RDVs = $RDV->selectAll($_GET['id']);
-      $this->json($RDVs);
-    }
-  }
-  public function addAppointment()
-  {
-    if ($this->isPostRequest()) {
-      $addApp = $this->model('RDVModel');
-      $data = $this->getBody();
-      $data = array_values((array)$data);
-      $created = $addApp->insertRDV($data);
-      $this->json($created);
-    }
-  }
-  public function remove()
-  {
-    if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
-      $deleteRDV = $this->model('RDVModel');
-      $deleteRDV->deleteRDV($_GET['id']);
-    }
-  }
-  public function updateAppointment()
-  {
-    if ($_SERVER["REQUEST_METHOD"] === "PUT") {
-      $updateRDV = $this->model('RDVModel');
-      $data = $this->getBody();
-      $data = array_values((array)$data);
-
-      $created = $updateRDV->updateRDV($data, $_GET['id']);
-      $this->json($created);
-    }
-  }
-  public function selectInDate()
-  {
-    if ($_SERVER["REQUEST_METHOD"] === "GET") {
-      $creneaux = $this->model('RDVModel');
-      $creneau = $creneaux->slectcreneau($_GET['date']);
-      $date = [];
-      $date[0] = "10h à 10:30h";
-      $date[1] = "11h à 11:30h";
-      $date[2] = "14h à 14:30h";
-      $date[3] = "15h à 15:30h";
-      $date[4] = "16h à 16:30h";
-
-      foreach ($creneau as $creneaux) {
-        if ($creneaux['creneau'] == "10h à 10:30h") {
-          unset($date[0]);
-        }
-        if ($creneaux['creneau'] == "11h à 11:30h") {
-          unset($date[1]);
-        }
-        if ($creneaux['creneau'] == "14h à 14:30h") {
-          unset($date[2]);
-        }
-        if ($creneaux['creneau'] == "15h à 15:30h") {
-          unset($date[3]);
-        }
-        if ($creneaux['creneau'] == "16h à 16:30h") {
-          unset($date[4]);
-        }
-      }
-      $this->json($date);
-    }
   }
 }

@@ -13,7 +13,7 @@ class Stade extends Controller
   public function __construct()
   {
   }
-
+// function to add stade 
   public function AddStade()
   {
     $CliensModel = $this->model('StadeModel');
@@ -24,7 +24,7 @@ class Stade extends Controller
       echo json_encode("true");
     }
   }
-
+// get stade by id
   public function getAllStadebyId()
   {
     $CliensModel = $this->model('StadeModel');
@@ -35,6 +35,7 @@ class Stade extends Controller
       $this->json($local);
     }
   }
+// get all time disponible pour reserver 
   public function getAllTime()
   {
     $Model = $this->model('StadeModel');
@@ -46,6 +47,7 @@ class Stade extends Controller
       $this->json($local);
     }
   }
+  // get all reservation dans un date 
   public function getallReservation()
   {
     $Model = $this->model('StadeModel');
@@ -56,6 +58,7 @@ class Stade extends Controller
       $this->json($local);
     }
   }
+  // delete stade 
   public function deletestade()
   {
     $Model = $this->model('StadeModel');
